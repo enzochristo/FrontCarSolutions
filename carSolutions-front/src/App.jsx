@@ -1,13 +1,26 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Footer from './components/Footer'; // Your Footer component
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import ProtectedRoute from './components/ProtectedRoute';
 
-export function App() {
+function App() {
   return (
     <Router>
-      <div>
-        {/* Other Routes can go here */}
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
