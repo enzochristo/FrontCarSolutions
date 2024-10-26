@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../services/api';
+import { loginUser } from '../../../services/api';
 import './index.css';
 
-const LoginPage = () => {
+const LoginPageCliente = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
@@ -37,4 +37,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginPageCliente;

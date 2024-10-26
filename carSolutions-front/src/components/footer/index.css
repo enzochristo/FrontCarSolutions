@@ -1,162 +1,166 @@
 /* Main footer styles */
 footer {
-  background-color: #333; /* Dark background for the footer */
-  color: white; /* White text color */
-  padding: 2rem; /* Adds padding around the entire footer */
-  text-align: left; /* Aligns text to the left by default */
-  font-family: 'YourFont', sans-serif; /* Replace 'YourFont' with the actual font */
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-family: 'YourFont', sans-serif;
 }
 
-/* Each section in the footer */
 section {
   display: flex;
-  flex-direction: column; /* Stack items vertically within each section */
-  margin: 1rem;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo */
+  margin: 1rem 0; /* Aplica margens uniformes */
+  padding: 0.8rem; /* Remove padding se desnecessário */
 }
+
 
 .footer-content {
-  width: 100%; /* This should allow the content to expand fully */
-  max-width: 1200px; /* Limits the maximum width */
-  margin: 0 auto; /* Centers the content */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* Adiciona o wrap para que os itens quebrem para baixo */
 }
-
-
 
 /* Heading styles (for sections) */
 footer h3 {
-  font-size: 1.2rem; /* Adjust heading size */
-  font-weight: 600; /* Make headings bold */
-  margin-bottom: 0.8rem; /* Add space below headings */
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 /* Paragraph and link text styles */
 footer a {
-  font-size: 1rem; /* Standard text size for body and links */
-  font-weight: 400; /* Regular font weight */
-  line-height: 1.5; /* Improve readability with increased line height */
-  /* margin-bottom: 1rem; Add space between paragraphs/links */
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-/* Navigation link styles within the footer */
-/* Style for all links inside the footer */
 footer a, footer a:visited {
-  color: white; /* Make unvisited and visited links white */
-  text-decoration: none; /* Remove underline */
-  font-size: 1rem; /* Set the standard size for links */
+  color: white;
+  text-decoration: none;
 }
 
-/* Hover effect for links */
 footer a:hover {
-  text-decoration: underline; /* Add underline on hover */
-  color: #ccc; /* Lighten the text color on hover */
-  
-
+  text-decoration: underline;
+  color: #ccc;
 }
 
-.loclogo{
+.loclogo {
   color: white;
   height: 20px;
   width: 20px;
 }
 
-.location{
+.location {
   padding: 0.1rem;
 }
 
-p{
+p {
   margin-top: 0.3rem;
 }
 
-.divlocation{
+.divlocation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 0.3rem;
-
 }
 
-/* .carsol{}   */
-
-.embaixo-linha{
+.embaixo-linha {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-top: 0.1rem solid #555;
-
-}
-
-
-.footer-content {
-  display: flex;
-  justify-content: space-between; /* Espaça as seções igualmente */
-  width: 100%;
-  max-width: 1200px; /* Controla o tamanho máximo da área */
-  margin: 0 auto; /* Centraliza a área do footer */
+  flex-wrap: wrap; /* Permite que o conteúdo quebre para baixo se necessário */
 }
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between; /* Espaça o conteúdo e redes sociais */
-  align-items: center; /* Alinha os itens verticalmente no centro */
-  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Permite que o conteúdo quebre em linhas se necessário */
 }
 
 .footer-social {
-  display: flex; /* Mantém o flexbox para os ícones */
-  justify-content: flex-end; /* Alinha os ícones à direita */
-  margin-top: 0.7rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
   margin-right: 0.8rem;
-  gap: 1.2rem; /* Espaçamento entre os ícones */
-
+  gap: 1rem;
+  flex-shrink: 0; /* Impede que os ícones encolham muito */
 }
 
-
 .social-logo {
-  width: 30px; /* Tamanho das imagens de redes sociais */
-  height: auto; /* Mantém a proporção */
-  transition: transform 0.2s; /* Efeito suave ao passar o mouse */
-  background-image: image();
-  
+  width: 5vw; /* Define largura em vw para adaptabilidade */
+  max-width: 25px; /* Limite máximo de largura */
+  min-width: 20px; /* Limite mínimo para telas muito pequenas */
+  height: auto;
+  transition: transform 0.2s;
+  flex-shrink: 1; /* Permite que o ícone diminua em telas menores */
 }
 
 .social-logo:hover {
-  transform: scale(1.1); /* Aumenta os ícones quando o mouse passa por cima */
+  transform: scale(1.1);
 }
 
 .circle {
-  margin: 0 auto; /* Centraliza o círculo */
+  margin: 0 auto;
   display: block;
   background-color: white;
-  border-radius: 50%; /* Cria o formato circular */
-  height: 40px; /* Altura do círculo */
-  width: 40px; /* Largura do círculo */
-  display: flex; /* Flexbox para centralizar o ícone dentro do círculo */
-  justify-content: center; /* Centraliza o ícone horizontalmente */
-  align-items: center; /* Centraliza o ícone verticalmente */
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 
 /* Responsive styles for screens smaller than 768px */
 @media (max-width: 768px) {
+
+
   .footer-content {
-    display: flex;
-    flex-direction: column; /* Stack sections vertically */
-    justify-content: center;
-    
+    flex-direction: column;
+    align-items: center;
   }
 
   section {
-    margin-bottom: 2rem; /* Add space between sections when stacked */
+    margin-bottom: 1rem;
+  }
+
+  .social-logo {
+    width: 24px; /* Define um tamanho menor para telas médias */
+  }
+
+  .footer-social {
+    gap: 0.8rem;
   }
 }
 
 /* Further adjustments for mobile screens (480px and below) */
-@media (max-width: 480px) {
+@media  (max-width: 480px) {
   footer {
-    padding: 1rem; /* Reduce padding for smaller screens */
+    padding: 0.5rem;
   }
 
   section h3 {
-    font-size: 1rem; /* Reduce heading size for better fit on mobile */
+    font-size: 0.9rem;
+  }
+
+  .social-logo {
+    width: 20px; /* Ajusta para um tamanho ainda menor em telas pequenas */
+  }
+
+  .footer-social {
+    gap: 0.5rem;
   }
 }
+
