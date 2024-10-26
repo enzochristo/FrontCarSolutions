@@ -1,6 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import LoginPage from './Pages/ClientePages/LoginPage';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import SobreNosPage from './Pages/GeralPages/SobreNosPage'; // Importa a página de teste
