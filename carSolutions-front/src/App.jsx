@@ -1,17 +1,15 @@
-import { Button } from "@/components/ui/button"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer'; // Your Footer component
 
-
-export default function Home() {
+export function App() {
   return (
-    <div>
-      <Button>Hello world</Button>
-    </div>
-  )
+    <Router>
+      <div>
+        {/* Other Routes can go here */}
+        <Footer />
+      </div>
+    </Router>
+  );
 }
+
+export default App;

@@ -1,0 +1,87 @@
+/* Main footer styles */
+footer {
+  background-color: #333; /* Dark background for the footer */
+  color: white; /* White text color */
+  padding: 2rem; /* Adds padding around the entire footer */
+  text-align: left; /* Aligns text to the left by default */
+  font-family: 'YourFont', sans-serif; /* Replace 'YourFont' with the actual font */
+}
+
+/* Each section in the footer */
+section {
+  display: flex;
+  flex-direction: column; /* Stack items vertically within each section */
+  margin: 1rem;
+}
+
+.footer-content {
+  width: 100%; /* This should allow the content to expand fully */
+  max-width: 1200px; /* Limits the maximum width */
+  margin: 0 auto; /* Centers the content */
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Heading styles (for sections) */
+footer h3 {
+  font-size: 1.4rem; /* Adjust heading size */
+  font-weight: 700; /* Make headings bold */
+  margin-bottom: 0.8rem; /* Add space below headings */
+}
+
+/* Paragraph and link text styles */
+footer p, footer a {
+  font-size: 1rem; /* Standard text size for body and links */
+  font-weight: 400; /* Regular font weight */
+  line-height: 1.5; /* Improve readability with increased line height */
+  margin-bottom: 1rem; /* Add space between paragraphs/links */
+}
+
+/* Navigation link styles within the footer */
+/* Style for all links inside the footer */
+footer a, footer a:visited {
+  color: white; /* Make unvisited and visited links white */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Set the standard size for links */
+}
+
+/* Hover effect for links */
+footer a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #ccc; /* Lighten the text color on hover */
+}
+
+footer hr {
+  width: 80%; /* Adjust the width to control how far it extends (e.g., 80% of the footer width) */
+  border: none; /* Remove the default border style */
+  border-top: 1px solid #555; /* Add a custom border style for the horizontal rule */
+  margin: 2rem auto; /* Center the <hr> horizontally with auto margins */
+}
+
+.carsol{
+  padding: 2rem;
+}
+
+
+/* Responsive styles for screens smaller than 768px */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center align sections */
+  }
+
+  section {
+    margin-bottom: 2rem; /* Add space between sections when stacked */
+  }
+}
+
+/* Further adjustments for mobile screens (480px and below) */
+@media (max-width: 480px) {
+  footer {
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+
+  section h3 {
+    font-size: 1rem; /* Reduce heading size for better fit on mobile */
+  }
+}
