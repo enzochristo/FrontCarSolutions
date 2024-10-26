@@ -22,19 +22,21 @@ section {
   justify-content: space-between;
 }
 
+
+
 /* Heading styles (for sections) */
 footer h3 {
-  font-size: 1.4rem; /* Adjust heading size */
-  font-weight: 700; /* Make headings bold */
+  font-size: 1.2rem; /* Adjust heading size */
+  font-weight: 600; /* Make headings bold */
   margin-bottom: 0.8rem; /* Add space below headings */
 }
 
 /* Paragraph and link text styles */
-footer p, footer a {
+footer a {
   font-size: 1rem; /* Standard text size for body and links */
   font-weight: 400; /* Regular font weight */
   line-height: 1.5; /* Improve readability with increased line height */
-  margin-bottom: 1rem; /* Add space between paragraphs/links */
+  /* margin-bottom: 1rem; Add space between paragraphs/links */
 }
 
 /* Navigation link styles within the footer */
@@ -49,25 +51,98 @@ footer a, footer a:visited {
 footer a:hover {
   text-decoration: underline; /* Add underline on hover */
   color: #ccc; /* Lighten the text color on hover */
+  
+
 }
 
-footer hr {
-  width: 80%; /* Adjust the width to control how far it extends (e.g., 80% of the footer width) */
-  border: none; /* Remove the default border style */
-  border-top: 1px solid #555; /* Add a custom border style for the horizontal rule */
-  margin: 2rem auto; /* Center the <hr> horizontally with auto margins */
+.loclogo{
+  color: white;
+  height: 20px;
+  width: 20px;
 }
 
-.carsol{
-  padding: 2rem;
+.location{
+  padding: 0.1rem;
+}
+
+p{
+  margin-top: 0.3rem;
+}
+
+.divlocation{
+  margin-top: 0.3rem;
+
+}
+
+/* .carsol{}   */
+
+.embaixo-linha{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.1rem solid #555;
+
+}
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Espaça as seções igualmente */
+  width: 100%;
+  max-width: 1200px; /* Controla o tamanho máximo da área */
+  margin: 0 auto; /* Centraliza a área do footer */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between; /* Espaça o conteúdo e redes sociais */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  margin-top: 2rem;
+}
+
+.footer-social {
+  display: flex; /* Mantém o flexbox para os ícones */
+  justify-content: flex-end; /* Alinha os ícones à direita */
+  margin-top: 0.7rem;
+  margin-right: 0.8rem;
+  gap: 1.2rem; /* Espaçamento entre os ícones */
+
+}
+
+
+.social-logo {
+  width: 30px; /* Tamanho das imagens de redes sociais */
+  height: auto; /* Mantém a proporção */
+  transition: transform 0.2s; /* Efeito suave ao passar o mouse */
+  background-image: image();
+  
+}
+
+.social-logo:hover {
+  transform: scale(1.1); /* Aumenta os ícones quando o mouse passa por cima */
+}
+
+.circle {
+  margin: 0 auto; /* Centraliza o círculo */
+  display: block;
+  background-color: white;
+  border-radius: 50%; /* Cria o formato circular */
+  height: 40px; /* Altura do círculo */
+  width: 40px; /* Largura do círculo */
+  display: flex; /* Flexbox para centralizar o ícone dentro do círculo */
+  justify-content: center; /* Centraliza o ícone horizontalmente */
+  align-items: center; /* Centraliza o ícone verticalmente */
 }
 
 
 /* Responsive styles for screens smaller than 768px */
 @media (max-width: 768px) {
   .footer-content {
+    display: flex;
     flex-direction: column; /* Stack sections vertically */
-    align-items: center; /* Center align sections */
+    justify-content: center;
+    
   }
 
   section {
