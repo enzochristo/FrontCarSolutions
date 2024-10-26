@@ -1,0 +1,38 @@
+.home-container {
+    width: 90%;
+    max-width: 25rem;
+    margin: 3rem auto;
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  /* Estilos responsivos */
+  @media (min-width: 40rem) {
+    .home-container {
+      padding: 2.5rem;
+    }
+  }
+  
