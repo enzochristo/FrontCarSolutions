@@ -1,7 +1,7 @@
 // src/pages/RegisterFuncionarioPage/index.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../../services/api';
+import { registerUser, fetchAddressByCEP } from '../../services/api';
 import './index.css';
 
 const RegisterFuncionarioPage = () => {
@@ -32,6 +32,21 @@ const RegisterFuncionarioPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleCEPBlur = async () => {
+    try {
+      const address = await fetchAddressByCEP(formData.cep);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        rua: address.logradouro,
+        bairro: address.bairro,
+        cidade: address.localidade,
+        estado: address.uf,
+      }));
+    } catch (error) {
+      setError("CEP não encontrado");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -55,13 +70,22 @@ const RegisterFuncionarioPage = () => {
         <input name="cpf" placeholder="CPF" onChange={handleChange} required />
         <input name="celular" placeholder="Celular" onChange={handleChange} required />
         <input name="nacionalidade" placeholder="Nacionalidade" onChange={handleChange} required />
-        <input name="cep" placeholder="CEP" onChange={handleChange} required />
+       
+        <input
+          name="cep"
+          placeholder="CEP"
+          onChange={handleChange}
+          onBlur={handleCEPBlur}  // Busca endereço ao sair do campo
+          required
+        />
+        <input name="rua" placeholder="Rua" value={formData.rua} onChange={handleChange} required />
+        <input name="bairro" placeholder="Bairro" value={formData.bairro} onChange={handleChange} required />
+        <input name="cidade" placeholder="Cidade" value={formData.cidade} onChange={handleChange} required />
+        <input name="estado" placeholder="Estado" value={formData.estado} onChange={handleChange} required />
+        
         <input name="numero" placeholder="Número" onChange={handleChange} required />
         <input name="complemento" placeholder="Complemento" onChange={handleChange} />
-        <input name="cidade" placeholder="Cidade" onChange={handleChange} required />
-        <input name="estado" placeholder="Estado" onChange={handleChange} required />
-        <input name="rua" placeholder="Rua" onChange={handleChange} required />
-        <input name="bairro" placeholder="Bairro" onChange={handleChange} required />
+        
         <select name="genero" onChange={handleChange} required>
           <option value="">Selecione o Gênero</option>
           <option value="M">Masculino</option>

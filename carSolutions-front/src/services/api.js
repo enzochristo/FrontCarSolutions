@@ -7,6 +7,20 @@ export const registerUser = async (userData) => {
   return await axios.post(`${API_URL}/register/`, userData);
 };
 
+// Api para inserir dados de CEP
+export const fetchAddressByCEP = async (cep) => {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      if (response.data.erro) {
+        throw new Error("CEP não encontrado");
+      }
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao buscar o CEP:", error);
+      throw error;
+    }
+  };
+
 export const loginUser = async (credentials) => {
     // Faz a requisição de login para o backend
     const response = await axios.post(`${API_URL}/login/`, credentials);
@@ -21,15 +35,15 @@ export const loginUser = async (credentials) => {
     return response;
   };
 
-    export const logoutUser = async (refreshToken) => {
-        // Envia o refresh token no corpo da requisição
-        return await axios.post(
-          `${API_URL}/logout/`,
-          { refresh: refreshToken },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('access_token')}`, // Opcional, dependendo do backend
-            },
-          }
-        );
-      };
+export const logoutUser = async (refreshToken) => {
+    // Envia o refresh token no corpo da requisição
+    return await axios.post(
+        `${API_URL}/logout/`,
+        { refresh: refreshToken },
+        {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('access_token')}`, // Opcional, dependendo do backend
+        },
+        }
+    );
+    };
