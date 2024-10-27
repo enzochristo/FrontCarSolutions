@@ -59,7 +59,6 @@ function App() {
             />
 
             <Route path="/sobrenosgeral" element={<SobreNosGeralPage />} /> {/* Rota para a página de teste */}
-            <Route path="/sobrenos" element={<SobreNosPage />} /> {/* Rota para a página de teste */}
             <Route path="/api/password-reset-confirm/:token" element={<RedefinirSenha />} />
 
           </Routes>
