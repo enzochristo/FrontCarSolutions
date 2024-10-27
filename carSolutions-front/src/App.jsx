@@ -1,9 +1,11 @@
-
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProtectedRoute from './components/ProtectedRoute';
-import SobreNosPage from './Pages/GeralPages/SobreNosPage'; // Importa a página de teste
 
+//GERAL PAGES:
+// import PrincipalPage from './Pages/GeralPages/PrincipalPage'
+import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 
 // CLIENTES:
 // import ConfirmacaoPagamentoPage from './Pages/ClientePages/ConfirmaçãoPagamentoPage'
@@ -14,6 +16,9 @@ import SobreNosPage from './Pages/GeralPages/SobreNosPage'; // Importa a página
 // import ProdutosPage from './Pages/ClientePages/ProdutosPage'
 // import ResumoCompraPage from './Pages/ClientePages/ResumoCompraPage'
 // import ResumoAluguelPage from './Pages/ClientePages/ResumoAluguelPage'
+// import CadastroClientePage from './Pages/ClientePages/CadastroCliente'
+// import SobreNosClientePage from './Pages/ClientePages/SobreNosPage'
+
 
 
 // // FUNCIONARIOS:
@@ -23,22 +28,27 @@ import SobreNosPage from './Pages/GeralPages/SobreNosPage'; // Importa a página
 // import PrincipalPageFuncionario from './Pages/FuncionariosPages/PrincipalPage'
 // import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
 // import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
+// import CadastroPageFuncionario from './Pages/FuncionariosPages/CadastroFuncionario'
+
 
 // GERAL:
 import RedefinirSenha from './Pages/GeralPages/RedefinirSenhaPage';
 
 // COMPONENTES:
-import Footer from './components/Footer';
+import Footer from './components/footer';
+import Header  from './components/header'; // Importa o Header
 
 function App() {
   return (
     <Router>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        {/* Header sempre visível */}
+        <Header />
+
         {/* Conteúdo principal */}
         <div style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} /> {/* Redireciona de / para /home */}
-            {/* <Route path="/login" element={<LoginPage />} /> */}
             <Route
               path="/home"
               element={
@@ -47,10 +57,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route path="/sobrenosgeral" element={<SobreNosGeralPage />} /> {/* Rota para a página de teste */}
             <Route path="/sobrenos" element={<SobreNosPage />} /> {/* Rota para a página de teste */}
             <Route path="/api/password-reset-confirm/:token" element={<RedefinirSenha />} />
+
           </Routes>
         </div>
+
         {/* Footer sempre visível */}
         <Footer />
       </div>

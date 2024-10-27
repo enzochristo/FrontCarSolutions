@@ -1,7 +1,7 @@
 // src/pages/RegisterFuncionarioPage/index.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { registerUser, fetchAddressByCEP } from '../../services/api';
+import { registerUser, fetchAddressByCEP } from '../../../services/api';
 import './index.css';
 
 const RegisterFuncionarioPage = () => {
