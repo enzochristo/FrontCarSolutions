@@ -6,23 +6,26 @@ import SobreNosPage from './Pages/GeralPages/SobreNosPage'; // Importa a página
 
 
 // CLIENTES:
-import ConfirmacaoPagamentoPage from './Pages/ClientePages/ConfirmaçãoPagamentoPage'
-import LoginPageCliente from './Pages/ClientePages/LoginPage';
-import MeusDadosCliente from './Pages/ClientePages/MeusDadosPage'
-import PagamentoPage from './Pages/ClientePages/PagamentoPage'
-import PrincipalPage from './Pages/ClientePages/PrincipalPage'
-import ProdutosPage from './Pages/ClientePages/ProdutosPage'
-import ResumoCompraPage from './Pages/ClientePages/ResumoCompraPage'
-import ResumoAluguelPage from './Pages/ClientePages/ResumoAluguelPage'
+// import ConfirmacaoPagamentoPage from './Pages/ClientePages/ConfirmaçãoPagamentoPage'
+// import LoginPageCliente from './Pages/ClientePages/LoginPage';
+// import MeusDadosCliente from './Pages/ClientePages/MeusDadosPage'
+// import PagamentoPage from './Pages/ClientePages/PagamentoPage'
+// import PrincipalPage from './Pages/ClientePages/PrincipalPage'
+// import ProdutosPage from './Pages/ClientePages/ProdutosPage'
+// import ResumoCompraPage from './Pages/ClientePages/ResumoCompraPage'
+// import ResumoAluguelPage from './Pages/ClientePages/ResumoAluguelPage'
 
 
-// FUNCIONARIOS:
-import CadastroVeiculoPage from './Pages/FuncionariosPages/CadastroVeiculoPage'
-import EditandoVeiculoPage from './Pages/FuncionariosPages/EditandoVeiculoPage'
-import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
-import PrincipalPageFuncionario from './Pages/FuncionariosPages/PrincipalPage'
-import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
-import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
+// // FUNCIONARIOS:
+// import CadastroVeiculoPage from './Pages/FuncionariosPages/CadastroVeiculoPage'
+// import EditandoVeiculoPage from './Pages/FuncionariosPages/EditandoVeiculoPage'
+// import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
+// import PrincipalPageFuncionario from './Pages/FuncionariosPages/PrincipalPage'
+// import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
+// import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
+
+// GERAL:
+import RedefinirSenha from './Pages/GeralPages/RedefinirSenhaPage';
 
 // COMPONENTES:
 import Footer from './components/Footer';
@@ -35,7 +38,7 @@ function App() {
         <div style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} /> {/* Redireciona de / para /home */}
-            <Route path="/login" element={<LoginPage />} />
+            {/* <Route path="/login" element={<LoginPage />} /> */}
             <Route
               path="/home"
               element={
@@ -45,6 +48,7 @@ function App() {
               }
             />
             <Route path="/sobrenos" element={<SobreNosPage />} /> {/* Rota para a página de teste */}
+            <Route path="/api/password-reset-confirm/:token" element={<RedefinirSenha />} />
           </Routes>
         </div>
         {/* Footer sempre visível */}

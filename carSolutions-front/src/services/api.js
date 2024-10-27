@@ -47,3 +47,16 @@ export const logoutUser = async (refreshToken) => {
         }
     );
     };
+
+// Função para solicitar redefinição de senha
+export const requestPasswordReset = async (email) => {
+    return await axios.post(`${API_URL}/password-reset/`, { email });
+  };
+  
+// Função para redefinir a senha
+export const confirmPasswordReset = async (token, newPassword) => {
+  return await axios.put(`${API_URL}/password-reset-confirm/${token}/`, {
+    new_password: newPassword,
+    token: token  // Inclui o token no corpo da requisição
+  });
+};
