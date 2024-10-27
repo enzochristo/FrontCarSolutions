@@ -1,0 +1,120 @@
+/* Estilo básico do header */
+.header {
+    background-color: #1abc9c;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Container principal para organizar logo, navegação e ícone do usuário */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Estilo da logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Navegação */
+.nav-header {
+    display: flex;
+    gap: 7rem;
+}
+
+/* Estilo dos links de navegação */
+.nav-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white; 
+}
+
+/* Ícone do usuário */
+.user-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease;
+    /* background-color: #1abc9c; */
+}
+
+.user-icon:hover {
+    color: white;
+    background-color: #1abc9c;
+}
+
+.user-icon-active {
+    color: white; /* Ícone branco quando o dropdown está aberto */
+}
+
+/* Estilo do dropdown */
+.dropdown-menu {
+    background-color: #1abc9c;
+    font-family: sans-serif;
+    border-radius: 8px;
+    padding: 0;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #000; /* Contorno preto ao redor do dropdown */
+}
+
+/* Itens do dropdown */
+.dropdown-item {
+    color: black;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: white;
+    color: #1abc9c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .nav-header {
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .user-icon:hover {
+        color: white;
+        background-color: #1abc9c;
+    }
+    
+    .user-icon-active {
+        color: white; /* Ícone branco quando o dropdown está aberto */
+    }
+
+    .nav-link{
+        font-size: .8rem;
+        padding: 2%;
+    }
+
+    
+}
