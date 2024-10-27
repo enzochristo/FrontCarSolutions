@@ -1,5 +1,5 @@
 .form-container {
-    width: 90%;
+    width: 80%;
     max-width: 25rem;
     margin: 3rem auto;
     text-align: center;
@@ -38,12 +38,5 @@
     color: red;
     margin-top: 0.5rem;
     font-size: 0.9rem;
-  }
-  
-  /* Estilos responsivos */
-  @media (min-width: 40rem) {
-    .form-container {
-      padding: 2.5rem;
-    }
   }
   
