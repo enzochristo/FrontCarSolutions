@@ -19,7 +19,9 @@ import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 // import CadastroClientePage from './Pages/ClientePages/CadastroCliente'
 // import SobreNosClientePage from './Pages/ClientePages/SobreNosPage'
 
-// FUNCIONARIOS:
+
+
+// // FUNCIONARIOS:
 // import CadastroVeiculoPage from './Pages/FuncionariosPages/CadastroVeiculoPage'
 // import EditandoVeiculoPage from './Pages/FuncionariosPages/EditandoVeiculoPage'
 // import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
@@ -27,6 +29,10 @@ import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 // import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
 // import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
 // import CadastroPageFuncionario from './Pages/FuncionariosPages/CadastroFuncionario'
+
+
+// GERAL:
+import RedefinirSenha from './Pages/GeralPages/RedefinirSenhaPage';
 
 // COMPONENTES:
 import Footer from './components/footer';
@@ -43,7 +49,6 @@ function App() {
         <div style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} /> {/* Redireciona de / para /home */}
-            {/* <Route path="/login" element={<LoginPageCliente />} /> */}
             <Route
               path="/home"
               element={
@@ -52,7 +57,11 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route path="/sobrenosgeral" element={<SobreNosGeralPage />} /> {/* Rota para a página de teste */}
+            <Route path="/sobrenos" element={<SobreNosPage />} /> {/* Rota para a página de teste */}
+            <Route path="/api/password-reset-confirm/:token" element={<RedefinirSenha />} />
+
           </Routes>
         </div>
 
