@@ -1,48 +1,108 @@
-/* src/pages/RegisterClientePage/index.css */
 .form-container {
-    width: 90%;
-    max-width: 25rem;
-    margin: 3rem auto;
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
-  
-  input, select {
-    display: block;
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 0.3rem;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 0.5rem;
-  }
-  
-  @media (min-width: 40rem) {
-    .form-container {
-      padding: 2.5rem;
-    }
-  }
-  
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.6rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.tab:not(.active):hover {
+  background-color: #e0e0e0;
+}
+
+.tab.active {
+  background-color: #17a2b8;
+  color: white;
+  border-color: #17a2b8;
+  border-bottom: 1px solid white;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.input-row input,
+.dropdown-trigger {
+  flex: 1;
+}
+
+input, .dropdown-trigger {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+  color: #333;
+  text-align: left;
+}
+
+.dropdown-menu {
+  background-color: white;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  padding: 0;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.dropdown-item {
+  color: black;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.submit-button {
+  width: 50%;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: #211977;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  margin-top: 0.8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.submit-button:hover {
+  background-color: #140e50;
+}

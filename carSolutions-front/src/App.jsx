@@ -19,9 +19,7 @@ import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 // import CadastroClientePage from './Pages/ClientePages/CadastroCliente'
 // import SobreNosClientePage from './Pages/ClientePages/SobreNosPage'
 
-
-
-// // FUNCIONARIOS:
+// FUNCIONARIOS:
 // import CadastroVeiculoPage from './Pages/FuncionariosPages/CadastroVeiculoPage'
 // import EditandoVeiculoPage from './Pages/FuncionariosPages/EditandoVeiculoPage'
 // import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
@@ -29,7 +27,7 @@ import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 // import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
 // import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
 // import CadastroPageFuncionario from './Pages/FuncionariosPages/CadastroFuncionario'
-
+import RegisterFuncionarioPage from './Pages/FuncionariosPages/CadastroFuncionario';
 
 // GERAL:
 import RedefinirSenha from './Pages/GeralPages/RedefinirSenhaPage';
@@ -60,6 +58,7 @@ function App() {
 
             <Route path="/sobrenosgeral" element={<SobreNosGeralPage />} /> {/* Rota para a página de teste */}
             <Route path="/api/password-reset-confirm/:token" element={<RedefinirSenha />} />
+            <Route path="/funcionario/cadastro" element={<RegisterFuncionarioPage />} /> {/* Rota para cadastro de funcionário */}
 
           </Routes>
         </div>
