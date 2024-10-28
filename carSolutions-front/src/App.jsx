@@ -9,7 +9,7 @@ import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 
 // CLIENTES:
 // import ConfirmacaoPagamentoPage from './Pages/ClientePages/ConfirmaçãoPagamentoPage'
-// import LoginPageCliente from './Pages/ClientePages/LoginPage';
+import LoginPageCliente from './Pages/ClientePages/LoginPage';
 // import MeusDadosCliente from './Pages/ClientePages/MeusDadosPage'
 // import PagamentoPage from './Pages/ClientePages/PagamentoPage'
 // import PrincipalPage from './Pages/ClientePages/PrincipalPage'
@@ -18,11 +18,12 @@ import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
 // import ResumoAluguelPage from './Pages/ClientePages/ResumoAluguelPage'
 // import CadastroClientePage from './Pages/ClientePages/CadastroCliente'
 // import SobreNosClientePage from './Pages/ClientePages/SobreNosPage'
+import CadastroCliente from './Pages/ClientePages/CadastroCliente'
 
 // FUNCIONARIOS:
 // import CadastroVeiculoPage from './Pages/FuncionariosPages/CadastroVeiculoPage'
 // import EditandoVeiculoPage from './Pages/FuncionariosPages/EditandoVeiculoPage'
-// import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
+import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
 // import PrincipalPageFuncionario from './Pages/FuncionariosPages/PrincipalPage'
 // import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
 // import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
@@ -59,6 +60,12 @@ function App() {
             <Route path="/sobrenosgeral" element={<SobreNosGeralPage />} /> {/* Rota para a página de teste */}
             <Route path="/api/password-reset-confirm/:token" element={<RedefinirSenha />} />
             <Route path="/funcionario/cadastro" element={<RegisterFuncionarioPage />} /> {/* Rota para cadastro de funcionário */}
+            <Route path='/cliente/cadastro' element={<CadastroCliente/>} />
+            <Route path='/cliente/login' element={<LoginPageCliente />} />
+            <Route path='/funcionario/login' element={<LoginPageFuncionario />} />
+
+
+            
 
           </Routes>
         </div>

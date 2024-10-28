@@ -1,42 +1,79 @@
 .form-container {
-    width: 80%;
-    max-width: 25rem;
-    margin: 3rem auto;
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
-  
-  input {
-    display: block;
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 0.3rem;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-  }
+  width: 80%;
+  max-width: 25rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* Espaço entre abas e formulário */
+}
+
+.tab-button {
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd; /* Borda leve nas abas */
+  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda parte superior das abas */
+  background-color: #f0f0f0;
+  color: #000;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #008080; /* Destaque na aba ativa */
+  color: #fff;
+  font-weight: bold;
+  border-bottom: none; /* Remove borda inferior da aba ativa */
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
+.register-link {
+  display: block;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.85rem;
+  color: #000;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #e0e0e0; /* Botão cinza claro */
+  color: #000;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #c0c0c0;
+}
+
+.error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
   
