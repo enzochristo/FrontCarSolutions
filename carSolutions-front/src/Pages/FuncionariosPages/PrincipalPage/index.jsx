@@ -1,5 +1,7 @@
 // src/pages/SobreNosPage/index.jsx
+import { Button } from '@/components/ui/button';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function PaginaPrincipal() {
   return (
@@ -8,6 +10,9 @@ function PaginaPrincipal() {
         <p>
             Página com os lembrestes e informações importantes para os funcionários
         </p>
+        <Button>
+          <Link to="/funcionario/cadastroVeiculo">Cadastrar Veículo</Link>
+        </Button>
     </>
 
   );

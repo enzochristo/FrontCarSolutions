@@ -34,10 +34,10 @@ export function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="dropdown-menu">
                     <DropdownMenuItem asChild>
-                        <Link to="/login" className="dropdown-item">Log In</Link>
+                        <Link to="/LoginPageCliente" className="dropdown-item">Log In</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                        <Link to="/cadastro" className="dropdown-item">Cadastre-se</Link>
+                        <Link to="/CadastroCliente" className="dropdown-item">Cadastre-se</Link>
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

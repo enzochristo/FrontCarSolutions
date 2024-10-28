@@ -15,7 +15,7 @@ const HomePage = () => {
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
       localStorage.removeItem('full_name');
-      navigate('/login'); // Redireciona para a página de login após o logout
+      navigate('/'); // Redireciona para a página de login após o logout
     } catch (err) {
       console.error('Erro ao fazer logout:', err);
     }

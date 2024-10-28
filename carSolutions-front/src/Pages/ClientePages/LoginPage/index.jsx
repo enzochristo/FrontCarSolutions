@@ -12,7 +12,7 @@ const LoginPageCliente = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
     if (tab === 'colaborador') {
-      navigate('/funcionario/login');
+      navigate('/LoginFuncionario');
     }
   };
 
@@ -26,7 +26,7 @@ const LoginPageCliente = () => {
       const response = await loginUser(credentials);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      navigate('/home');
+      navigate('/cliente/MeusDadosCliente');
     } catch (err) {
       setError('Login falhou. Verifique suas credenciais.');
     }
@@ -35,14 +35,9 @@ const LoginPageCliente = () => {
   return (
     <div className="form-container">
       <div className="tab-buttons">
+        <div className='ativo'>Cliente</div>
         <button
-          className={`tab-button ${activeTab === 'cliente' ? 'active' : ''}`}
-          onClick={() => handleTabClick('cliente')}
-        >
-          Cliente
-        </button>
-        <button
-          className={`tab-button ${activeTab === 'colaborador' ? 'active' : ''}`}
+          className='nao-ativo'
           onClick={() => handleTabClick('colaborador')}
         >
           Colaborador
@@ -52,7 +47,7 @@ const LoginPageCliente = () => {
       <form onSubmit={handleSubmit}>
         <input name="email" type="email" placeholder="E-mail" onChange={handleChange} required />
         <input name="password" type="password" placeholder="Senha" onChange={handleChange} required />
-        <a href="/cliente/cadastro" className="register-link">Cadastre-se</a>
+        <a href="/CadastroCliente" className="register-link">Cadastre-se</a>
         <button type="submit" className="login-button">Log In</button>
       </form>
     </div>

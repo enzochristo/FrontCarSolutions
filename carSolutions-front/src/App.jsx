@@ -43,9 +43,9 @@ function App() {
         {/* Conteúdo principal */}
         <div style={{ flex: 1 }}>
           <Routes>
-            <Route path="/HomePage" element={<HomePage />} /> {/* Redireciona de / para /home */}
+            <Route path="cliente/HomePage" element={<HomePage />} /> {/* Redireciona de / para /home */}
             {/*Rotas paginas gerais*/}
-            <Route path="/Paginainicial" element={<PrincipalPage />} /> {/* Redireciona de / para /home */}
+            <Route path="/" element={<PrincipalPage />} /> {/* Redireciona de / para /home */}
             <Route path="/funcionarioCadastro" element={<CadastroPageFuncionario />} /> {/* Rota para cadastro de funcionário */}
             <Route path="/CadastroCliente" element={<CadastroClientePage />} /> {/* Rota para cadastro de funcionário */}
             <Route path="/sobrenosgeral" element={<SobreNosGeralPage />} /> {/* Rota para a página de teste */}

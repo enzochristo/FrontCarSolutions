@@ -12,9 +12,7 @@ const LoginFuncionarioPage = () => {
 
   const handleTabClick = (tab) => {
     if (tab === "cliente") {
-      navigate('/cliente/login');
-    } else if (tab === "colaborador") {
-      navigate('/funcionario/login');
+      navigate('/LoginPageCliente');
     }
   };
 
@@ -28,7 +26,7 @@ const LoginFuncionarioPage = () => {
       const response = await loginUser(credentials);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      navigate('/funcionario/cadastroVeiculo');
+      navigate('/funcionario/PrincipalFuncionario');
     } catch (err) {
       setError('Login falhou. Verifique suas credenciais.');
     }
@@ -38,23 +36,18 @@ const LoginFuncionarioPage = () => {
     <div className="form-container">
       <div className="tab-buttons">
         <button
-          className={`tab-button ${location.pathname === '/cliente/login' ? 'active' : ''}`}
+          className='nao-ativo'
           onClick={() => handleTabClick('cliente')}
         >
           Cliente
         </button>
-        <button
-          className={`tab-button ${location.pathname === '/funcionario/login' ? 'active' : ''}`}
-          onClick={() => handleTabClick('colaborador')}
-        >
-          Colaborador
-        </button>
+        <div className='ativo'>Colaborador</div>
       </div>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input name="email" type="email" placeholder="E-mail" onChange={handleChange} required />
         <input name="password" type="password" placeholder="Senha" onChange={handleChange} required />
-        <a href="/funcionario/cadastro" className="register-link">Cadastre-se</a>
+        <a href="funcionarioCadastro" className="register-link">Cadastre-se</a>
         <button type="submit" className="login-button">Log In</button>
       </form>
     </div>
