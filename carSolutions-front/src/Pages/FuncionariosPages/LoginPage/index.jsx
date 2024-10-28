@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../../services/api';
 import './index.css';
 
-const LoginPageCliente = () => {
+const LoginFuncionarioPage = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ const LoginPageCliente = () => {
       const response = await loginUser(credentials);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      navigate('/home');
+      navigate('/funcionario/cadastroVeiculo');
     } catch (err) {
       setError('Login falhou. Verifique suas credenciais.');
     }
@@ -37,4 +37,4 @@ const LoginPageCliente = () => {
   );
 };
 
-export default LoginPageCliente;
+export default LoginFuncionarioPage;
