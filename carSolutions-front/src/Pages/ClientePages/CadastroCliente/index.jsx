@@ -34,7 +34,7 @@ const RegisterClientePage = () => {
 
   const handleTabClick = (tab) => {
     if (tab === "Colaborador") {
-      navigate('/funcionario/cadastro');
+      navigate('/funcionarioCadastro');
     }
   };
 
@@ -65,7 +65,7 @@ const RegisterClientePage = () => {
     e.preventDefault();
     try {
       await registerUser(formData);
-      navigate('/login');
+      navigate('/LoginPageCliente');
     } catch (err) {
       setError('Erro ao registrar. Tente novamente.');
     }
@@ -73,9 +73,9 @@ const RegisterClientePage = () => {
 
   return (
     <div className="form-container">
-      <div className="tabs">
-        <button className="tab active">Cliente</button>
-        <button className="tab" onClick={() => handleTabClick("Colaborador")}>Colaborador</button>
+      <div className="tab-buttons">
+        <button className="ativo">Cliente</button>
+        <button className="nao-ativo" onClick={() => handleTabClick("Colaborador")}>Colaborador</button>
       </div>
 
       {error && <p className="error">{error}</p>}
@@ -127,7 +127,7 @@ const RegisterClientePage = () => {
           <input name="password" type="password" placeholder="Senha" onChange={handleChange} required />
           <input name="password2" type="password" placeholder="Confirmação de senha" onChange={handleChange} required />
         </div>
-        <button type="submit" className="submit-button">Registrar</button>
+        <button type="submit" className="login-button">Registrar</button>
       </form>
     </div>
   );

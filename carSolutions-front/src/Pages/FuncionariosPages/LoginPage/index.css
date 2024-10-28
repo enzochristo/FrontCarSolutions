@@ -1,43 +1,51 @@
 .form-container {
-  width: 80%;
-  max-width: 25rem;
-  margin: 3rem auto;
-  padding: 2rem;
+  width: 90%;
+  max-width: 24rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.tab-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem; /* Espaço entre abas e formulário */
-}
-
-.tab-button {
+.ativo{
+  background-color: #bf9f23;
+  color: #000;
+  font-weight: bold;
   flex: 1;
   padding: 0.8rem;
   font-size: 1rem;
-  border: 1px solid #ddd; /* Borda leve nas abas */
-  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda parte superior das abas */
+  border: 1px solid #ddd; /* Adiciona uma borda leve nas abas */
+  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda a parte superior das abas */
+  color: #000;
+  cursor: pointer;
+}
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* Aumenta o espaço entre as abas e o formulário */
+}
+.nao-ativo{
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd; /* Adiciona uma borda leve nas abas */
+  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda a parte superior das abas */
   background-color: #f0f0f0;
   color: #000;
   cursor: pointer;
 }
-
-.tab-button.active {
-  background-color: #008080; /* Destaque na aba ativa */
-  color: #fff;
+.nao-ativo:hover{
+  background-color: #c0c0c0;
   font-weight: bold;
-  border-bottom: none; /* Remove borda inferior da aba ativa */
 }
 
 input {
   display: block;
   width: 100%;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
+  padding: 0.7rem;
+  margin: 0.6rem 0;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.3rem;
@@ -46,9 +54,9 @@ input {
 .register-link {
   display: block;
   margin: 0.5rem 0 1rem;
-  font-size: 0.85rem;
-  color: #000;
-  font-family: Arial, sans-serif;
+  font-size: 0.85rem; /* Tamanho de fonte um pouco menor */
+  color: #000; /* Cor preta para o link */
+  font-family: Arial, sans-serif; /* Define fonte sans-serif */
   text-decoration: none;
 }
 
@@ -76,4 +84,3 @@ input {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
-  

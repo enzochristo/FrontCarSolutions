@@ -60,3 +60,43 @@ export const confirmPasswordReset = async (token, newPassword) => {
     token: token  // Inclui o token no corpo da requisição
   });
 };
+
+// Adiciona um novo carro
+export const createCar = async (carData) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.post(`${API_URL}/cars/`, carData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+// Atualiza um carro existente
+export const updateCar = async (carId, carData) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.put(`${API_URL}/cars/${carId}/`, carData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+// Deleta um carro
+export const deleteCar = async (carId) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.delete(`${API_URL}/cars/${carId}/`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+// Lista todos os carros
+export const fetchCars = async () => {
+  const token = localStorage.getItem('access_token');
+  return await axios.get(`${API_URL}/cars/`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

@@ -9,13 +9,24 @@
   text-align: center;
 }
 
+.ativo{
+  background-color: #bf9f23;
+  color: #000;
+  font-weight: bold;
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd; /* Adiciona uma borda leve nas abas */
+  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda a parte superior das abas */
+  color: #000;
+  cursor: pointer;
+}
 .tab-buttons {
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem; /* Aumenta o espaço entre as abas e o formulário */
 }
-
-.tab-button {
+.nao-ativo{
   flex: 1;
   padding: 0.8rem;
   font-size: 1rem;
@@ -25,12 +36,9 @@
   color: #000;
   cursor: pointer;
 }
-
-.tab-button.active {
-  background-color: #008080;
-  color: #fff;
+.nao-ativo:hover{
+  background-color: #c0c0c0;
   font-weight: bold;
-  border-bottom: none; /* Remove a borda inferior da aba ativa para integrá-la melhor ao conteúdo abaixo */
 }
 
 input {

@@ -13,4 +13,4 @@ function Compra() {
   );
 }
 
-export default CadastroVeiculoPage;
+export default Compra;
