@@ -39,7 +39,7 @@ import Header  from './components/header'; // Importa o Header
 function App() {
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' , backgroundColor: '#FFFBF3'}}>
         {/* Header sempre visível */}
         <Header />
 

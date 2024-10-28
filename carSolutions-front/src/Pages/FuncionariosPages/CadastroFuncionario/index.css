@@ -6,6 +6,7 @@
   border: 1px solid #ddd;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .tabs {
@@ -32,9 +33,9 @@
 }
 
 .tab.active {
-  background-color: #17a2b8;
+  background-color: #F8CF2D;
   color: white;
-  border-color: #17a2b8;
+  border-color: #F8CF2D;
   border-bottom: 1px solid white;
 }
 
@@ -84,7 +85,7 @@ input, .dropdown-trigger {
 }
 
 .dropdown-item:hover {
-  background-color: #17a2b8;
+  background-color: #bf9f23;
   color: white;
 }
 
@@ -93,7 +94,7 @@ input, .dropdown-trigger {
   padding: 0.5rem;
   font-size: 0.9rem;
   cursor: pointer;
-  background-color: #211977;
+  background-color: #F8CF2D;
   color: white;
   border: none;
   border-radius: 0.3rem;
@@ -104,5 +105,5 @@ input, .dropdown-trigger {
 }
 
 .submit-button:hover {
-  background-color: #140e50;
+  background-color: #bf9f23;
 }
