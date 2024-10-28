@@ -27,7 +27,7 @@ export function Footer() {
         <section>
           <h3>Companhia</h3>
           <div className='divlocation'>
-          <Link to="" className='linkclass'>Sobre Nós</Link>
+          <Link to="sobrenosgeral" className='linkclass'>Sobre Nós</Link>
           <div className='location'>
             <img src ={loclogo} alt="" className='loclogo ' />
             <a href="https://www.google.com/maps/search/?api=1&query=Avenida+Helio+Pelegrino,+1250,+Vila+Olimpia,+SP" target="_blank" rel="noopener noreferrer">

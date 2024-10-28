@@ -3,7 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { loginUser } from '../../../services/api';
 import './index.css';
 
-const LoginPageFuncionario = () => {
+const LoginFuncionarioPage = () => {
+
   const navigate = useNavigate();
   const location = useLocation(); // Hook para obter a URL atual
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -27,7 +28,7 @@ const LoginPageFuncionario = () => {
       const response = await loginUser(credentials);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      navigate('/home');
+      navigate('/funcionario/cadastroVeiculo');
     } catch (err) {
       setError('Login falhou. Verifique suas credenciais.');
     }
@@ -60,4 +61,4 @@ const LoginPageFuncionario = () => {
   );
 };
 
-export default LoginPageFuncionario;
+export default LoginFuncionarioPage;
