@@ -11,6 +11,7 @@ import RedefinirSenha from './Pages/GeralPages/RedefinirSenhaPage';
 // CLIENTES:
 // import ConfirmacaoPagamentoPage from './Pages/ClientePages/ConfirmaçãoPagamentoPage'
 import LoginPageCliente from './Pages/ClientePages/LoginPage';
+
 import MeusDadosCliente from './Pages/ClientePages/MeusDadosPage'
 import PagamentoPage from './Pages/ClientePages/PagamentoPage'
 import ProdutosPage from './Pages/ClientePages/ProdutosPage'
@@ -67,7 +68,6 @@ function App() {
             <Route path="/cliente/ResumoCompra" element={<ProtectedRoute>  <ResumoCompraPage /></ProtectedRoute>} />
             <Route path="/cliente/ResumoAluguel" element={<ProtectedRoute>  <ResumoAluguelPage /></ProtectedRoute>} />
             <Route path="/cliente/SobreNosCliente" element={<ProtectedRoute>  <SobreNosClientePage /></ProtectedRoute>} />
-
 
           </Routes>
         </div>
