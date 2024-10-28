@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TabelaCarros from '../../../components/TabelaCarros';
 import DetalhesDoCarro from '../../../components/DetalhesDoCarro';
+import CarFilters from '../../../components/CarFilters';
 import { fetchCars, deleteCar } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 import plus from '../../../assets/plus.png';
@@ -54,9 +55,22 @@ const ProdutosCadastradosPage = () => {
     setShowModal(false);
   };
 
+  const handleFilterChange = (filters) => {
+    // Filtragem lógica aqui. Esta lógica deve ser implementada para aplicar os filtros nos dados de `cars`.
+    const { marcas, categorias, precoMin, precoMax, tipoProduto } = filters;
+    const filtered = cars.filter((car) => {
+      const matchMarca = !marcas.length || marcas.includes(car.marca);
+      const matchCategoria = !categorias.length || categorias.includes(car.categoria);
+      const matchPreco = (!precoMin || car.preco >= precoMin) && (!precoMax || car.preco <= precoMax);
+      const matchTipo = !tipoProduto.length || tipoProduto.includes(car.tipo_de_produto);
+      return matchMarca && matchCategoria && matchPreco && matchTipo;
+    });
+    setFilteredCars(filtered);
+  };
+
   return (
     <div className="produtos-cadastrados-page">
-      <header>
+      <header className='em-cima'>
         <h1>Carros Cadastrados</h1>
         <input
           type="text"
@@ -67,17 +81,20 @@ const ProdutosCadastradosPage = () => {
         />
       </header>
       <div className="content">
-        <TabelaCarros cars={filteredCars} onView={openModal} onDelete={handleDelete} />
+        <CarFilters className='filtro' onFilterChange={handleFilterChange} />
+        <TabelaCarros className='tabela' cars={filteredCars} onView={openModal} onDelete={handleDelete} />
       </div>
       {showModal && (
         <DetalhesDoCarro car={selectedCar} onClose={closeModal} />
       )}
+      <div className='em-baixo'>
       <button
         className="floating-add-button"
         onClick={() => navigate('/funcionario/cadastroVeiculo')}
       >
         <img className='icone' src={plus} alt="Adicionar" />
       </button>
+      </div>
     </div>
   );
 };

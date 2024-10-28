@@ -1,0 +1,73 @@
+/* src/components/CarFilters/index.css */
+
+.filter-panel {
+    width: 10rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  
+  .filter-panel h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .filter-section {
+    margin-bottom: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+
+  }
+  
+  .filter-section h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter-section label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter-section input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .filter-section input[type="range"] {
+    width: 6rem;
+    padding: 0.3rem;
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .apply-button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .apply-button:hover {
+    background-color: #555;
+  }
+  
+  /* Responsividade: transformar em dropdown em telas pequenas */
+  @media (max-width: 768px) {
+    .filter-panel {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  

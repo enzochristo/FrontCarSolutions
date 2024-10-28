@@ -11,7 +11,7 @@ function PaginaPrincipal() {
             Página com os lembrestes e informações importantes para os funcionários
         </p>
         <Button>
-          <Link to="/funcionario/cadastroVeiculo">Cadastrar Veículo</Link>
+          <Link to="/funcionario/ProdutosCadastrados">Estoque</Link>
         </Button>
     </>
 
