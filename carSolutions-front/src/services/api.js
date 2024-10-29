@@ -62,6 +62,13 @@ export const confirmPasswordReset = async (token, newPassword) => {
 };
 
 // Adiciona um novo carro
+
+export const getCarById = async (id) => {
+  console.log(id);
+  const response = await axios.get(`${API_URL}/cars/dados/${id['id']}/`);
+  return response.data;
+};
+
 export const createCar = async (carData) => {
   const token = localStorage.getItem('access_token');
   return await axios.post(`${API_URL}/cars/`, carData, {
@@ -74,7 +81,7 @@ export const createCar = async (carData) => {
 // Atualiza um carro existente
 export const updateCar = async (carId, carData) => {
   const token = localStorage.getItem('access_token');
-  return await axios.put(`${API_URL}/cars/${carId}/`, carData, {
+  return await axios.patch(`${API_URL}/cars/${carId['id']}/`, carData, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
