@@ -5,7 +5,8 @@ import './index.css';
 
 const DetalhesDoCarro = ({ car, onClose }) => {
   if (!car) return null;
-
+  const baseURL = "http://localhost:8000";
+  
   return (
     <div className="modal">
       <div className="modal-content">
@@ -45,7 +46,7 @@ const DetalhesDoCarro = ({ car, onClose }) => {
           </div>
         </div>
         <div className="car-image">
-          <img src={car.imagem} alt={`${car.modelo}`} />
+          <img src={`${baseURL}${car.imagem}`} alt={`${car.modelo}`} />
         </div>
         <button onClick={onClose} className="close-button">Fechar</button>
       </div>

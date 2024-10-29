@@ -56,7 +56,7 @@ function App() {
 
             {/*Rotas paginas Funcionários*/}
             <Route path="/funcionario/cadastroVeiculo" element={<ProtectedRoute>  <CadastroVeiculoPage /></ProtectedRoute>} />
-            <Route path="/funcionario/EditandoVeiculo" element={<ProtectedRoute>  <EditandoVeiculoPage /></ProtectedRoute>} />
+            <Route path="/funcionario/EditandoVeiculo/:id" element={<ProtectedRoute>  <EditandoVeiculoPage /></ProtectedRoute>} />
             <Route path="/funcionario/PrincipalFuncionario" element={<ProtectedRoute>  <PrincipalPageFuncionario /></ProtectedRoute>} />
             <Route path="/funcionario/ProdutosCadastrados" element={<ProtectedRoute>  <ProdutosCadastradosPage /></ProtectedRoute>} />
             <Route path="/funcionario/SobreNosFuncionario" element={<ProtectedRoute>  <SobreNosPageFuncionario /></ProtectedRoute>} />

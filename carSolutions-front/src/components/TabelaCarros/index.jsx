@@ -33,7 +33,7 @@ const TabelaCarros = ({ cars, onView, onDelete }) => {
               </button>
             </td>
             <td>
-              <button onClick={() => navigate(`/funcionarios/editar/${car.id}`)}>
+              <button onClick={() => navigate(`/funcionario/EditandoVeiculo/${car.id}`)}>
                 <img className='icone' src={edit} alt="Editar" />
               </button>
             </td>
