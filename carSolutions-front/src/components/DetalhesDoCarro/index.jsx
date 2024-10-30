@@ -45,7 +45,7 @@ const DetalhesDoCarro = ({ car, onClose }) => {
             <span>{car.cor}</span>
           </div>
         </div>
-        <div className="car-image">
+        <div className="car-image-detalhes">
           <img src={`${baseURL}${car.imagem}`} alt={`${car.modelo}`} />
         </div>
         <button onClick={onClose} className="close-button">Fechar</button>
