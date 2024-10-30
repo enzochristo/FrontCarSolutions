@@ -36,7 +36,7 @@ const RegisterFuncionarioPage = () => {
 
   const handleTabClick = (tab) => {
     if (tab === "Cliente") {
-      navigate('CadastroCliente');
+      navigate('/CadastroCliente');
     }
   };
 

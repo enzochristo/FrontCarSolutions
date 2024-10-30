@@ -26,7 +26,7 @@ const LoginPageCliente = () => {
       const response = await loginUser(credentials);
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      navigate('/cliente/MeusDadosCliente');
+      navigate('/');
     } catch (err) {
       setError('Login falhou. Verifique suas credenciais.');
     }

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useRef } from 'react';
 import HomePage from './pages/HomePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css'
@@ -33,11 +34,20 @@ import Footer from './components/footer';
 import Header  from './components/header'; // Importa o Header
 
 function App() {
+
+  const footerRef = useRef(null);
+
+  const scrollToFooter = () => {
+    if (footerRef.current) {
+      footerRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Router>
       <div className='App' style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' , backgroundColor: '#FFFBF3'}}>
         {/* Header sempre visível */}
-        <Header />
+      <Header scrollToFooter={scrollToFooter} />
 
         {/* Conteúdo principal */}
         <div style={{ flex: 1 }}>
@@ -72,8 +82,8 @@ function App() {
         </div>
 
         {/* Footer sempre visível */}
-        <Footer />
-      </div>
+        <Footer ref={footerRef} />  {/* Passa a ref para o Footer */}
+        </div>
     </Router>
   );
 }

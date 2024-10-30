@@ -6,9 +6,9 @@ import facebookLogo from '../../assets/facebooklogo.png';
 import instagramLogo from '../../assets/instagramlogo.png';
 import loclogo from '../../assets/loclogo.png';
 
-export function Footer() {
+const Footer = React.forwardRef((props, ref) => {
   return (
-    <footer>
+    <footer ref={ref} className="teste">
       <div className='footer-content'>
         <section >
           <h3>Reserve Nossos Automóveis</h3>
@@ -64,8 +64,10 @@ export function Footer() {
       </div>
       
     </footer>
-      );
-}
+  );
+});
 
-// Export default, além da exportação por função
+Footer.displayName = "Footer";
+
 export default Footer;
+

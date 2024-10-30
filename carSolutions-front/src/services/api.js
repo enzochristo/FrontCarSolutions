@@ -7,6 +7,32 @@ export const registerUser = async (userData) => {
   return await axios.post(`${API_URL}/register/`, userData);
 };
 
+export const getUserData = async () => {
+  try {
+    const token = localStorage.getItem('access_token');
+    const response = await axios.get(`${API_URL}/meusdados/`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar dados do usuário:", error);
+    throw error;
+  }
+};
+
+export const updateUserData = async (updatedData) => {
+  try {
+    const token = localStorage.getItem('access_token');
+    const response = await axios.put(`${API_URL}/meusdados/`, updatedData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao atualizar dados do usuário:", error);
+    throw error;
+  }
+};
+
 // Api para inserir dados de CEP
 export const fetchAddressByCEP = async (cep) => {
     try {
@@ -108,8 +134,8 @@ export const fetchCars = async () => {
   });
 };
 
-// src/services/api.js
 export const getAvailableCars = async () => {
   const response = await axios.get(`${API_URL}/available/`);
   return response.data;
 };
+
