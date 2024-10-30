@@ -1,0 +1,51 @@
+/* src/Pages/MeusDados/MeusDados.css */
+
+.meus-dados-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .meus-dados-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .user-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+  }
+  
+  .user-info strong {
+    font-weight: bold;
+  }
+  
+
+/* src/Pages/MeusDados/MeusDados.css */
+
+.meus-dados-container input[disabled] {
+    background-color: #f0f0f0;
+    color: #777;
+    border: none;
+  }
+ 
+.btn-meusdados {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #534f46;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+.btn-meusdados:hover {
+    background-color: #534f46;
+  }
+  
