@@ -1,4 +1,8 @@
 /* Main footer styles */
+*{margin: 0 px;
+  max-width: 100%;
+}
+
 footer {
   /* #423600 */
   background-color: #4B4737; 
@@ -7,6 +11,7 @@ footer {
   text-align: left;
   font-family: 'YourFont', sans-serif;
   max-width: 100%;
+  box-sizing: border-box;
   /* position: fixed; */
 }
 
@@ -148,22 +153,7 @@ p {
   }
 }
 
-/* Further adjustments for mobile screens (480px and below) */
-@media  (max-width: 480px) {
-  footer {
-    padding: 0.5rem;
-  }
 
-  section h3 {
-    font-size: 0.9rem;
-  }
 
-  .social-logo {
-    width: 20px; /* Ajusta para um tamanho ainda menor em telas pequenas */
-  }
 
-  .footer-social {
-    gap: 0.5rem;
-  }
-}
 

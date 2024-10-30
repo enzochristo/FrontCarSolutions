@@ -1,0 +1,26 @@
+.catalog-carousel {
+    width: 60%; /* Reduzido para ocupar 40% a menos */
+    max-width: 720px; /* Limite máximo de largura para telas maiores */
+    margin: 0 auto; /* Centraliza o carrossel */
+  }
+  
+  .carousel-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Responsividade para garantir uma boa visualização em telas menores */
+  @media (max-width: 768px) {
+    .catalog-carousel {
+      width: 60%; /* Expande para quase toda a tela em dispositivos menores */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .catalog-carousel {
+      width: 60%; /* Ocupa toda a largura para dispositivos bem pequenos */
+      padding: 0 10px;
+    }
+  }
+  

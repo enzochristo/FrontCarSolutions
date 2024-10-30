@@ -1,0 +1,206 @@
+.principal-page {
+    width: 100%;
+    max-width: 75rem; /* 1200px equivalente */
+    margin: 0 auto;
+    padding: 1.25rem; /* 20px equivalente */
+}
+
+.catalog-section, .services-section, .features-section, .values-section {
+    margin-bottom: 2.5rem; /* 40px equivalente */
+}
+
+.catalog-section h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte */
+    font-weight: 700; /* Torna o texto mais negrito */
+    font-family: 'Times New Roman', serif; /* Fonte serifada para aproximar do estilo */
+    color: #333; /* Cor escura para o título */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+}
+
+
+/* Nossos Serviços */
+.services-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.car-with-background {
+    position: relative;
+    width: 60%; /* Ajuste inicial para desktop */
+    max-width: 22.5rem; /* 360px equivalente */
+}
+
+.background-image {
+    width: 100%;
+}
+
+.car-image {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    z-index: 1;
+}
+
+.buttons-and-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem; /* 16px equivalente */
+    margin-left: 2rem; /* Para alinhar à direita */
+}
+
+.services-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.button-with-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* 8px equivalente */
+}
+
+.oval-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.oval-button img {
+    width: 2.5rem; /* 40px equivalente */
+    height: auto;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Nossas Principais Características */
+.features-section .feature-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.25rem; /* 20px equivalente */
+}
+
+.feature-item {
+    text-align: center;
+    width: 30%;
+    max-width: 15.625rem; /* 250px equivalente */
+}
+
+.feature-item img {
+    width: 3.75rem; /* 60px equivalente */
+    height: auto;
+    margin-bottom: 0.625rem; /* 10px equivalente */
+}
+
+/* Nossos Valores */
+.values-section {
+    text-align: center;
+    margin-top: 3rem; /* Espaço adicional acima da seção */
+}
+
+.values-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 3rem; /* Espaço maior abaixo do título */
+}
+
+.values-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem; /* Aumento do espaçamento entre as linhas */
+}
+
+.value-item-top {
+    text-align: center;
+    max-width: 600px; /* Limita a largura para centralizar o texto do topo */
+    margin-bottom: 2rem; /* Espaço extra abaixo do topo */
+}
+
+.value-item-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px; /* Limita a largura da linha inferior */
+    gap: 3rem; /* Espaço entre os itens da linha inferior */
+}
+
+.value-item {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.value-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center; /* Centraliza o título de cada valor */
+}
+
+.value-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center; /* Centraliza o texto de descrição */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .values-content {
+        align-items: center;
+    }
+
+    .value-item-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .car-with-background {
+        width: 80%; /* Aumenta o tamanho do carro em telas menores */
+        max-width: none;
+    }
+
+    .car-image {
+        top: 5%; /* Reduz a posição superior */
+        left: 5%; /* Reduz a posição à esquerda */
+        width: 90%; /* Aumenta a largura do carro */
+    }
+
+    .buttons-and-text {
+        margin-left: 1rem; /* Reduz o espaçamento em telas menores */
+    }
+
+    .text-content .title, .text-content .description {
+        font-size: 0.9rem; /* Mantém o texto um pouco menor */
+    }
+}
