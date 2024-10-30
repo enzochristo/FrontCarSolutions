@@ -1,8 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import './App.css'
 //GERAL PAGES:
 import PrincipalPage from './Pages/GeralPages/PrincipalPage'
 import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
@@ -36,7 +35,7 @@ import Header  from './components/header'; // Importa o Header
 function App() {
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' , backgroundColor: '#FFFBF3'}}>
+      <div className='App' style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' , backgroundColor: '#FFFBF3'}}>
         {/* Header sempre visível */}
         <Header />
 
