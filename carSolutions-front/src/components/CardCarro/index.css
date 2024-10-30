@@ -1,0 +1,62 @@
+/* src/components/CarCard/index.css */
+
+.car-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .car-image{
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    max-width: 300px;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .car-modelo {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .car-precos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  
+  .preco-venda, .preco-aluguel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .botao-comprar, .botao-alugar {
+    background-color: #eaed13;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 30%;
+    margin-right: 2rem;
+  }
+  
+  .botao-comprar:hover, .botao-alugar:hover {
+    background-color: #a6af1e;
+  }
+  

@@ -107,3 +107,9 @@ export const fetchCars = async () => {
     },
   });
 };
+
+// src/services/api.js
+export const getAvailableCars = async () => {
+  const response = await axios.get(`${API_URL}/available/`);
+  return response.data;
+};
