@@ -9,9 +9,10 @@
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    height: 370px;
   }
   
-  .car-image{
+  .car-image-produto{
     width: 100%;
     height: 100%;
     max-height: 200px;
@@ -38,14 +39,16 @@
     gap: 0.5rem;
   }
   
-  .preco-venda, .preco-aluguel {
+ .preco-produto {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
-  .botao-comprar, .botao-alugar {
-    background-color: #eaed13;
+  .botao-produto-car {
+    display: flex;
+    justify-content: center;
+    background-color: #edbe13;
     color: #fff;
     padding: 0.5rem;
     border: none;
@@ -54,9 +57,10 @@
     font-size: 0.9rem;
     width: 30%;
     margin-right: 2rem;
+    text-decoration: none;
   }
   
-  .botao-comprar:hover, .botao-alugar:hover {
-    background-color: #a6af1e;
+  .botao-produto-car:hover {
+    background-color: #af771e;
   }
   

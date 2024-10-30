@@ -93,14 +93,16 @@
     color: black;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    display: block;
+    display: flex;
+    justify-content: center;
     font-size: 1rem;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-bottom: 0.1rem solid #000;
+    width: 100%;
+    border: none;
 }
 
 .dropdown-item:last-child {
-    border-bottom: none;
+    border-top: 0.1rem solid #000;
 }
 
 .dropdown-item:hover {
