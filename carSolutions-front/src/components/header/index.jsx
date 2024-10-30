@@ -80,7 +80,11 @@ function Header({ scrollToFooter }) {
       
       <div className="resto">
         <nav className="nav-header">
-          <Link to="/cliente/Produtos" className="nav-link">Produtos</Link>
+          {user?.isfuncionario ? (
+            <Link to="/funcionario/ProdutosCadastrados" className="nav-link">Estoque</Link>
+            ) : (
+            <Link to="/cliente/Produtos" className="nav-link">Produtos</Link>
+            )}          
           <Link to="/sobrenosgeral" className="nav-link">Sobre Nós</Link>
           <button className="nav-link falaconosco" onClick={scrollToFooter}>Fale Conosco</button> {/* Chama a função */}
         </nav>
