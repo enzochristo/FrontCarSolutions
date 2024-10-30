@@ -7,19 +7,30 @@
     align-items: center;
     font-family: sans-serif;
     max-width: 100%;
-    height: 2rem;
+    height: 4rem;
 }
-/* Container principal para organizar logo, navegação e ícone do usuário */
 
-/* Estilo da logo */
-
-.fotologo{
+/* Logo */
+.logo-container {
     display: flex;
     align-items: center;
-    width: 5rem;
 }
 
+.logo {
+    width: auto;
+    height: 3rem; /* Define a altura desejada */
+    max-width: 100%; /* Garante que a largura respeite a proporção */
+    object-fit: contain; /* Garante que a imagem não seja distorcida */
+}
+
+
 /* Estilo dos links de navegação */
+.nav-header {
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
 .nav-link {
     color: #000;
     text-decoration: none;
@@ -32,37 +43,43 @@
 }
 
 /* Ícone do usuário */
+.user-menu {
+    position: relative;
+}
+
 .user-icon {
     background: none;
     border: none;
     cursor: pointer;
-    color: black;
-    transition: color 0.3s ease;
-    /* background-color: #1abc9c; */
 }
 
-.user-icon:hover {
-    color: rgb(0, 0, 0);
-    background-color: #F8CF2D;
+.user-icon-img {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.2rem;
+    transition: transform 0.3s ease;
 }
 
-.user-icon-active {
-    color: rgb(0, 0, 0); /* Ícone branco quando o dropdown está aberto */
+.user-icon-img:hover {
+    transform: scale(1.1);
 }
 
 /* Estilo do dropdown */
 .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
     background-color: #ffffff;
     font-family: sans-serif;
     border-radius: 8px;
     padding: 0;
-    min-width: 100px;
+    min-width: 150px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    border: 0.1rem solid #000; /* Contorno preto ao redor do dropdown */
+    border: 0.1rem solid #000;
+    z-index: 10;
 }
 
-/* Itens do dropdown */
 .dropdown-item {
     color: black;
     padding: 0.5rem 1rem;
@@ -70,40 +87,25 @@
     display: block;
     font-size: 1rem;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-bottom: 0.1rem solid #000; /* Linha entre os itens do dropdown */
+    border-bottom: 0.1rem solid #000;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
 }
 
 .dropdown-item:hover {
-    background-color: white;
-    color: #1abc9c;
+    background-color: #F8CF2D;
+    color: #000;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: row;
-        gap: 1rem;
-    }
-
     .nav-header {
-        flex-direction: row;
         gap: 1rem;
-        margin-top: 1rem;
     }
 
-    .user-icon:hover {
-        color: white;
-        background-color: #1abc9c;
+    .nav-link {
+        font-size: 1rem;
     }
-    
-    .user-icon-active {
-        color: white; /* Ícone branco quando o dropdown está aberto */
-    }
-
-    .nav-link{
-        font-size: .8rem;
-        padding: 2%;
-    }
-
-    
 }
