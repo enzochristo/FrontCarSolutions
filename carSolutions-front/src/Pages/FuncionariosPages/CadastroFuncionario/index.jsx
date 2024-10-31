@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser, fetchAddressByCEP } from '../../../services/api';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../../../components/ui/dropdown-menu";
-
 import './index.css';
 
 const RegisterFuncionarioPage = () => {
@@ -38,10 +31,6 @@ const RegisterFuncionarioPage = () => {
     if (tab === "Cliente") {
       navigate('/CadastroCliente');
     }
-  };
-
-  const handleGenderSelect = (genderValue) => {
-    setFormData({ ...formData, genero: genderValue });
   };
 
   const handleChange = (e) => {
@@ -84,41 +73,31 @@ const RegisterFuncionarioPage = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-row">
           <input name="full_name" placeholder="Nome" onChange={handleChange} required />
-          <input name="cpf" placeholder="CPF" onChange={handleChange} required />
+          <input name="username" placeholder="username" onChange={handleChange} required />
         </div>
         <div className="input-row">
+          <input name="cpf" placeholder="CPF" onChange={handleChange} required />
           <input name="email" type="email" placeholder="E-mail" onChange={handleChange} required />
-          <input name="celular" placeholder="Telefone" onChange={handleChange} required />
         </div>
         <div className="input-row">
           <input name="nacionalidade" placeholder="Nacionalidade" onChange={handleChange} required />
-
-          {/* Dropdown de Gênero usando shadcn/ui */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="dropdown-trigger">
-                {formData.genero ? (formData.genero === "M" ? "Masculino" : formData.genero === "F" ? "Feminino" : "Outro") : "Gênero"}
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="dropdown-menu">
-              <DropdownMenuItem onSelect={() => handleGenderSelect("M")}>
-                Masculino
-              </DropdownMenuItem>
-              <DropdownMenuItem onSelect={() => handleGenderSelect("F")}>
-                Feminino
-              </DropdownMenuItem>
-              <DropdownMenuItem onSelect={() => handleGenderSelect("O")}>
-                Outro
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <input name="celular" placeholder="Telefone" onChange={handleChange} required />
         </div>
         <div className="input-row">
+        <select name="genero" placeholder= "genero" onChange={handleChange} required >
+            <option value="">Selecione seu gênero</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="O">Outros</option>
+          </select>         
           <input name="cep" placeholder="CEP" onChange={handleChange} onBlur={handleCEPBlur} required />
-          <input name="rua" placeholder="Rua" value={formData.rua} onChange={handleChange} required />
         </div>
         <div className="input-row">
+          <input name="rua" placeholder="Rua" value={formData.rua} onChange={handleChange} required />
           <input name="cidade" placeholder="Cidade" value={formData.cidade} onChange={handleChange} required />
+        </div>
+        <div className='input-row'>
+          <input type="text" placeholder="bairro" value={formData.bairro} onChange={handleChange} required/>
           <input name="estado" placeholder="Estado" value={formData.estado} onChange={handleChange} required />
         </div>
         <div className="input-row">

@@ -16,13 +16,17 @@ function Header({ scrollToFooter }) {
   // Função para buscar dados do usuário
   const fetchUserData = async () => {
     try {
-      const userData = await getUserData();
-      setUser(userData);
+      const token = localStorage.getItem('access_token');
+      if (token) {  // Verifica se o token existe antes de chamar getUserData
+        const userData = await getUserData();
+        setUser(userData);
+      }
     } catch (error) {
-      console.error("Usuário não autenticado", error);
+      console.error("Erro ao buscar dados do usuário:", error);
       setUser(null);
     }
   };
+
 
   // Função para logout
   const handleLogout = async () => {
