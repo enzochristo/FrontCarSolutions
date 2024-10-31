@@ -1,46 +1,112 @@
 .sobre-nos-page {
-    font-family: Arial, sans-serif;
+    font-family: "YourFont", sans-serif;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Caixa cinza para "Sobre Nós" e Dropdowns */
-.sobre-nos-container,
-.dropdown-section {
-    background-color: #f0f0f0; /* Cor cinza clara para ambos */
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-h1 {
+.sobre-nos-page h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #333;
 }
 
-p {
-    font-size: 1.1rem;
+.banner {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 4rem;
+    overflow: hidden;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.timeline-section {
+    text-align: center;
+    margin: 7rem 0;
+}
+
+.timeline-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
     margin-bottom: 2rem;
+}
+
+.timeline-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.timeline-item {
+    background-color: #f0f0f0;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    padding: 1rem;
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timeline-year {
+    font-size: 2rem;
+    color: #333;
+}
+
+.timeline-icon {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
+}
+
+.carousel-section, .sections-container {
+    margin: 3rem;
+    width: 100%;
 }
 
 .sections-container {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-    background-color: #F8CF2D; /* Fundo amarelo para a caixa dos dropdowns */
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    gap: 4rem;
+    justify-content: center;
     width: 100%;
+    padding: 1rem 0;
+    max-width: 1200px;
 }
 
+/* Estilos para cada seção do dropdown */
 .dropdown-section {
     width: 90%; /* Ajusta a largura dos dropdowns */
     max-width: 500px;
@@ -48,6 +114,7 @@ p {
     transition: background-color 0.3s ease;
 }
 
+/* Título do dropdown com ícone e efeito de hover */
 .dropdown-title {
     display: flex;
     align-items: center;
@@ -61,6 +128,7 @@ p {
     background-color: #e0e0e0;
 }
 
+/* Ícone do dropdown */
 .dropdown-icon {
     width: 24px;
     height: 24px;
@@ -68,10 +136,12 @@ p {
     filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
 }
 
+/* Exibe o conteúdo do dropdown ao passar o mouse sobre a seção */
 .dropdown-section:hover .dropdown-content {
     display: block;
 }
 
+/* Conteúdo do dropdown (inicialmente escondido) */
 .dropdown-content {
     display: none;
     padding: 1rem;
@@ -84,7 +154,7 @@ p {
     animation: slideDown 0.3s ease;
 }
 
-/* Espaçamento entre bullets */
+/* Estilo para lista no dropdown */
 .dropdown-content ul {
     padding-left: 1.5rem;
     margin-top: 0.5rem;
@@ -94,7 +164,7 @@ p {
     margin-bottom: 0.5rem;
 }
 
-/* Animação para dropdown */
+/* Animação para abrir o dropdown */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -106,25 +176,132 @@ p {
     }
 }
 
+
+
+.dropdown-carrossel {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.carousel-section {
+    flex: 1;
+    max-width: 500px;
+}
+
+.sections-container {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dropdown-section {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dropdown-section:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 8px 8px;
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s ease;
+}
+
+.dropdown-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.dropdown-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+    filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+li {
+    padding: 0.2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
+    .timeline-container {
+        flex-direction: column;
+        gap: 1.5rem;
     }
-
-    p {
+    .banner {
+        height: 400px;
+        padding-left: 2rem;
+        justify-content: center;
+        text-align: center;
+    }
+    .banner h1 {
+        font-size: 2rem;
+        padding: 0 1.5rem;
+    }
+    .timeline-section, .carousel-section, .dropdown-title {
         font-size: 1rem;
     }
 
-    .dropdown-title {
-        font-size: 1.1rem;
-    }
-
-    .dropdown-content {
-        font-size: 0.9rem;
+    .sections-container {
+        flex-direction: column;
     }
 
     .dropdown-section {
-        max-width: 100%;
+        width: 100%;
     }
+
+    .dropdown-carrossel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-section,
+    .sections-container {
+        max-width: 100%;
+    }    
+
+    
 }
