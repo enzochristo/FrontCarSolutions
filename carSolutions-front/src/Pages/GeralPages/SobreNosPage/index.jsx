@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import './index.css';
 import primeiraEscolhaLogo from '../../../assets/primeiraEscolhaLogo.png';

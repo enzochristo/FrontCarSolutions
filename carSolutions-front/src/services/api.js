@@ -139,3 +139,27 @@ export const getAvailableCars = async () => {
   return response.data;
 };
 
+// Função para buscar lembretes
+// Função para buscar todos os lembretes
+export const fetchLembretes = async () => {
+  const token = localStorage.getItem('access_token');
+  return await axios.get(`${API_URL}/lembretes/`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+// Função para adicionar um novo lembrete
+export const addLembrete = async (lembreteData) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.post(`${API_URL}/lembretes/`, lembreteData, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+// Função para marcar um lembrete como OK
+export const markLembreteAsOk = async (lembreteId) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.patch(`${API_URL}/lembretes/${lembreteId}/ok/`, {}, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
