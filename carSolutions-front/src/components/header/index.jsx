@@ -12,6 +12,7 @@ function Header({ scrollToFooter }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // novo estado para o menu hambúrguer
 
   // Função para buscar dados do usuário
   const fetchUserData = async () => {
@@ -46,6 +47,9 @@ function Header({ scrollToFooter }) {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   // Verificação periódica do `access_token` no localStorage
   useEffect(() => {
     const checkAuth = () => {
@@ -80,19 +84,19 @@ function Header({ scrollToFooter }) {
         <Link to='/'>
         <img src={carsolutionslogo} alt="Logo da Empresa" className="logo" />
         </Link>
+        <p className='nome-header'>Car Solutions</p>
       </div>
       
-      <div className="resto">
-        <nav className="nav-header">
+      <nav className={`nav-header ${isMobileMenuOpen ? 'open' : ''}`}>
           {user?.isfuncionario ? (
             <Link to="/funcionario/ProdutosCadastrados" className="nav-link">Estoque</Link>
             ) : (
             <Link to="/cliente/Produtos" className="nav-link">Produtos</Link>
-            )}          
+            )}       
           <Link to="/sobrenosgeral" className="nav-link">Sobre Nós</Link>
           <button className="nav-link falaconosco" onClick={scrollToFooter}>Fale Conosco</button> {/* Chama a função */}
         </nav>
-
+        
         <div className="user-menu" ref={dropdownRef}>
           {user ? (
             <>
@@ -120,7 +124,11 @@ function Header({ scrollToFooter }) {
             </>
           )}
         </div>
-      </div>
+        <button className="hamburger-icon" onClick={toggleMobileMenu}>
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+      </button>
     </header>
   );
 }

@@ -4,25 +4,34 @@
     padding: 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-family: sans-serif;
     max-width: 100%;
     height: 4rem;
+    font-size: 1.1rem;
+    color: white;
+    align-items: center;
+    border-bottom: #D9AE5F 0.2rem solid;
 }
 
 /* Logo */
 .logo-container {
     display: flex;
+    flex-direction: row;
+    justify-self: start;
     align-items: center;
 }
 
 .logo {
     width: auto;
-    height: 3rem; /* Define a altura desejada */
+    height: 3.8rem; /* Define a altura desejada */
     max-width: 100%; /* Garante que a largura respeite a proporção */
     object-fit: contain; /* Garante que a imagem não seja distorcida */
+    margin-right: 1rem;
+    margin-top: 0.3rem;
 }
-
+.nome-header{
+    margin-top: 0%;
+}
 .resto{
     display: flex;
     align-items: center;
@@ -41,15 +50,16 @@
     font-size: 1.1rem;
     transition: color 0.3s ease;
 }
-
+.nav-link:hover {
+    color: #D9AE5F; 
+    background-color: #092640;
+    transform: scale(1.1);
+}
 .falaconosco{
     background-color: transparent;
     border: none;
 }
 
-.nav-link:hover {
-    color: white; 
-}
 
 /* Ícone do usuário */
 .user-menu {
@@ -67,6 +77,7 @@
     height: 3rem;
     padding: 0.2rem;
     transition: transform 0.3s ease;
+    /* Birlho da imagem 100% */
 }
 
 .user-icon-img:hover {
@@ -85,7 +96,7 @@
     min-width: 150px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    border: 0.1rem solid #000;
+    border: 0.1px solid #000;
     z-index: 10;
 }
 
@@ -102,21 +113,63 @@
 }
 
 .dropdown-item:last-child {
-    border-top: 0.1rem solid #000;
+    border-top: 0.1px solid black;
 }
 
 .dropdown-item:hover {
     background-color: #F8CF2D;
-    color: #000;
+    color: black;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+.hamburger-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.hamburger-line {
+    width: 2rem;
+    height: 0.2rem;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 800px) {
+
     .nav-header {
-        gap: 1rem;
+        display: none;
+        position: absolute;
+        top: 4rem;
+        left: 80%;
+        background-color: white;
+        flex-direction: column;
+        gap: 0rem;
+        border-radius: 8px;
+        border: 1px solid black;
+    }
+    
+    .nav-link {
+        color: black;
+        border-bottom: 1px solid black;
+        padding: 0.5rem 1rem;
+    }
+    .nav-header.open {
+        display: flex;
+        margin-right: 0px;
     }
 
-    .nav-link {
-        font-size: 1rem;
+    .hamburger-icon {
+        display: flex;
+    }
+    .user-meunu{
+        /* Deixar ao lado esquerdo do button hamburguer-icon icone do menu hamburguer */
+        position: absolute;
+        top: 0;
+        left: 80%;
     }
 }
