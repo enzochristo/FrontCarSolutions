@@ -32,6 +32,9 @@ const RegisterClientePage = () => {
   });
   const [error, setError] = useState(null);
 
+
+  // const [activeTab, setActiveTab] = useState("Cliente");
+
   const handleTabClick = (tab) => {
     if (tab === "Colaborador") {
       navigate('/funcionarioCadastro');
@@ -92,14 +95,14 @@ const RegisterClientePage = () => {
           <input name="nacionalidade" placeholder="Nacionalidade" onChange={handleChange} required />
           <input name="celular" placeholder="Telefone" onChange={handleChange} required />
         </div>
-        <div className="input-row">
-        <select name="genero" placeholder= "genero" onChange={handleChange} required >
-            <option value="">Selecione seu gênero</option>
+        <div className="input-row-cepgen">
+        <select name="genero" placeholder= "genero" onChange={handleChange} required className='genero' >
+            <option value="" disabled hidden>Selecione seu gênero</option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
             <option value="O">Outros</option>
           </select>         
-          <input name="cep" placeholder="CEP" onChange={handleChange} onBlur={handleCEPBlur} required />
+          <input name="cep" placeholder="CEP" onChange={handleChange} onBlur={handleCEPBlur} required className='input-cep'/>
         </div>
         <div className="input-row">
           <input name="rua" placeholder="Rua" value={formData.rua} onChange={handleChange} required />
