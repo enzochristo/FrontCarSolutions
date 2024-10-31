@@ -45,7 +45,7 @@ function App() {
 
   return (
     <Router>
-      <div className='App' style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' , backgroundColor: '#FFFBF3'}}>
+      <div className='App' style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' , backgroundColor: '#f2faff'}}>
         {/* Header sempre visível */}
       <Header scrollToFooter={scrollToFooter} />
 

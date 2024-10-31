@@ -1,6 +1,6 @@
 /* Estilo básico do header */
 .header {
-    background-color: #F8CF2D;
+    background-color: #194973;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -32,13 +32,13 @@
 .nav-header {
     display: flex;
     gap: 2rem;
-    margin-right: 2rem;
+    margin-right: 5rem;
 }
 
 .nav-link, .user-icon {
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
