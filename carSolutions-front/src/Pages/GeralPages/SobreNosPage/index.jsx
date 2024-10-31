@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+
 import './index.css';
 import primeiraEscolhaLogo from '../../../assets/primeiraEscolhaLogo.png';
 import inovacoesLogo from '../../../assets/inovacoesLogo.png';
