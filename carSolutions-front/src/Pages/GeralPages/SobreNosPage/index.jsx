@@ -1,10 +1,13 @@
-import { motion } from 'framer-motion';
+// src/Pages/SobreNosPage/index.jsx
+import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+
 import './index.css';
 import primeiraEscolhaLogo from '../../../assets/primeiraEscolhaLogo.png';
 import inovacoesLogo from '../../../assets/inovacoesLogo.png';
 import excelenciaLogo from '../../../assets/excelenciaLogo.png';
 import Carrossel from "../../../components/Carrossel";
-import Banner from '../../../components/Banner';
 import c1 from '../../../assets/sn1.webp';
 import c2 from '../../../assets/sn2.webp';
 import c3 from '../../../assets/sn3.webp';
@@ -13,6 +16,10 @@ import timelineImage2022 from '../../../assets/atuallogo.png';
 import bannerImg from '../../../assets/bannerimg.png';
 
 function SobreNosPage() {
+
+    const { scrollY } = useScroll(); 
+    const yTransform = useTransform(scrollY, [0, 300], [0, -100]); // Controle do deslizamento da imagem ao fazer scroll
+
     const sections = [
         { title: "Primeira escolha em mobilidade", icon: primeiraEscolhaLogo, content: ["Ser reconhecidos como a solução mais confiável e acessível para aluguel e venda de veículos", "Proporcionar aos nossos clientes uma experiência prática e satisfatória", "Oferecer uma ampla gama de opções para atender a todas as necessidades de mobilidade"] },
         { title: "Inovação contínua", icon: inovacoesLogo, content: ["Oferecer aos clientes as ferramentas mais modernas para aluguel e compra de veículos.", "Investir em plataformas digitais intuitivas.", "Estabelecer parcerias com empresas de tecnologia para melhorar a experiência dos clientes."] },
@@ -24,11 +31,20 @@ function SobreNosPage() {
     return (
         <div className="sobre-nos-page">
             <motion.div 
-                initial={{ opacity: 0 }} 
-                whileInView={{ opacity: 1 }} 
-                transition={{ duration: 1 }}
+                className="banner-section"
+                style={{
+                    backgroundImage: `url(${bannerImg})`,
+                    y: yTransform
+                }}
+
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+              
             >
-                <Banner imagePath={bannerImg} title="Mobilidade com Confiabilidade e Inovação" />
+                <div className="banner-text">
+                    <h1>Mobilidade com Confiabilidade e Inovação</h1>
+                </div>
             </motion.div>
 
             <motion.div className="timeline-section" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
@@ -48,6 +64,39 @@ function SobreNosPage() {
                         </div>
                         <p>Expansão da plataforma digital</p>
                     </motion.div>
+
+                    <motion.div className="timeline-item">
+                        <div className="timeline-header">
+                            <img src={timelineImage2021} alt="Icone Extra 1" className="timeline-icon" />
+                            <h3 className="timeline-year">2023</h3>
+                        </div>
+                        <p>Lançamento de novos serviços</p>
+                    </motion.div>
+
+                    <motion.div className="timeline-item">
+                        <div className="timeline-header">
+                            <img src={timelineImage2022} alt="Icone Extra 2" className="timeline-icon" />
+                            <h3 className="timeline-year">2024</h3>
+                        </div>
+                        <p>Parcerias estratégicas internacionais</p>
+                    </motion.div>
+
+                    <motion.div className="timeline-item">
+                        <div className="timeline-header">
+                            <img src={timelineImage2021} alt="Icone Extra 3" className="timeline-icon" />
+                            <h3 className="timeline-year">2025</h3>
+                        </div>
+                        <p>Expansão global da Car Solutions</p>
+                    </motion.div>
+
+                    <motion.div className="timeline-item">
+                        <div className="timeline-header">
+                            <img src={timelineImage2022} alt="Icone Extra 4" className="timeline-icon" />
+                            <h3 className="timeline-year">2026</h3>
+                        </div>
+                        <p>Inovações em tecnologia de mobilidade</p>
+                    </motion.div>
+
                 </div>
             </motion.div>
             
@@ -61,8 +110,8 @@ function SobreNosPage() {
                 <div>
                     
                 </div>
-                    <h2 className="section-title">Nossos Objetivos</h2>     
                     <div className="sections-container">
+                    <h2 className="section-title">Nossos Objetivos</h2>     
                         
                         {sections.map((section, index) => (
                             <div key={index} className="dropdown-section">
