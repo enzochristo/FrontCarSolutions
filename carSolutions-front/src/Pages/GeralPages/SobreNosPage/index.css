@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 .sobre-nos-page h2 {
@@ -12,32 +14,40 @@
     color: #333;
 }
 
-.banner {
+.banner-section {
     position: relative;
-    width: 100%;
-    height: 600px;
+    width: 100vw; /* Ocupa toda a largura da viewport */
+    height: 100vh; /* Define uma altura mais responsiva */
+    background-image: url('../../../assets/bannerimg.png'); /* Caminho da imagem do banner */
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    color: #ffffff;
-    text-align: left;
-    padding-left: 4rem;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
     overflow: hidden;
 }
 
-.banner-content h1 {
-    font-size: 3rem;
+.banner-text {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    max-width: 80%;
+}
+
+.banner-text h1 {
+    font-size: 2.5rem;
+    margin: 0; /* Remove margem extra */
     font-weight: bold;
     color: #fff;
     text-align: center;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
-    margin: 0 auto;
+    padding: 1rem;
 }
 
 .timeline-section {
@@ -271,16 +281,15 @@ li {
         flex-direction: column;
         gap: 1.5rem;
     }
-    .banner {
-        height: 400px;
-        padding-left: 2rem;
-        justify-content: center;
-        text-align: center;
+    .banner-section {
+        height: 70vh; /* Reduz a altura em telas menores */
     }
-    .banner h1 {
-        font-size: 2rem;
-        padding: 0 1.5rem;
+
+    .banner-text h1 {
+        font-size: 2rem; /* Reduz o tamanho da fonte em telas menores */
+        padding: 1rem;
     }
+
     .timeline-section, .carousel-section, .dropdown-title {
         font-size: 1rem;
     }
@@ -304,4 +313,15 @@ li {
     }    
 
     
+}
+
+@media (max-width: 480px) {
+    .banner-section {
+        height: 60vh; /* Ajusta ainda mais a altura para telas muito pequenas */
+    }
+   
+    .banner-text h1 {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
 }
