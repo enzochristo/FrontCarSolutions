@@ -103,7 +103,9 @@ p {
   gap: 1rem;
   flex-shrink: 0; /* Impede que os ícones encolham muito */
 }
-
+.carsol{
+  margin-top: 0px;
+}
 .social-logo {
   width: 5vw; /* Define largura em vw para adaptabilidade */
   max-width: 25px; /* Limite máximo de largura */
