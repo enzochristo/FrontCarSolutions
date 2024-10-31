@@ -6,9 +6,9 @@
     align-items: center;
     padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     height: 370px;
   }
   
@@ -18,7 +18,7 @@
     max-height: 200px;
     max-width: 300px;
     margin-top: 0.5rem;
-    border-radius: 8px;
+    border-radius: 5px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -48,7 +48,7 @@
   .botao-produto-car {
     display: flex;
     justify-content: center;
-    background-color: #EA4935;
+    background-color: #D9AE5F;
     color: #fff;
     padding: 0.5rem;
     border: none;

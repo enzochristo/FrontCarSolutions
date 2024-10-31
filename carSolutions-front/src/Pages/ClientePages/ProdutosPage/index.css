@@ -1,41 +1,66 @@
 /* src/Pages/ProdutosPage/index.css */
 
 .produtos-page {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
+h4{
+  margin-top: 10%;
+}
+
+.content-produtos {
+  display: flex;
+  flex-direction: row;
+}
+
+.carros-disponiveis {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 2rem 2rem 2rem;
+}
+
+.filtro-produtos {
+  margin: 0 2rem 2rem 2rem;
+  border-radius: 8px;
+  margin-right: 2rem;
+}
+
+/* Ajuste para a seção de Filtros de Produto */
+.filtro-produtos .produto-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Espaçamento entre os itens */
+  margin-top: 1rem;
+}
+
+.filtro-produtos .produto-section label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espaçamento entre o checkbox e o texto */
+  font-size: 1rem;
+  color: #333;
+}
+
+.filtro-produtos input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
   .content-produtos {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .carros-disponiveis {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin: 0 2rem 2rem 2rem;
-  }
-  
-  .filtro-produtos {
-    margin: 0 2rem 2rem 2rem;
-    border-radius: 8px;
-    margin-right: 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .content-produtos {
       flex-direction: column;
-    }
-    .retirada {
+  }
+  .retirada {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
-    .devolucao{
+  }
+  .devolucao {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
   }
+}
