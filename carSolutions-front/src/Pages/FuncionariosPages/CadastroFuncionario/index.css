@@ -42,6 +42,14 @@
   font-weight: bold;
 }
 
+.input-row-cep-genero-funcionario{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .input-row {
   display: flex;
   gap: 1rem;

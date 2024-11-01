@@ -96,9 +96,8 @@ const RegisterClientePage = () => {
           <input name="celular" placeholder="Telefone" onChange={handleChange} required />
         </div>
         <div className="input-row-cepgen">
-        <select name="genero" placeholder= "genero" onChange={handleChange} required className='genero' >
-            <option value="" disabled hidden>Selecione seu gênero</option>
-            <option value="M">Masculino</option>
+        <select name="genero" placeholder= "genero" onChange={handleChange} required className='genero-cliente' >
+            <option value="">Selecione seu gênero</option>            <option value="M">Masculino</option>
             <option value="F">Feminino</option>
             <option value="O">Outros</option>
           </select>         
