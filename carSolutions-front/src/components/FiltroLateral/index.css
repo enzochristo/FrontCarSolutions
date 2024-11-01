@@ -1,0 +1,91 @@
+/* src/components/CarFilters/index.css */
+
+.filter-panel {
+    width: 250px;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .filter-panel h3 {
+    font-size: 1.4rem;
+    color: #173F73;
+    margin-bottom: 1rem;
+  }
+  
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .filter-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .filter-section label {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .filter-section input[type="text"],
+  .filter-section select {
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .filter-section input[type="range"] {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+/* src/components/CarFilters/index.css */
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.apply-button-filtro {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #4B4737;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.apply-button:hover {
+  background-color: #555;
+}
+
+.clear-button {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #b22222;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+  background-color: #8b0000;
+}
+
+  
