@@ -134,10 +134,48 @@ export const fetchCars = async () => {
   });
 };
 
-export const getAvailableCars = async () => {
-  const response = await axios.get(`${API_URL}/available/`);
-  return response.data;
+
+export const getAvailableCars = async (filters = {}) => {
+  let token = localStorage.getItem('access_token');
+  const params = new URLSearchParams(filters).toString();
+
+  try {
+    const response = await axios.get(`${API_URL}/available/?${params}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    // Se o erro for de autorização, tenta revalidar o token
+    if (error.response && error.response.status === 401) {
+      token = await refreshAccessToken();
+      if (token) {
+        // Tenta novamente a requisição com o novo token
+        const retryResponse = await axios.get(`${API_URL}/available/?${params}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return retryResponse.data;
+      }
+    }
+    console.error("Erro ao carregar dados dos carros:", error);
+    return [];
+  }
 };
+
+// Cria uma nova reserva para um carro
+export const createReservation = async (reservationData) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.post(`${API_URL}/reservations/`, reservationData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+
 
 // Função para buscar lembretes
 // Função para buscar todos os lembretes
@@ -162,4 +200,23 @@ export const markLembreteAsOk = async (lembreteId) => {
   return await axios.patch(`${API_URL}/lembretes/${lembreteId}/ok/`, {}, {
     headers: { Authorization: `Bearer ${token}` },
   });
+};
+
+export const refreshAccessToken = async () => {
+  const refreshToken = localStorage.getItem('refresh_token');
+  if (!refreshToken) {
+    console.error("Token de atualização não encontrado.");
+    return;
+  }
+  
+  try {
+    const response = await axios.post(`${API_URL}/token/refresh/`, {
+      refresh: refreshToken,
+    });
+    localStorage.setItem('access_token', response.data.access);
+    return response.data.access;
+  } catch (error) {
+    console.error("Erro ao atualizar o token:", error);
+    return null;
+  }
 };

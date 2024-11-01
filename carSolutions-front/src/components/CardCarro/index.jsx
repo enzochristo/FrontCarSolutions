@@ -1,17 +1,23 @@
 // src/components/CarCard/index.jsx
 import './index.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CarCard = ({ car }) => {
-    const baseURL = "http://localhost:8000";
+  const navigate = useNavigate();
+
+  const handleComprar = () => {
+    navigate('/cliente/ResumoCompra', { state: { car } });
+  };
+
   return (
     <div className="car-card">
-      <img src={`${baseURL}${car.imagem}`} alt={`${car.modelo}`} className='car-image-produto' />
+      <img src={`${car.imagem}`} alt={`${car.modelo}`} className='car-image-produto' />
       <h4 className="car-modelo">{car.modelo}</h4>
       <div className="car-precos">
         {car.preco_venda && (
           <div className="preco-produto">
-            <Link to='/cliente/ResumoCompra/' className="botao-produto-car">Comprar</Link>
+            <button onClick={handleComprar}>Comprar</button>
             <span>R$ {car.preco_venda}</span>
           </div>
         )}
