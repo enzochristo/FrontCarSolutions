@@ -11,14 +11,15 @@ import RedefinirSenha from './Pages/GeralPages/RedefinirSenhaPage';
 // CLIENTES:
 // import ConfirmacaoPagamentoPage from './Pages/ClientePages/ConfirmaçãoPagamentoPage'
 import LoginPageCliente from './Pages/ClientePages/LoginPage';
-
 import MeusDadosCliente from './Pages/ClientePages/MeusDadosPage'
 import PagamentoPage from './Pages/ClientePages/PagamentoPage'
+import ConfirmacaoPagamento from './Pages/ClientePages/ConfirmaçãoPagamentoPage';
 import ProdutosPage from './Pages/ClientePages/ProdutosPage'
 import ResumoCompraPage from './Pages/ClientePages/ResumoCompraPage'
 import ResumoAluguelPage from './Pages/ClientePages/ResumoAluguelPage'
 import CadastroClientePage from './Pages/ClientePages/CadastroCliente'
 import SobreNosClientePage from './Pages/ClientePages/SobreNosPage'
+import MinhasReservas from './Pages/ClientePages/MinhasReservas';
 
 // FUNCIONARIOS:
 import CadastroVeiculoPage from './Pages/FuncionariosPages/CadastroVeiculoPage'
@@ -73,10 +74,12 @@ function App() {
             {/*Rotas paginas Clientes*/}
             <Route path="/cliente/MeusDadosCliente" element={<ProtectedRoute>  <MeusDadosCliente /></ProtectedRoute>} />
             <Route path="/cliente/Pagamento" element={<ProtectedRoute>  <PagamentoPage /></ProtectedRoute>} />
+            <Route path="/cliente/ConfirmacaoPagamento" element={<ProtectedRoute>  <ConfirmacaoPagamento /></ProtectedRoute>} />
             <Route path="/cliente/Produtos" element={<ProtectedRoute>  <ProdutosPage /></ProtectedRoute>} />
             <Route path="/cliente/ResumoCompra" element={<ProtectedRoute>  <ResumoCompraPage /></ProtectedRoute>} />
             <Route path="/cliente/ResumoAluguel" element={<ProtectedRoute>  <ResumoAluguelPage /></ProtectedRoute>} />
             <Route path="/cliente/SobreNosCliente" element={<ProtectedRoute>  <SobreNosClientePage /></ProtectedRoute>} />
+            <Route path="/cliente/MinhasReservas" element={<ProtectedRoute>  <MinhasReservas /></ProtectedRoute>} />
 
           </Routes>
         </div>

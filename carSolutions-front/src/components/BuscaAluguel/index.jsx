@@ -1,70 +1,89 @@
+// src/components/BuscaAluguel/BuscaAluguel.jsx
+import { useState } from 'react';
 import './index.css';
-import { useState, useEffect } from 'react';
-import { getAvailableCars } from '../../services/api';
+import { getAvailableCarsByDate } from '../../services/api';
 
+const BuscaAluguel = ({ onAvailableCars }) => {
+  const [filters, setFilters] = useState({
+    localRetirada: '',
+    horarioRetirada: '',
+    dataRetirada: '',
+    localDevolucao: '',
+    horarioDevolucao: '',
+    dataDevolucao: '',
+  });
 
-const BuscaAluguel = () => {
-    const [filters, setFilters] = useState({
-        localRetirada: '',
-        horarioRetirada: '',
-        dataRetirada: '',
-        localDevolucao: '',
-        horarioDevolucao: '',
-        dataDevolucao: '',
-      });
-      const [cars, setCars] = useState([]);
-    
-      useEffect(() => {
-        const fetchCars = async () => {
-          try {
-            const availableCars = await getAvailableCars();
-            setCars(availableCars || []); // Garante que 'cars' será um array
-          } catch (error) {
-            console.error('Erro ao carregar carros disponíveis:', error);
-            setCars([]); // Em caso de erro, inicializa 'cars' como um array vazio
-          }
-        };
-        fetchCars();
-      }, []);
   const handleFilterChange = (filterName, value) => {
     setFilters({ ...filters, [filterName]: value });
   };
 
+  const handleSearch = async () => {
+    const { localRetirada, horarioRetirada, dataRetirada, localDevolucao, horarioDevolucao, dataDevolucao } = filters;
+    
+    if (!localRetirada || !horarioRetirada || !dataRetirada || !localDevolucao || !horarioDevolucao || !dataDevolucao) {
+      alert("Preencha todos os campos para buscar carros disponíveis.");
+      return;
+    }
+  
+    try {
+      // Passa todos os filtros para o backend para buscar os carros disponíveis
+      const availableCars = await getAvailableCarsByDate({
+        dataRetirada,
+        horarioRetirada,
+        dataDevolucao,
+        horarioDevolucao,
+        localRetirada,
+        localDevolucao,
+      });
+      
+      // Envia os filtros originais para o componente pai, para que ele possa utilizá-los conforme necessário
+      onAvailableCars({
+        ...filters,
+        availableCars, // opcional, pode ser removido se `onAvailableCars` não espera isso
+      }); 
+    } catch (error) {
+      console.error('Erro ao buscar carros disponíveis por data:', error);
+      alert('Erro ao buscar carros disponíveis. Tente novamente.');
+    }
+  };
+  
 
-    return(      
+  
+
+  return (
     <div className="destaque-retirada-devolucao">
-        <h3>Aluguel de Carros</h3>
-        <div className="retirada-devolucao-inputs">
-          <div className='retirada'>
-          <div className='bloco'>
+      <h3>Aluguel de Carros</h3>
+      <div className="retirada-devolucao-inputs">
+        <div className="retirada">
+          <div className="bloco">
             <label>Local de Retirada:</label>
             <select
               value={filters.localRetirada}
               onChange={(e) => handleFilterChange('localRetirada', e.target.value)}
             >
-              <option  value="">Selecione o local de retirada</option>
+              <option value="">Selecione o local de retirada</option>
               <option value="Congonhas">Aeroporto de Congonhas</option>
               <option value="Guarulhos">Aeroporto de Guarulhos</option>
             </select>
           </div>
-          <div className='bloco'>
-            <label>Data e Horário de retirada:</label>
-            <div className='Data-hora'>
-            <input 
-              type="date"
-              value={filters.dataRetirada}
-              onChange={(e) => handleFilterChange('dataRetirada', e.target.value)}
-            />
-            <input 
-              type="time"
-              value={filters.horarioRetirada}
-              onChange={(e) => handleFilterChange('horarioRetirada', e.target.value)}
-            />
+          <div className="bloco">
+            <label>Data e Horário de Retirada:</label>
+            <div className="data-hora">
+              <input
+                type="date"
+                value={filters.dataRetirada}
+                onChange={(e) => handleFilterChange('dataRetirada', e.target.value)}
+              />
+              <input
+                type="time"
+                value={filters.horarioRetirada}
+                onChange={(e) => handleFilterChange('horarioRetirada', e.target.value)}
+              />
             </div>
           </div>
-          </div>
-          <div className='devolucao'>
-          <div className='bloco'>
+        </div>
+        <div className="devolucao">
+          <div className="bloco">
             <label>Local de Devolução:</label>
             <select
               value={filters.localDevolucao}
@@ -75,25 +94,26 @@ const BuscaAluguel = () => {
               <option value="Guarulhos">Aeroporto de Guarulhos</option>
             </select>
           </div>
-            <div className='bloco'>
+          <div className="bloco">
             <label>Data e Horário de Devolução:</label>
-              <div className='Data-hora'>
-                <input
-                  type="date"
-                  value={filters.dataDevolucao}
-                  onChange={(e) => handleFilterChange('dataDevolucao', e.target.value)}
-                />
-                <input
-                  type="time"
-                  value={filters.horarioDevolucao}
-                  onChange={(e) => handleFilterChange('horarioDevolucao', e.target.value)}
-                />
-              </div>
+            <div className="data-hora">
+              <input
+                type="date"
+                value={filters.dataDevolucao}
+                onChange={(e) => handleFilterChange('dataDevolucao', e.target.value)}
+              />
+              <input
+                type="time"
+                value={filters.horarioDevolucao}
+                onChange={(e) => handleFilterChange('horarioDevolucao', e.target.value)}
+              />
             </div>
           </div>
         </div>
       </div>
-    )
-}
+      <button className="search-button" onClick={handleSearch}>Buscar</button>
+    </div>
+  );
+};
 
 export default BuscaAluguel;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser, fetchAddressByCEP } from '../../../services/api';
 import './index.css';
@@ -61,6 +61,9 @@ const RegisterFuncionarioPage = () => {
       setError('Erro ao registrar. Tente novamente.');
     }
   };
+
+  useEffect(() => {handleCEPBlur()}, [formData.cep]);
+
 
   return (
     <div className="form-container">
