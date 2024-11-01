@@ -1,9 +1,9 @@
 // src/components/BuscaAluguel/BuscaAluguel.jsx
 import { useState } from 'react';
 import './index.css';
-import { getAvailableCars } from '../../services/api';
+import { getAvailableCarsByDate } from '../../services/api';
 
-const BuscaAluguel = ({ onSearch }) => {
+const BuscaAluguel = ({ onAvailableCars }) => {
   const [filters, setFilters] = useState({
     localRetirada: '',
     horarioRetirada: '',
@@ -17,7 +17,6 @@ const BuscaAluguel = ({ onSearch }) => {
     setFilters({ ...filters, [filterName]: value });
   };
 
-  // Função para buscar carros disponíveis com base nos filtros
   const handleSearch = async () => {
     const { localRetirada, horarioRetirada, dataRetirada, localDevolucao, horarioDevolucao, dataDevolucao } = filters;
     if (!localRetirada || !horarioRetirada || !dataRetirada || !localDevolucao || !horarioDevolucao || !dataDevolucao) {
@@ -26,18 +25,17 @@ const BuscaAluguel = ({ onSearch }) => {
     }
 
     try {
-      // Chama a função para obter carros disponíveis com os parâmetros do filtro
-      const availableCars = await getAvailableCars({
+      // Filtra os carros disponíveis com base no período de retirada e devolução
+      const availableCars = await getAvailableCarsByDate({
         dataRetirada,
         horarioRetirada,
         dataDevolucao,
         horarioDevolucao,
       });
       
-      // Passa os carros disponíveis para o componente pai através de `onSearch`
-      onSearch(availableCars);
+      onAvailableCars(availableCars); // Envia a lista de carros disponíveis para o componente pai
     } catch (error) {
-      console.error('Erro ao buscar carros disponíveis:', error);
+      console.error('Erro ao buscar carros disponíveis por data:', error);
       alert('Erro ao buscar carros disponíveis. Tente novamente.');
     }
   };

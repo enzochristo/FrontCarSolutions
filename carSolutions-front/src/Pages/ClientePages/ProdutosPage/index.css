@@ -20,3 +20,17 @@
   gap: 1rem;
   flex: 1;
 }
+
+.clear-period-filter-button {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-period-filter-button:hover {
+  background-color: #0056b3;
+}

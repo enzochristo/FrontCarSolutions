@@ -1,7 +1,7 @@
 // src/pages/Pagamento.jsx
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { createReservation } from '../../services/api';
+import { createReservation } from '../../../services/api';
 
 const Pagamento = () => {
   const location = useLocation();
