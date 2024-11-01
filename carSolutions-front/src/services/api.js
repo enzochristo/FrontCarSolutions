@@ -214,6 +214,35 @@ export const criarReserva = async (reservaData) => {
   });
 };
 
+// src/services/api.js
+export const fetchUserReservations = async () => {
+  const token = localStorage.getItem('access_token');
+  return await axios.get(`${API_URL}/user/reservations/`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const fetchAllReservations = async () => {
+  const token = localStorage.getItem('access_token');
+  return await axios.get(`${API_URL}/all/reservations/`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+export const cancelReservation = async (reservationId) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.delete(`${API_URL}/reservations/${reservationId}/`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const updateReservationStatus = async (reservationId, statusData) => {
+  const token = localStorage.getItem('access_token');
+  return await axios.patch(`${API_URL}/reservations/${reservationId}/status/`, statusData, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+
 // Função para buscar lembretes
 // Função para buscar todos os lembretes
 export const fetchLembretes = async () => {

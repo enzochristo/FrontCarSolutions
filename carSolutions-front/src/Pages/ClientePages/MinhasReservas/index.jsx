@@ -1,43 +1,60 @@
 // src/pages/MinhasReservas/MinhasReservas.jsx
-import React, { useState, useEffect } from 'react';
-import { getUserReservations, updateReservationStatus } from '../../../services/api';
+import React, { useEffect, useState } from 'react';
+import { fetchUserReservations, cancelReservation } from '../../../services/api';
+import './index.css';
 
 const MinhasReservas = () => {
   const [reservas, setReservas] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchReservations = async () => {
-      const data = await getUserReservations();
-      setReservas(data);
-    };
-    fetchReservations();
+    loadUserReservations();
   }, []);
 
-  const handleStatusUpdate = async (id, newStatus) => {
+  const loadUserReservations = async () => {
     try {
-      await updateReservationStatus(id, newStatus);
-      setReservas((prev) =>
-        prev.map((reserva) =>
-          reserva.id === id ? { ...reserva, status: newStatus } : reserva
-        )
-      );
+      const response = await fetchUserReservations();
+      setReservas(response.data);
     } catch (error) {
-      alert("Erro ao atualizar status da reserva.");
+      console.error("Erro ao carregar as reservas do usuário:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCancel = async (reservationId) => {
+    try {
+      await cancelReservation(reservationId);
+      alert("Reserva cancelada com sucesso!");
+      loadUserReservations(); // Recarrega as reservas para atualizar a lista
+    } catch (error) {
+      console.error("Erro ao cancelar a reserva:", error);
+      alert("Erro ao cancelar a reserva. Tente novamente.");
     }
   };
 
   return (
-    <div>
-      <h2>Minhas Reservas</h2>
-      {reservas.map((reserva) => (
-        <div key={reserva.id}>
-          <p>Carro: {reserva.car.modelo}</p>
-          <p>Status: {reserva.status}</p>
-          <button onClick={() => handleStatusUpdate(reserva.id, 'Cancelada')}>
-            Cancelar Reserva
-          </button>
-        </div>
-      ))}
+    <div className="minhas-reservas-page">
+      <h1>Minhas Reservas</h1>
+      {loading ? (
+        <p>Carregando suas reservas...</p>
+      ) : reservas.length > 0 ? (
+        reservas.map((reserva) => (
+          <div key={reserva.id} className="reserva-card">
+            <h3>{reserva.car.modelo}</h3>
+            <p>Data de Retirada: {new Date(reserva.data_retirada).toLocaleDateString()}</p>
+            <p>Data de Devolução: {new Date(reserva.data_devolucao).toLocaleDateString()}</p>
+            <p>Local de Retirada: {reserva.local_retirada}</p>
+            <p>Local de Devolução: {reserva.local_devolucao}</p>
+            <p>Status: {reserva.status}</p>
+            {reserva.status === "Em Breve" && (
+              <button onClick={() => handleCancel(reserva.id)}>Cancelar Reserva</button>
+            )}
+          </div>
+        ))
+      ) : (
+        <p>Você não possui reservas no momento.</p>
+      )}
     </div>
   );
 };
