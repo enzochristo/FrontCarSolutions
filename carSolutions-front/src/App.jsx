@@ -29,7 +29,7 @@ import PrincipalPageFuncionario from './Pages/FuncionariosPages/PrincipalPage'
 import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
 import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
 import CadastroPageFuncionario from './Pages/FuncionariosPages/CadastroFuncionario'
-
+import TodasReservas from './Pages/FuncionariosPages/TodasReservas';
 // COMPONENTES:
 import Footer from './components/footer';
 import Header  from './components/header'; // Importa o Header
@@ -70,6 +70,7 @@ function App() {
             <Route path="/funcionario/PrincipalFuncionario" element={<ProtectedRoute>  <PrincipalPageFuncionario /></ProtectedRoute>} />
             <Route path="/funcionario/ProdutosCadastrados" element={<ProtectedRoute>  <ProdutosCadastradosPage /></ProtectedRoute>} />
             <Route path="/funcionario/SobreNosFuncionario" element={<ProtectedRoute>  <SobreNosPageFuncionario /></ProtectedRoute>} />
+            <Route path="/funcionario/TodasReservas" element={<ProtectedRoute>  <TodasReservas /></ProtectedRoute>} />
 
             {/*Rotas paginas Clientes*/}
             <Route path="/cliente/MeusDadosCliente" element={<ProtectedRoute>  <MeusDadosCliente /></ProtectedRoute>} />
