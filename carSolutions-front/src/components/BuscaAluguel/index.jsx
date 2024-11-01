@@ -19,26 +19,36 @@ const BuscaAluguel = ({ onAvailableCars }) => {
 
   const handleSearch = async () => {
     const { localRetirada, horarioRetirada, dataRetirada, localDevolucao, horarioDevolucao, dataDevolucao } = filters;
+    
     if (!localRetirada || !horarioRetirada || !dataRetirada || !localDevolucao || !horarioDevolucao || !dataDevolucao) {
       alert("Preencha todos os campos para buscar carros disponíveis.");
       return;
     }
-
+  
     try {
-      // Filtra os carros disponíveis com base no período de retirada e devolução
+      // Passa todos os filtros para o backend para buscar os carros disponíveis
       const availableCars = await getAvailableCarsByDate({
         dataRetirada,
         horarioRetirada,
         dataDevolucao,
         horarioDevolucao,
+        localRetirada,
+        localDevolucao,
       });
       
-      onAvailableCars(availableCars); // Envia a lista de carros disponíveis para o componente pai
+      // Envia os filtros originais para o componente pai, para que ele possa utilizá-los conforme necessário
+      onAvailableCars({
+        ...filters,
+        availableCars, // opcional, pode ser removido se `onAvailableCars` não espera isso
+      }); 
     } catch (error) {
       console.error('Erro ao buscar carros disponíveis por data:', error);
       alert('Erro ao buscar carros disponíveis. Tente novamente.');
     }
   };
+  
+
+  
 
   return (
     <div className="destaque-retirada-devolucao">

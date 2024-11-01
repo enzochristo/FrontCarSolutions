@@ -7,24 +7,26 @@ import { getAvailableCars, getAvailableCarsByDate } from '../../../services/api'
 import './index.css';
 
 const ProdutosPage = () => {
-  const [carros, setCarros] = useState([]); // Todos os carros disponíveis, inicializado com a lista completa
-  const [filteredCarros, setFilteredCarros] = useState([]); // Carros filtrados para exibição
+  const [carros, setCarros] = useState([]); // Todos os carros disponíveis
+  const [filteredCarros, setFilteredCarros] = useState([]); // Carros exibidos após filtragem
   const [loading, setLoading] = useState(true);
-  const [isPeriodFiltered, setIsPeriodFiltered] = useState(false); // Estado para controlar o filtro de período
+  const [isPeriodFiltered, setIsPeriodFiltered] = useState(false); // Estado para saber se o filtro de período está ativo
+  const [reservationDetails, setReservationDetails] = useState(null); // Novo estado para armazenar detalhes da reserva
 
   // Carrega todos os carros disponíveis ao montar o componente
   useEffect(() => {
-    loadAvailableCars();
+    loadAvailableCars(); // Carrega todos os carros inicialmente
   }, []);
 
-  // Função para carregar todos os carros disponíveis ou carros filtrados por disponibilidade de período
+  // Função para carregar todos os carros disponíveis ou aplicar filtros
   const loadAvailableCars = async (filters = {}) => {
     try {
       setLoading(true);
-      const data = await getAvailableCars(filters); // Carrega carros disponíveis, possivelmente com filtros
+      const data = await getAvailableCars(filters); // Carrega todos os carros disponíveis do backend
       setCarros(data);
-      setFilteredCarros(data); // Inicializa a lista de exibição com todos os carros disponíveis
-      setIsPeriodFiltered(false); // Reseta o filtro de período ao carregar todos os carros
+      setFilteredCarros(data); // Exibe todos os carros inicialmente
+      setIsPeriodFiltered(false); // Marca que o filtro de período não está ativo
+      setReservationDetails(null); // Limpa os detalhes de reserva
       setLoading(false);
     } catch (error) {
       console.error("Erro ao carregar carros disponíveis:", error);
@@ -32,28 +34,34 @@ const ProdutosPage = () => {
     }
   };
 
-  // Recebe a lista de carros disponíveis para o período especificado pelo BuscaAluguel
-  const handleAvailableCars = async (periodFilters) => {
+  // Função chamada pelo BuscaAluguel para definir os detalhes da reserva
+  const handleAvailableCars = async (filters) => {
     try {
       setLoading(true);
-      const availableCars = await getAvailableCarsByDate(periodFilters); // Busca carros disponíveis no período especificado
+      const availableCars = await getAvailableCarsByDate(filters); // Busca carros disponíveis no período
       setCarros(availableCars);
       setFilteredCarros(availableCars); // Atualiza a lista de exibição com carros disponíveis no período
       setIsPeriodFiltered(true); // Marca que o filtro de período está ativo
+      setReservationDetails(filters); // Salva os detalhes de reserva fornecidos pelo usuário
+  
+      console.log("Reservation Details Set:", filters); // Adiciona este log para verificar se os dados estão corretos
+  
       setLoading(false);
     } catch (error) {
       console.error("Erro ao buscar carros disponíveis no período:", error);
       setLoading(false);
     }
   };
+  
+
   // Função para limpar o filtro de período e restaurar todos os carros disponíveis
   const handleClearPeriodFilter = () => {
-    loadAvailableCars(); // Restaura a lista com todos os carros disponíveis
+    loadAvailableCars(); // Restaura todos os carros
   };
 
-  // Aplica os filtros da lateral sobre a lista atual de carros disponíveis
+  // Aplica filtros da lateral na lista de carros já filtrada pelo período
   const handleFilter = (filters) => {
-    const filtered = carros.filter((car) => {
+    const filtered = (isPeriodFiltered ? carros : filteredCarros).filter((car) => {
       return (
         (!filters.marca || car.marca === filters.marca) &&
         (!filters.tipoProduto || car.tipo_de_produto === filters.tipoProduto) &&
@@ -69,7 +77,7 @@ const ProdutosPage = () => {
 
   return (
     <div className="produtos-page">
-      {/* Componente para busca de disponibilidade por período */}
+      {/* Componente de Busca por Aluguel com período */}
       <BuscaAluguel onAvailableCars={handleAvailableCars} />
       {/* Botão para limpar o filtro de período, visível apenas se o filtro de período estiver ativo */}
       {isPeriodFiltered && (
@@ -79,7 +87,7 @@ const ProdutosPage = () => {
       )}
 
       <div className="filter-and-cards">
-        {/* Filtros da lateral */}
+        {/* Filtros da lateral aplicados na lista de carros disponível */}
         <CarFilters onFilter={handleFilter} />
 
         <div className="carros-disponiveis">
@@ -87,7 +95,7 @@ const ProdutosPage = () => {
             <p>Carregando carros disponíveis...</p>
           ) : filteredCarros.length > 0 ? (
             filteredCarros.map(carro => (
-              <CarCard key={carro.id} car={carro} />
+              <CarCard key={carro.id} car={carro} reservationDetails={reservationDetails} /> // Passa reservationDetails
             ))
           ) : (
             <p>Nenhum carro encontrado com os filtros selecionados.</p>

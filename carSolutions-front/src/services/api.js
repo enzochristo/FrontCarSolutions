@@ -205,16 +205,14 @@ export const getAvailableCars = async (filters = {}) => {
 };
 
 // Cria uma nova reserva para um carro
-export const createReservation = async (reservationData) => {
+export const criarReserva = async (reservaData) => {
   const token = localStorage.getItem('access_token');
-  return await axios.post(`${API_URL}/reservations/`, reservationData, {
+  return await axios.post(`${API_URL}/reservations/`, reservaData, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
-
-
 
 // Função para buscar lembretes
 // Função para buscar todos os lembretes

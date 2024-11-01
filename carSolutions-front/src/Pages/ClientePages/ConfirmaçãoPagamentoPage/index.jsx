@@ -1,16 +1,24 @@
-// src/pages/SobreNosPage/index.jsx
+// src/pages/ConfirmacaoPagamento/ConfirmacaoPagamento.jsx
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-function ConfimaPagamento() {
+const ConfirmacaoPagamento = () => {
+  const location = useLocation();
+  const { car, reservationDetails, precoTotal } = location.state || {};
+
   return (
-    <>
-        <h2>Página de Pagamento confirmado</h2>
-        <p>
-            Página de pagamento confirmado
-        </p>
-    </>
-
+    <div className="confirmacao-pagamento">
+      <h2>Pagamento Confirmado!</h2>
+      <p>Obrigado pelo seu aluguel. Aqui estão os detalhes:</p>
+      <div className="resumo-aluguel">
+        <p><strong>Carro:</strong> {car.modelo}</p>
+        <p><strong>Data de Retirada:</strong> {reservationDetails.dataRetirada} - {reservationDetails.horarioRetirada}</p>
+        <p><strong>Data de Devolução:</strong> {reservationDetails.dataDevolucao} - {reservationDetails.horarioDevolucao}</p>
+        <p><strong>Preço Total:</strong> R$ {precoTotal}</p>
+      </div>
+      <p>Entraremos em contato caso haja qualquer atualização em sua reserva.</p>
+    </div>
   );
-}
+};
 
-export default ConfimaPagamento;
+export default ConfirmacaoPagamento;

@@ -1,18 +1,29 @@
 // src/components/CarCard/index.jsx
 import './index.css';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const CarCard = ({ car }) => {
+const CarCard = ({ car, reservationDetails }) => {
   const navigate = useNavigate();
 
   const handleComprar = () => {
     navigate('/cliente/ResumoCompra', { state: { car } });
   };
 
+  const handleAlugar = () => {
+    console.log("Car Details:", car);
+    console.log("Reservation Details in CarCard:", reservationDetails);
+  
+    if (reservationDetails) {
+      navigate('/cliente/ResumoAluguel', { state: { car, reservationDetails } });
+    } else {
+      alert("Preencha o formulário de busca de aluguel antes de alugar.");
+    }
+  };
+  
+
   return (
     <div className="car-card">
-      <img src={`${car.imagem}`} alt={`${car.modelo}`} className='car-image-produto' />
+      <img src={`${car.imagem}`} alt={`${car.modelo}`} className="car-image-produto" />
       <h4 className="car-modelo">{car.modelo}</h4>
       <div className="car-precos">
         {car.preco_venda && (
@@ -23,7 +34,7 @@ const CarCard = ({ car }) => {
         )}
         {car.preco_diaria && (
           <div className="preco-produto">
-            <Link to='/cliente/Pagamento/' className="botao-produto-car">Alugar</Link>
+            <button onClick={handleAlugar}>Alugar</button>
             <span>R$ {car.preco_diaria}/dia</span>
           </div>
         )}
