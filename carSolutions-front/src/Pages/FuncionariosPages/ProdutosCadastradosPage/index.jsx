@@ -1,3 +1,4 @@
+// src/pages/ProdutosCadastradosPage/ProdutosCadastradosPage.jsx
 import { useEffect, useState } from 'react';
 import TabelaCarros from '../../../components/TabelaCarros';
 import DetalhesDoCarro from '../../../components/DetalhesDoCarro';
@@ -25,7 +26,6 @@ const ProdutosCadastradosPage = () => {
         console.error("Erro ao carregar carros:", error);
       }
     };
-
     loadCars();
   }, []);
 
@@ -56,15 +56,26 @@ const ProdutosCadastradosPage = () => {
   };
 
   const handleFilterChange = (filters) => {
-    // Filtragem lógica aqui. Esta lógica deve ser implementada para aplicar os filtros nos dados de `cars`.
-    const { marcas, categorias, precoMin, precoMax, tipoProduto } = filters;
+    const { marcas, categorias, precoMinAluguel, precoMaxAluguel, precoMinVenda, precoMaxVenda, tipoProduto } = filters;
+    
     const filtered = cars.filter((car) => {
       const matchMarca = !marcas.length || marcas.includes(car.marca);
       const matchCategoria = !categorias.length || categorias.includes(car.categoria);
-      const matchPreco = (!precoMin || car.preco >= precoMin) && (!precoMax || car.preco <= precoMax);
       const matchTipo = !tipoProduto.length || tipoProduto.includes(car.tipo_de_produto);
-      return matchMarca && matchCategoria && matchPreco && matchTipo;
+      
+      const matchPrecoAluguel = (
+        (!precoMinAluguel || car.preco_diaria >= precoMinAluguel) &&
+        (!precoMaxAluguel || car.preco_diaria <= precoMaxAluguel)
+      );
+
+      const matchPrecoVenda = (
+        (!precoMinVenda || car.preco_venda >= precoMinVenda) &&
+        (!precoMaxVenda || car.preco_venda <= precoMaxVenda)
+      );
+
+      return matchMarca && matchCategoria && matchTipo && matchPrecoAluguel && matchPrecoVenda;
     });
+
     setFilteredCars(filtered);
   };
 
@@ -88,12 +99,12 @@ const ProdutosCadastradosPage = () => {
         <DetalhesDoCarro car={selectedCar} onClose={closeModal} />
       )}
       <div className='em-baixo'>
-      <button
-        className="floating-add-button"
-        onClick={() => navigate('/funcionario/cadastroVeiculo')}
-      >
-        <img className='icone' src={plus} alt="Adicionar" />
-      </button>
+        <button
+          className="floating-add-button"
+          onClick={() => navigate('/funcionario/cadastroVeiculo')}
+        >
+          <img className='icone' src={plus} alt="Adicionar" />
+        </button>
       </div>
     </div>
   );
