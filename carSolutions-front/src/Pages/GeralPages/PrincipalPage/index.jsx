@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./index.css";
 import Carrossel from "../../../components/Carrossel";
+import BuscaAluguelPrincipal from '@/components/BuscaAluguelPrincipal';
 import img1 from "../../../assets/pagp1.png";
 import img2 from "../../../assets/pagp2.png";
 import img3 from "../../../assets/pagp3.png";
@@ -25,6 +26,8 @@ const images = [img1, img2, img3, img4];
 function PrincipalPage() {
   return (
     <div className="principal-page">
+      <BuscaAluguelPrincipal />
+
       {/* Carrossel */}
       <section className="catalog-section">
         <h2>Catálogo do Mês</h2>
