@@ -3,10 +3,15 @@
  /* Verifique se o caminho está correto */
 /* index.css */
 
+
+
 .body-container {
-  min-height: 100vh; /* Define a altura mínima para ocupar toda a tela */
+  display: flex;
+  align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  min-height: 100%; /* Garante que a altura mínima seja toda a tela */
   position: relative;
-  overflow: hidden; /* Evita rolagem lateral */
+  overflow: hidden;
 }
 
 .background-image-editando {
@@ -16,20 +21,31 @@
   bottom: 0;
   left: 0;
   background-image: url('../../../assets/testeeditando.png'); /* Verifique o caminho */
-  background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+  background-size: cover; 
   background-position: center; /* Centraliza a imagem */
   z-index: 0;
   opacity: 0.8; /* Define a opacidade para o efeito de sobreposição */
 }
 
-.content {
+.content-cadastroveiculo {
+  max-width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  box-sizing: border-box;
   font-size: 25px;
-  color: white;
-  padding: 50px; /* Ajusta o espaçamento para o conteúdo */
-  background-color: rgba(84, 90, 111, 0.9); /* Fundo branco com opacidade para contraste */
+  /* padding: 50px; */
   border-radius: 3px; /* Arredonda as bordas para um efeito visual */
+  max-height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(84, 90, 111, 0.9); /* Fundo branco com opacidade para contraste */
+  z-index: 1;
 }
 
 
@@ -88,7 +104,7 @@
   border-radius: 8px;
   padding: 0.8rem 1rem; /* Ajuste o padding para centralizar melhor */
   margin-bottom: 2rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .titulo-icone2 {
@@ -111,8 +127,8 @@
 
 
 
-input{
-  margin: 0 !important;
+.input-cadastro{
+  margin: 0 ;
 }
 
 
@@ -171,6 +187,8 @@ input{
 .submit-button:hover {
   background-color: #006666;
 }
+
+
 
 /* Responsividade: quando a tela for menor, cada campo ocupa uma linha */
 @media (max-width: 600px) {
