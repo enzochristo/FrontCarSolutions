@@ -61,9 +61,9 @@ const ProdutosPage = () => {
 
   // Aplica filtros da lateral na lista de carros já filtrada pelo período
   const handleFilter = (filters) => {
-    const filtered = (isPeriodFiltered ? carros : filteredCarros).filter((car) => {
+    const filtered = carros.filter((car) => {
       return (
-        (!filters.marca || car.marca === filters.marca) &&
+        (!filters.marcas.length || filters.marcas.includes(car.marca)) &&
         (!filters.tipoProduto || car.tipo_de_produto === filters.tipoProduto) &&
         (!filters.categorias.length || filters.categorias.includes(car.categoria)) &&
         (!filters.precoMinAluguel || car.preco_diaria >= filters.precoMinAluguel) &&
@@ -72,7 +72,7 @@ const ProdutosPage = () => {
         (!filters.precoMaxVenda || car.preco_venda <= filters.precoMaxVenda)
       );
     });
-    setFilteredCarros(filtered); // Atualiza a lista de exibição com os carros filtrados
+    setFilteredCarros(filtered);
   };
 
   return (

@@ -14,16 +14,13 @@ const CarFilters = ({ onFilter }) => {
   const [precoMinVenda, setPrecoMinVenda] = useState(5000);
   const [precoMaxVenda, setPrecoMaxVenda] = useState(1000000);
 
-  // Marcas disponíveis - isso pode ser substituído por uma lista dinâmica do backend
-  const marcasDisponiveis = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Hyundai'];
+  const marcasDisponiveis = ['Toyota', 'Honda', 'Ford', 'Nissan', 'Chevrolet', 'Volkswagen'];
 
   // Função para lidar com checkboxes de marca
   const handleMarcaChange = (marca) => {
-    if (marcaSelecionada.includes(marca)) {
-      setMarcaSelecionada(marcaSelecionada.filter(item => item !== marca));
-    } else {
-      setMarcaSelecionada([...marcaSelecionada, marca]);
-    }
+    setMarcaSelecionada((prev) => 
+      prev.includes(marca) ? prev.filter(item => item !== marca) : [...prev, marca]
+    );
   };
 
   // Função para lidar com radio button de tipo de produto
@@ -33,11 +30,9 @@ const CarFilters = ({ onFilter }) => {
 
   // Função para lidar com checkboxes de categoria
   const handleCategoriaChange = (categoria) => {
-    if (categoriasSelecionadas.includes(categoria)) {
-      setCategoriasSelecionadas(categoriasSelecionadas.filter(item => item !== categoria));
-    } else {
-      setCategoriasSelecionadas([...categoriasSelecionadas, categoria]);
-    }
+    setCategoriasSelecionadas((prev) => 
+      prev.includes(categoria) ? prev.filter(item => item !== categoria) : [...prev, categoria]
+    );
   };
 
   // Função para aplicar os filtros selecionados
@@ -48,7 +43,6 @@ const CarFilters = ({ onFilter }) => {
       categorias: categoriasSelecionadas,
     };
 
-    // Inclui filtros de preço apenas se o checkbox estiver selecionado
     if (aplicarFiltroAluguel) {
       filters.precoMinAluguel = precoMinAluguel;
       filters.precoMaxAluguel = precoMaxAluguel;
@@ -60,6 +54,7 @@ const CarFilters = ({ onFilter }) => {
 
     onFilter(filters); // Envia os filtros para o componente pai
   };
+
   const handleClearFilters = () => {
     setMarcaSelecionada([]);
     setTipoProduto('');
@@ -70,6 +65,7 @@ const CarFilters = ({ onFilter }) => {
     setPrecoMaxAluguel(1000);
     setPrecoMinVenda(5000);
     setPrecoMaxVenda(1000000);
+
     onFilter({}); // Envia um objeto vazio para remover todos os filtros aplicados
   };
 
@@ -77,7 +73,6 @@ const CarFilters = ({ onFilter }) => {
     <div className="filter-panel">
       <h3>Filtros de Carros</h3>
 
-      {/* Filtro de Marcas */}
       <div className="filter-section">
         <h4>Marcas Disponíveis</h4>
         {marcasDisponiveis.map((marca) => (
@@ -93,7 +88,6 @@ const CarFilters = ({ onFilter }) => {
         ))}
       </div>
 
-      {/* Filtro de Tipo de Produto com Radio Buttons */}
       <div className="filter-section">
         <h4>Produto:</h4>
         {['Aluguel', 'Venda', 'Aluguel e Venda'].map((tipo) => (
@@ -111,7 +105,6 @@ const CarFilters = ({ onFilter }) => {
         ))}
       </div>
 
-      {/* Filtro de Categorias */}
       <div className="filter-section">
         <h4>Categoria:</h4>
         {['SUV', 'Sedan', 'Caminhonetes', 'Outros'].map((categoria) => (
@@ -127,7 +120,6 @@ const CarFilters = ({ onFilter }) => {
         ))}
       </div>
 
-      {/* Filtro de Preço de Aluguel */}
       <div className="filter-section">
         <h4>Preço Diária (Aluguel)</h4>
         <label>
@@ -160,7 +152,6 @@ const CarFilters = ({ onFilter }) => {
         />
       </div>
 
-      {/* Filtro de Preço de Venda */}
       <div className="filter-section">
         <h4>Preço de Venda</h4>
         <label>
