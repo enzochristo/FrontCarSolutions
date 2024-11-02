@@ -7,7 +7,7 @@ import './index.css';
 const LoginFuncionarioPage = () => {
 
   const navigate = useNavigate();
-  const location = useLocation(); // Hook para obter a URL atual
+  const location = useLocation();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
 
@@ -34,23 +34,26 @@ const LoginFuncionarioPage = () => {
   };
 
   return (
-    <div className="form-container">
-      <div className="tab-buttons">
-        <button
-          className='nao-ativo'
-          onClick={() => handleTabClick('cliente')}
-        >
-          Cliente
-        </button>
-        <div className='ativo'>Colaborador</div>
+    <div className="componente-login-fundo"> {/* Fundo com imagem */}
+      <div className="componente-login-overlay"></div> {/* Overlay escuro */}
+      <div className="form-container">
+        <div className="tab-buttons">
+          <button
+            className='nao-ativo'
+            onClick={() => handleTabClick('cliente')}
+          >
+            Cliente
+          </button>
+          <div className='ativo'>Colaborador</div>
+        </div>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <input name="email" type="email" placeholder="E-mail" onChange={handleChange} required />
+          <input name="password" type="password" placeholder="Senha" onChange={handleChange} required />
+          <a href="funcionarioCadastro" className="register-link">Cadastre-se</a>
+          <button type="submit" className="login-button">Log In</button>
+        </form>
       </div>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input name="email" type="email" placeholder="E-mail" onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Senha" onChange={handleChange} required />
-        <a href="funcionarioCadastro" className="register-link">Cadastre-se</a>
-        <button type="submit" className="login-button">Log In</button>
-      </form>
     </div>
   );
 };
