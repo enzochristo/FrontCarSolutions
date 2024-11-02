@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 .sobre-nos-page {
-    font-family: "YourFont", sans-serif;
+    font-family: "Poppins", sans-serif;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0;
     margin: 0;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 .sobre-nos-page h2 {
@@ -16,9 +20,8 @@
 
 .banner-section {
     position: relative;
-    width: 100vw; /* Ocupa toda a largura da viewport */
-    height: 100vh; /* Define uma altura mais responsiva */
-    background-image: url('../../../assets/bannerimg.png'); /* Caminho da imagem do banner */
+    width: 100%;
+    min-height: 50vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -26,12 +29,24 @@
     justify-content: center;
     color: #fff;
     text-align: center;
-    margin: 0 auto;
     overflow: hidden;
 }
 
+/* Overlay cobrindo toda a imagem */
+.banner-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme desejado */
+    z-index: 1;
+}
+
 .banner-text {
-    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2; /* Para garantir que o texto fique acima do overlay */
     padding: 2rem;
     border-radius: 8px;
     color: #fff;
@@ -40,25 +55,63 @@
     text-align: center;
     max-width: 80%;
 }
-
-.banner-text h1 {
-    font-size: 2.5rem;
-    margin: 0; /* Remove margem extra */
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+/* Estilos da seção do CEO */
+.ceo-section {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 4rem auto;
+    color: #333;
 }
 
+.ceo-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ceo-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+}
+
+.ceo-message {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: #333;
+    margin: 2rem;
+}
+
+.ceo-name {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.ceo-name strong {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/* Estilos da linha do tempo */
 .timeline-section {
+    background: linear-gradient(0deg,#1d4c75,#4881b4);
+    color: black; /* Ajuste a cor do texto para branco */
+    padding: 4rem 2rem; /* Ajuste o padding conforme necessário */
     text-align: center;
     margin: 7rem 0;
 }
 
 .timeline-section h2 {
+    color: #fff; /* Certifique-se de que o título seja legível */
+    margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: white;
     margin-bottom: 2rem;
 }
 
@@ -66,11 +119,21 @@
     display: flex;
     align-items: center;
     gap: 3rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: auto; /* Rolagem horizontal */
+    scroll-snap-type: x mandatory; /* Travamento de rolagem */
+    padding: 2rem;
+    scrollbar-width: none; /* Firefox */
+    
+}
+
+
+.timeline-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
 }
 
 .timeline-item {
+    flex: 0 0 auto; /* Garante que os itens não encolham */
+    scroll-snap-align: start; /* Alinhamento de travamento */
     background-color: #f0f0f0;
     width: 250px;
     height: 250px;
@@ -79,7 +142,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
     text-align: center;
     position: relative;
     padding: 1rem;
@@ -102,69 +166,85 @@
     filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
 }
 
-.carousel-section, .sections-container {
-    margin: 3rem;
-    width: 100%;
-}
-
-.sections-container {
+/* Estilos da seção de dropdowns */
+.dropdown-carrossel {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    padding: 1rem 0;
     max-width: 1200px;
+    margin: 4rem auto;
+    overflow-x: auto; /* Habilita rolagem horizontal, se necessário */
+    scroll-snap-type: x mandatory; /* Efeito de travamento */
+    scrollbar-width: none; /* Remove o scrollbar no Firefox */
 }
 
-/* Estilos para cada seção do dropdown */
+.dropdown-carrossel::-webkit-scrollbar {
+    display: none; /* Remove o scrollbar no Chrome, Safari e Edge */
+}
+
 .dropdown-section {
-    width: 90%; /* Ajusta a largura dos dropdowns */
-    max-width: 500px;
-    cursor: pointer;
+    width: 100%;
+    max-width: 25rem; /* Defina o valor ideal para manter o tamanho consistente */
+    min-width: 15rem; /* Largura mínima para telas maiores */
+    background: linear-gradient(135deg, #173F73, #3C5973);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 1rem;
 }
 
-/* Título do dropdown com ícone e efeito de hover */
 .dropdown-title {
+    height:2rem;
     display: flex;
     align-items: center;
     font-weight: bold;
     font-size: 1.2rem;
-    color: #333;
+    color: #fff;
     transition: background-color 0.3s ease;
 }
 
 .dropdown-title:hover {
-    background-color: #e0e0e0;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Ícone do dropdown */
 .dropdown-icon {
     width: 24px;
     height: 24px;
     margin-right: 0.5rem;
-    filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
+    filter: brightness(0) saturate(100%) invert(100%);
 }
 
-/* Exibe o conteúdo do dropdown ao passar o mouse sobre a seção */
-.dropdown-section:hover .dropdown-content {
-    display: block;
-}
-
-/* Conteúdo do dropdown (inicialmente escondido) */
 .dropdown-content {
     display: none;
     padding: 1rem;
     font-size: 1rem;
-    color: #555;
+    color: #fff;
     border-top: 1px solid #ccc;
     border-radius: 0 0 8px 8px;
-    background-color: #f7f7f7;
+    background-color: rgba(255, 255, 255, 0.1);
     margin-top: 0.5rem;
     animation: slideDown 0.3s ease;
 }
 
-/* Estilo para lista no dropdown */
+.sections-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.dropdown-section:hover .dropdown-content {
+    display: block;
+}
+
 .dropdown-content ul {
     padding-left: 1.5rem;
     margin-top: 0.5rem;
@@ -174,7 +254,6 @@
     margin-bottom: 0.5rem;
 }
 
-/* Animação para abrir o dropdown */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -186,120 +265,56 @@
     }
 }
 
-
-
-.dropdown-carrossel {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.carousel-section {
-    flex: 1;
-    max-width: 500px;
-}
-
-.sections-container {
-    flex: 1;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.dropdown-section {
-    width: 100%;
-    background-color: #f0f0f0;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.dropdown-section:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content {
-    display: none;
-    padding: 1rem;
-    font-size: 1rem;
-    color: #555;
-    background-color: #f7f7f7;
-    border-top: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
-    margin-top: 0.5rem;
-    animation: slideDown 0.3s ease;
-}
-
-.dropdown-title {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.dropdown-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 0.5rem;
-    filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-li {
-    padding: 0.2rem;
-}
-
-.section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-
-/* Responsividade */
 @media (max-width: 768px) {
     .timeline-container {
-        flex-direction: column;
-        gap: 1.5rem;
+        flex-direction: row; /* Mantém os itens em uma linha */
+        gap: 1rem; /* Ajuste o espaçamento entre os itens, se necessário */
+        overflow-x: auto; /* Habilita rolagem horizontal */
+        scroll-snap-type: x mandatory;
+        padding: 1rem;
     }
+    .timeline-item {
+        flex: 0 0 auto;
+        width: 250px; /* Define a largura dos itens para telas menores */
+        scroll-snap-align: start;
+        margin: 0;
+    }
+
     .banner-section {
-        height: 70vh; /* Reduz a altura em telas menores */
+        height: 70vh;
     }
 
     .banner-text h1 {
-        font-size: 2rem; /* Reduz o tamanho da fonte em telas menores */
+        font-size: 2rem;
         padding: 1rem;
     }
 
-    .timeline-section, .carousel-section, .dropdown-title {
+
+
+    .sections-container,
+    .carousel-section,
+    .dropdown-title {
         font-size: 1rem;
     }
 
-    .sections-container {
+    .ceo-section {
         flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
     }
 
-    .dropdown-section {
-        width: 100%;
+    .ceo-image img {
+        max-width: 80vw;
+    }
+
+    .ceo-message {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+
+    .ceo-name {
+        font-size: 1.2rem;
     }
 
     .dropdown-carrossel {
@@ -307,21 +322,45 @@ li {
         align-items: center;
     }
 
-    .carousel-section,
-    .sections-container {
+    .dropdown-section {
+        width: 90%;
         max-width: 100%;
-    }    
-
-    
+    }
 }
 
 @media (max-width: 480px) {
-    .banner-section {
-        height: 60vh; /* Ajusta ainda mais a altura para telas muito pequenas */
+    .timeline-container {
+        padding: 1rem;
+        gap: 0.5rem; /* Ajuste o gap para telas muito pequenas */
     }
-   
+
+    .banner-section {
+        height: 60vh;
+    }
+
     .banner-text h1 {
         font-size: 1.5rem;
         padding: 1rem;
+    }
+
+    .ceo-section {
+        padding: 1rem;
+    }
+
+    .ceo-image img {
+        max-width: 90vw;
+    }
+
+    .ceo-message {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .dropdown-carrossel {
+        gap: 1rem; /* Ajuste do espaçamento entre os dropdowns */
+    }
+
+    .dropdown-section {
+        max-width: 250px; /* Ajuste a largura dos dropdowns para caber melhor em telas menores */
     }
 }
