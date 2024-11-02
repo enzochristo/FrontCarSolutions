@@ -9,9 +9,9 @@ const BuscaAluguel = () => {
         // Função que irá verificar se o usuario está ou não logado, caso esteje vai direciona-lo para a página de Produtos, e no oposto para a de login
         const token = localStorage.getItem('access_token');
         if (token) {
-            navigate('/produtos');
+            navigate('/cliente/Produtos');
         } else {
-            navigate('/login');
+            navigate('/LoginPageCliente');
         }
     }
   return (
