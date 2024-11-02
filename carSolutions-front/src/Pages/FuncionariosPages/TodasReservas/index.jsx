@@ -24,9 +24,15 @@ const StatusAlugueis = () => {
 
   const handleStatusUpdate = async (reservationId, newStatus) => {
     try {
-      await updateReservationStatus(reservationId, { status: newStatus });
-      alert("Status atualizado com sucesso!");
-      loadAllReservations(); // Recarrega as reservas para atualizar a lista
+      const response = await updateReservationStatus(reservationId, { status: newStatus });
+      alert(response.data.status);
+      
+      // Atualize o status da reserva diretamente sem recarregar todas as reservas
+      setReservas((prevReservas) =>
+        prevReservas.map((reserva) =>
+          reserva.id === reservationId ? { ...reserva, status: newStatus } : reserva
+        )
+      );
     } catch (error) {
       console.error("Erro ao atualizar o status da reserva:", error);
       alert("Erro ao atualizar o status. Tente novamente.");
@@ -43,14 +49,13 @@ const StatusAlugueis = () => {
           <div key={reserva.id} className="reserva-card">
             <h3>{reserva.car.modelo}</h3>
             <p>Cliente: {reserva.cliente.full_name}</p>
-            <p>Data de Retirada: {new Date(reserva.data_retirada).toLocaleDateString()}</p>
-            <p>Data de Devolução: {new Date(reserva.data_devolucao).toLocaleDateString()}</p>
+            <p>Data de Retirada: {reserva.data_retirada}</p>
+            <p>Data de Devolução: {reserva.data_devolucao}</p>
             <p>Local de Retirada: {reserva.local_retirada}</p>
             <p>Local de Devolução: {reserva.local_devolucao}</p>
             <p>Status: {reserva.status}</p>
-            {reserva.status !== "Concluída" && (
+            {(reserva.status !== "Concluída" && reserva.status !== 'Cancelada') && (
               <>
-                <button onClick={() => handleStatusUpdate(reserva.id, "Concluída")}>Concluir</button>
                 <button onClick={() => handleStatusUpdate(reserva.id, "Cancelada")}>Cancelar</button>
               </>
             )}

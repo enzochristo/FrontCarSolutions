@@ -27,6 +27,7 @@ const CadastroVeiculoPage = () => {
     combustivel: '',
     cor: '',
     placa: '',
+    is_disponivel: true,
   });
 
   const handleChange = (e) => {
@@ -60,6 +61,7 @@ const CadastroVeiculoPage = () => {
         combustivel: '',
         cor: '',
         placa: '',
+        is_disponivel: true,
       });
       navigate('/funcionario/ProdutosCadastrados');
     } catch (error) {

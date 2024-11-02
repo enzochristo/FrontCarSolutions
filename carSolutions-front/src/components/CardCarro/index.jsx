@@ -28,13 +28,13 @@ const CarCard = ({ car, reservationDetails }) => {
       <div className="car-precos">
         {car.preco_venda && (
           <div className="preco-produto">
-            <button onClick={handleComprar}>Comprar</button>
+            <button className='btn-produtos' onClick={handleComprar}>Comprar</button>
             <span>R$ {car.preco_venda}</span>
           </div>
         )}
         {car.preco_diaria && (
           <div className="preco-produto">
-            <button onClick={handleAlugar}>Alugar</button>
+            <button className='btn-produtos' onClick={handleAlugar}>Alugar</button>
             <span>R$ {car.preco_diaria}/dia</span>
           </div>
         )}

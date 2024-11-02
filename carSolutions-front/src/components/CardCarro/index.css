@@ -41,11 +41,12 @@
 
 .preco-produto {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  width: 100%;
 }
 
-.botao-produto-car {
+.btn-produtos {
   display: flex;
   justify-content: center;
   background-color: #D9AE5F;
@@ -60,6 +61,6 @@
   text-decoration: none;
 }
 
-.botao-produto-car:hover {
+.btn-produtos:hover {
   background-color: #af771e;
 }

@@ -134,8 +134,7 @@ export const fetchCars = async () => {
   });
 };
 
-// src/services/api.js
-// src/services/api.js
+
 export const getAvailableCarsByDate = async (filters = {}) => {
   let token = localStorage.getItem('access_token');
 
@@ -148,30 +147,18 @@ export const getAvailableCarsByDate = async (filters = {}) => {
   if (filters.horarioDevolucao) params.append('horaDevolucao', filters.horarioDevolucao);
 
   try {
-    const response = await axios.get(`${API_URL}/available/?${params.toString()}`, {
+    const response = await axios.get(`${API_URL}/available-by-date/?${params.toString()}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
     return response.data;
   } catch (error) {
-    // Se o erro for de autorização, tenta revalidar o token
-    if (error.response && error.response.status === 401) {
-      token = await refreshAccessToken();
-      if (token) {
-        // Tenta novamente a requisição com o novo token
-        const retryResponse = await axios.get(`${API_URL}/available/?${params.toString()}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        return retryResponse.data;
-      }
-    }
     console.error("Erro ao buscar carros disponíveis no período:", error);
     return [];
   }
 };
+
 
 
 export const getAvailableCars = async (filters = {}) => {

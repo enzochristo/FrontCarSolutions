@@ -32,15 +32,13 @@ const BuscaAluguel = ({ onAvailableCars }) => {
         horarioRetirada,
         dataDevolucao,
         horarioDevolucao,
-        localRetirada,
-        localDevolucao,
       });
       
-      // Envia os filtros originais para o componente pai, para que ele possa utilizá-los conforme necessário
+      console.log("Carros disponíveis no período:", availableCars);  // Adiciona log de depuração
       onAvailableCars({
         ...filters,
-        availableCars, // opcional, pode ser removido se `onAvailableCars` não espera isso
-      }); 
+        availableCars, 
+      });
     } catch (error) {
       console.error('Erro ao buscar carros disponíveis por data:', error);
       alert('Erro ao buscar carros disponíveis. Tente novamente.');
@@ -57,7 +55,7 @@ const BuscaAluguel = ({ onAvailableCars }) => {
         <div className="retirada">
           <div className="bloco">
             <label>Local de Retirada:</label>
-            <select
+            <select className='infos-reserva-filtro'
               value={filters.localRetirada}
               onChange={(e) => handleFilterChange('localRetirada', e.target.value)}
             >
@@ -69,12 +67,12 @@ const BuscaAluguel = ({ onAvailableCars }) => {
           <div className="bloco">
             <label>Data e Horário de Retirada:</label>
             <div className="data-hora">
-              <input
+              <input className='infos-reserva-filtro'
                 type="date"
                 value={filters.dataRetirada}
                 onChange={(e) => handleFilterChange('dataRetirada', e.target.value)}
               />
-              <input
+              <input className='infos-reserva-filtro'
                 type="time"
                 value={filters.horarioRetirada}
                 onChange={(e) => handleFilterChange('horarioRetirada', e.target.value)}
@@ -82,10 +80,10 @@ const BuscaAluguel = ({ onAvailableCars }) => {
             </div>
           </div>
         </div>
-        <div className="devolucao">
+        <div className="retirada">
           <div className="bloco">
             <label>Local de Devolução:</label>
-            <select
+            <select className='infos-reserva-filtro'
               value={filters.localDevolucao}
               onChange={(e) => handleFilterChange('localDevolucao', e.target.value)}
             >
@@ -97,12 +95,12 @@ const BuscaAluguel = ({ onAvailableCars }) => {
           <div className="bloco">
             <label>Data e Horário de Devolução:</label>
             <div className="data-hora">
-              <input
+              <input className='infos-reserva-filtro'
                 type="date"
                 value={filters.dataDevolucao}
                 onChange={(e) => handleFilterChange('dataDevolucao', e.target.value)}
               />
-              <input
+              <input className='infos-reserva-filtro'
                 type="time"
                 value={filters.horarioDevolucao}
                 onChange={(e) => handleFilterChange('horarioDevolucao', e.target.value)}
