@@ -5,17 +5,28 @@
   flex-direction: column;
   align-items: center;
 }
-
-.filter-and-cards {
-  display: flex;
-  width: 100%;
-  max-width: 1200px;
-  gap: 2rem;
+.Filtro-lateral{
+  flex: 0 0 250px; /* Largura fixa para o filtro lateral */
+  margin-right: 1rem;
+  position: sticky;
+  top: 2rem; /* Fixa o filtro na tela enquanto você rola */
+  height: fit-content; /* Garante que o filtro não expanda desnecessariamente */
 }
 
+.filter-and-cards{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem; /* Espaçamento entre o filtro e os cartões */
+  width: 100%; /* Ocupa toda a largura da página */
+  margin: 2rem auto; /* Espaçamento automático para centralizar */ 
+}
+
+
 .carros-disponiveis {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
   flex: 1;
 }
@@ -23,7 +34,7 @@
 .clear-period-filter-button {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
-  background-color: #007bff;
+  background-color: #2E5373;
   color: white;
   border: none;
   border-radius: 5px;
@@ -31,5 +42,5 @@
 }
 
 .clear-period-filter-button:hover {
-  background-color: #0056b3;
+  background-color: #1A2E42;
 }
