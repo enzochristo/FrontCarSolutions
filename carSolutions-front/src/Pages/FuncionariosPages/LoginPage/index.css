@@ -1,4 +1,28 @@
+.componente-login-fundo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../../assets/testefechandonegocio.png'); /* Altere para o caminho da sua imagem */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.componente-login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme necessário */
+  z-index: 1;
+}
+
 .form-container {
+  position: relative;
+  z-index: 2;
   width: 90%;
   max-width: 24rem;
   margin: 2rem auto;
@@ -9,34 +33,37 @@
   text-align: center;
 }
 
-.ativo{
+.ativo {
   background-color: #bf9f23;
   color: #000;
   font-weight: bold;
   flex: 1;
   padding: 0.8rem;
   font-size: 1rem;
-  border: 1px solid #ddd; /* Adiciona uma borda leve nas abas */
-  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda a parte superior das abas */
+  border: 1px solid #ddd;
+  border-radius: 0.3rem 0.3rem 0 0;
   color: #000;
   cursor: pointer;
 }
+
 .tab-buttons {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem; /* Aumenta o espaço entre as abas e o formulário */
+  margin-bottom: 1.5rem;
 }
-.nao-ativo{
+
+.nao-ativo {
   flex: 1;
   padding: 0.8rem;
   font-size: 1rem;
-  border: 1px solid #ddd; /* Adiciona uma borda leve nas abas */
-  border-radius: 0.3rem 0.3rem 0 0; /* Arredonda a parte superior das abas */
+  border: 1px solid #ddd;
+  border-radius: 0.3rem 0.3rem 0 0;
   background-color: #f0f0f0;
   color: #000;
   cursor: pointer;
 }
-.nao-ativo:hover{
+
+.nao-ativo:hover {
   background-color: #c0c0c0;
   font-weight: bold;
 }
@@ -54,9 +81,9 @@ input {
 .register-link {
   display: block;
   margin: 0.5rem 0 1rem;
-  font-size: 0.85rem; /* Tamanho de fonte um pouco menor */
-  color: #000; /* Cor preta para o link */
-  font-family: Arial, sans-serif; /* Define fonte sans-serif */
+  font-size: 0.85rem;
+  color: #000;
+  font-family: Arial, sans-serif;
   text-decoration: none;
 }
 
@@ -68,7 +95,7 @@ input {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
-  background-color: #e0e0e0; /* Botão cinza claro */
+  background-color: #e0e0e0;
   color: #000;
   border: none;
   border-radius: 0.3rem;
