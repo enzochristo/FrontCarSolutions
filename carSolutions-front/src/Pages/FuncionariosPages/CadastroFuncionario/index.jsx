@@ -64,7 +64,6 @@ const RegisterFuncionarioPage = () => {
 
   useEffect(() => {handleCEPBlur()}, [formData.cep]);
 
-
   return (
     <div className="form-container">
       <div className="tab-buttons">
@@ -86,21 +85,21 @@ const RegisterFuncionarioPage = () => {
           <input name="nacionalidade" placeholder="Nacionalidade" onChange={handleChange} required />
           <input name="celular" placeholder="Telefone" onChange={handleChange} required />
         </div>
-        <div className="input-row-cep-genero-funcionario">
-        <select name="genero" placeholder= "genero" onChange={handleChange} required >
-            <option value="" disabled hidden>Selecione seu gênero</option>
+        <div className="input-row-cepgen">
+          <select name="genero" placeholder="genero" onChange={handleChange} required className="genero-cliente">
+            <option value="" hidden>Selecione seu gênero</option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
             <option value="O">Outros</option>
-          </select>         
-          <input name="cep" placeholder="CEP" onChange={handleChange} onBlur={handleCEPBlur} required className='cep-funcionario' />
+          </select>
+          <input name="cep" placeholder="CEP" onChange={handleChange} onBlur={handleCEPBlur} required className="input-cep" />
         </div>
         <div className="input-row">
           <input name="rua" placeholder="Rua" value={formData.rua} onChange={handleChange} required />
           <input name="cidade" placeholder="Cidade" value={formData.cidade} onChange={handleChange} required />
         </div>
-        <div className='input-row'>
-          <input type="text" placeholder="bairro" value={formData.bairro} onChange={handleChange} required/>
+        <div className="input-row">
+          <input type="text" placeholder="Bairro" value={formData.bairro} onChange={handleChange} required />
           <input name="estado" placeholder="Estado" value={formData.estado} onChange={handleChange} required />
         </div>
         <div className="input-row">

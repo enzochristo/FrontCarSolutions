@@ -97,7 +97,8 @@ const RegisterClientePage = () => {
         </div>
         <div className="input-row-cepgen">
         <select name="genero" placeholder= "genero" onChange={handleChange} required className='genero-cliente' >
-            <option value="">Selecione seu gênero</option>            <option value="M">Masculino</option>
+            <option value="" hidden>Selecione seu gênero</option>         
+            <option value="M">Masculino</option>
             <option value="F">Feminino</option>
             <option value="O">Outros</option>
           </select>         
@@ -108,7 +109,7 @@ const RegisterClientePage = () => {
           <input name="cidade" placeholder="Cidade" value={formData.cidade} onChange={handleChange} required />
         </div>
         <div className='input-row'>
-          <input type="text" placeholder="bairro" value={formData.bairro} onChange={handleChange} required/>
+          <input type="text" placeholder="Bairro" value={formData.bairro} onChange={handleChange} required/>
           <input name="estado" placeholder="Estado" value={formData.estado} onChange={handleChange} required />
         </div>
         <div className="input-row">

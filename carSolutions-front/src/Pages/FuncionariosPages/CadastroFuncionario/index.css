@@ -88,11 +88,13 @@
   margin-top: 0.5rem;
 }
 
-@media (min-width: 40rem) {
-  .form-container {
-      padding: 2.5rem;
+@media (max-width: 768px) {
+  .input-row, .input-row-cepgen {
+    flex-direction: column;
+    gap: 1rem; /* Ajuste para espaçamento uniforme */
   }
-  .input-row {
-      flex-direction: row;
+
+  .genero-cliente, .input-cep {
+    max-width: 100%; /* Ocupa toda a largura disponível */
   }
 }
