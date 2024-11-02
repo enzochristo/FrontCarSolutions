@@ -114,29 +114,32 @@ const LembretesPage = () => {
 
       <h1 className="lembretes-title">Lembretes da Empresa</h1>
 
-      <div className="filter-container">
-        <input
-          className="input-filtro-lembrete"
-          type="text"
-          placeholder="Buscar por título"
-          value={filterTitulo}
-          onChange={(e) => setFilterTitulo(e.target.value)}
-        />
-        <select className="input-filtro-lembrete" value={filterCategoria} onChange={(e) => setFilterCategoria(e.target.value)}>
-          <option value="">Todas as Categorias</option>
-          <option value="Geral">Geral</option>
-          <option value="Reunião">Reunião</option>
-          <option value="Urgente">Urgente</option>
-          <option value="Notícia">Notícia</option>
-        </select>
-        <select className="input-filtro-lembrete" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
-          <option value="">Todos os Status</option>
-          <option value="OK">OK</option>
-          <option value="Pendente">Pendente</option>
-        </select>
-      </div>
 
-      <div className="content">
+      <div className="content-lembretes">
+        <div>
+          <h3 className='filtro-lembretes-content'>Filtro</h3>
+          <div className="filter-container">
+            <input
+              className="input-filtro-lembrete"
+              type="text"
+              placeholder="Buscar por título"
+              value={filterTitulo}
+              onChange={(e) => setFilterTitulo(e.target.value)}
+            />
+            <select className="input-filtro-lembrete" value={filterCategoria} onChange={(e) => setFilterCategoria(e.target.value)}>
+              <option value="">Todas as Categorias</option>
+              <option value="Geral">Geral</option>
+              <option value="Reunião">Reunião</option>
+              <option value="Urgente">Urgente</option>
+              <option value="Notícia">Notícia</option>
+            </select>
+            <select className="input-filtro-lembrete" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+              <option value="">Todos os Status</option>
+              <option value="OK">OK</option>
+              <option value="Pendente">Pendente</option>
+            </select>
+          </div>
+
         <div className="table-container">
           <table className="lembretes-table">
             <thead>
@@ -169,19 +172,24 @@ const LembretesPage = () => {
             </tbody>
           </table>
         </div>
+      </div>
 
-        <div className="form-container">
+        <div className="form-container-lembretes">
           <form onSubmit={handleAddLembrete}>
             <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} required />
             <textarea placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)} required />
-            <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
-              <option value="Geral">Geral</option>
-              <option value="Reunião">Reunião</option>
-              <option value="Urgente">Urgente</option>
-              <option value="Notícia">Notícia</option>
-            </select>
-            <input type="date" value={dataExpiracao} onChange={(e) => setDataExpiracao(e.target.value)} required />
-            <button type="submit">Adicionar Lembrete</button>
+            <div className='div-form-container-lembretes'>
+              <select value={categoria} onChange={(e) => setCategoria(e.target.value)} className='select-form-container-lembretes'>
+                <option value="Geral">Geral</option>
+                <option value="Reunião">Reunião</option>
+                <option value="Urgente">Urgente</option>
+                <option value="Notícia">Notícia</option>
+              </select>
+              <input type="date" value={dataExpiracao} onChange={(e) => setDataExpiracao(e.target.value)} required className='input-form-container-lembretes'/>
+            </div>
+            <div className='div-form-container-lembretes-buttom'>
+              <button type="submit">Adicionar Lembrete</button>
+            </div>
           </form>
         </div>
       </div>

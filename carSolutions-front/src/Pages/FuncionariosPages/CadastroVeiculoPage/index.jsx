@@ -75,7 +75,8 @@ const CadastroVeiculoPage = () => {
   return (
     <div className='body-container'>
       <div className='background-image-editando'></div> {/* Adiciona a imagem de fundo */}
-      <div className='content'>
+      <div className="overlay"></div>
+      <div className='content-cadastroveiculo'>
         <div className="cadastro-veiculo">
           {/* Contêiner do título com ícone */}
           <div className="titulo-container">
@@ -88,6 +89,7 @@ const CadastroVeiculoPage = () => {
               <div>
                 <label>Modelo do Carro:</label>
                 <input
+                className='input-cadastro'
                   type="text"
                   name="modelo"
                   value={formData.modelo}
@@ -101,6 +103,7 @@ const CadastroVeiculoPage = () => {
                 <label>Marca:</label>
                 <input
                   type="text"
+                  className='input-cadastro'
                   name="marca"
                   value={formData.marca}
                   onChange={handleChange}
@@ -116,6 +119,7 @@ const CadastroVeiculoPage = () => {
                 <label>Preço de Venda:</label>
                 <input
                   type="number"
+                  className='input-cadastro'
                   name="preco_venda"
                   value={formData.preco_venda}
                   onChange={handleChange}
@@ -128,6 +132,7 @@ const CadastroVeiculoPage = () => {
                 <label>Preço da Diária:</label>
                 <input
                   type="number"
+                  className='input-cadastro'
                   name="preco_diaria"
                   value={formData.preco_diaria}
                   onChange={handleChange}
@@ -206,7 +211,7 @@ const CadastroVeiculoPage = () => {
               <div>
                 <label>Cor:</label>
                 <input
-                  className='input-cor'
+                className='input-cadastro'
                   type="text"
                   name="cor"
                   value={formData.cor}
@@ -221,6 +226,7 @@ const CadastroVeiculoPage = () => {
                 <input
                   type="text"
                   name="placa"
+                  className='input-cadastro'
                   value={formData.placa}
                   onChange={handleChange}
                   maxLength="7"
@@ -234,6 +240,7 @@ const CadastroVeiculoPage = () => {
                 <label>Link da Imagem:</label>
                 <input
                   type="file"
+                  className='input-cadastro'
                   name="imagem"
                   accept="image/*"
                   onChange={handleFileChange}
@@ -245,6 +252,7 @@ const CadastroVeiculoPage = () => {
                 <label className='label-ano'>Ano:</label>
                 <input
                   type="number"
+                  className='input-cadastro'
                   name="ano"
                   value={formData.ano}
                   onChange={handleChange}
