@@ -70,66 +70,70 @@ const CarFilters = ({ onFilter }) => {
   };
 
   return (
-    <div className="filter-panel">
+    <div className="filter-lateral">
       <h3>Filtros de Carros</h3>
 
-      <div className="filter-section">
+      <div className="filter-section-lateral">
         <h4>Marcas Disponíveis</h4>
         {marcasDisponiveis.map((marca) => (
-          <label key={marca}>
+          <label key={marca} className="filter-label">
             <input
               type="checkbox"
               value={marca}
               onChange={() => handleMarcaChange(marca)}
               checked={marcaSelecionada.includes(marca)}
+              className="filter-input"
             />
-            {marca}
+            <span className="filter-text">{marca}</span>
           </label>
         ))}
       </div>
 
-      <div className="filter-section">
+      <div className="filter-section-lateral">
         <h4>Produto:</h4>
         {['Aluguel', 'Venda', 'Aluguel e Venda'].map((tipo) => (
-          <label key={tipo} className='custom-radio'>
+          <label key={tipo} className='custom-radio filter-label'>
             <input
               type="radio"
               name="tipoProduto"
               value={tipo}
               onChange={() => handleTipoProdutoChange(tipo)}
               checked={tipoProduto === tipo}
+              className="filter-input"
             />
             <span className="checkmark"></span>
-            {tipo}
+            <span className="filter-text">{tipo}</span>
           </label>
         ))}
       </div>
 
-      <div className="filter-section">
+      <div className="filter-section-lateral">
         <h4>Categoria:</h4>
         {['SUV', 'Sedan', 'Caminhonetes', 'Outros'].map((categoria) => (
-          <label key={categoria}>
+          <label key={categoria} className="filter-label">
             <input
               type="checkbox"
               value={categoria}
               onChange={() => handleCategoriaChange(categoria)}
               checked={categoriasSelecionadas.includes(categoria)}
+              className="filter-input"
             />
-            {categoria}
+            <span className="filter-text">{categoria}</span>
           </label>
         ))}
       </div>
 
-      <div className="filter-section">
+      <div className="filter-section-lateral">
         <h4>Preço Diária (Aluguel)</h4>
-        <label>
+        <label className="filter-label">
           <input
             type="checkbox"
             checked={aplicarFiltroAluguel}
             onChange={(e) => setAplicarFiltroAluguel(e.target.checked)}
+            className="filter-input"
           />
-          Aplicar Filtro
-        </label>
+            <span className="filter-text">Aplicar filtro</span>
+          </label>
         <label>Min: R$ {precoMinAluguel}</label>
         <input
           type="range"
@@ -152,16 +156,17 @@ const CarFilters = ({ onFilter }) => {
         />
       </div>
 
-      <div className="filter-section">
+      <div className="filter-section-lateral">
         <h4>Preço de Venda</h4>
-        <label>
+        <label className="filter-label">
           <input
             type="checkbox"
-            checked={aplicarFiltroVenda}
-            onChange={(e) => setAplicarFiltroVenda(e.target.checked)}
+            checked={aplicarFiltroAluguel}
+            onChange={(e) => setAplicarFiltroAluguel(e.target.checked)}
+            className="filter-input"
           />
-          Aplicar Filtro
-        </label>
+            <span className="filter-text">Aplicar filtro</span>
+          </label>
         <label>Min: R$ {precoMinVenda}</label>
         <input
           type="range"

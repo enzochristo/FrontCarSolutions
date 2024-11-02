@@ -1,0 +1,78 @@
+/* src/pages/ConfirmacaoPagamento/ConfirmacaoPagamento.css */
+
+.confirmacao-pagamento {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+
+.etapa-ativa {
+    color: #3CB371;
+}
+
+.voltar {
+    color: #092640;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+h2 {
+    color: #173F73;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.confirmacao-sucesso {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.icone-sucesso {
+    font-size: 3rem;
+    color: #3CB371;
+}
+
+.confirmacao-sucesso h3 {
+    font-size: 1.3rem;
+    color: #173F73;
+}
+
+.confirmacao-sucesso p {
+    font-size: 0.9rem;
+    color: #092640;
+    line-height: 1.5;
+}
+
+.detalhes-reserva {
+    background-color: #f3f3f3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 500px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #092640;
+}
+
+.detalhes-reserva h3 {
+    color: #173F73;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.detalhe-retirada,
+.detalhe-entrega {
+    margin-bottom: 1rem;
+}
+
+.detalhe-retirada span,
+.detalhe-entrega span {
+    font-weight: bold;
+    color: #092640;
+}
+
+.detalhe-retirada p,
+.detalhe-entrega p {
+    margin: 0.25rem 0;
+}
