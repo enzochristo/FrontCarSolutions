@@ -123,9 +123,7 @@
     scroll-snap-type: x mandatory; /* Travamento de rolagem */
     padding: 2rem;
     scrollbar-width: none; /* Firefox */
-    
 }
-
 
 .timeline-container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
@@ -166,165 +164,92 @@
     filter: brightness(0) saturate(100%) invert(74%) sepia(84%) saturate(3338%) hue-rotate(1deg) brightness(105%) contrast(103%);
 }
 
-/* Estilos da seção de dropdowns */
-.dropdown-carrossel {
+/* Estilos da seção dos objetivos */
+.sections-container {
     display: flex;
     gap: 2rem;
     justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+
+.objetivos-carrossel {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
     align-items: flex-start;
     width: 100%;
     max-width: 1200px;
     margin: 4rem auto;
-    overflow-x: auto; /* Habilita rolagem horizontal, se necessário */
-    scroll-snap-type: x mandatory; /* Efeito de travamento */
-    scrollbar-width: none; /* Remove o scrollbar no Firefox */
+    overflow: hidden;
+    text-align: center;
 }
 
-.dropdown-carrossel::-webkit-scrollbar {
-    display: none; /* Remove o scrollbar no Chrome, Safari e Edge */
-}
-
-.dropdown-section {
+.objetivo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
-    max-width: 25rem; /* Defina o valor ideal para manter o tamanho consistente */
-    min-width: 15rem; /* Largura mínima para telas maiores */
-    background: linear-gradient(135deg, #173F73, #3C5973);
-    color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    font-family: "Poppins", sans-serif;
+    max-width: 25rem;
+}
+
+.objetivo-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1rem;
+    color: #007bff; /* Ajuste a cor conforme necessário */
+}
+
+.objetivo-header {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
     margin-bottom: 1rem;
 }
 
-.dropdown-title {
-    height:2rem;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #fff;
-    transition: background-color 0.3s ease;
+.objetivo-content {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    max-width: 20rem;
 }
 
-.dropdown-title:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
 
-.dropdown-icon {
+
+.objetivo-icon {
     width: 24px;
     height: 24px;
-    margin-right: 0.5rem;
-    filter: brightness(0) saturate(100%) invert(100%);
+    filter: brightness(0) saturate(100%) invert(24%) sepia(76%) saturate(2800%) hue-rotate(180deg) brightness(100%) contrast(103%);
 }
 
-.dropdown-content {
-    display: none;
-    padding: 1rem;
-    font-size: 1rem;
-    color: #fff;
-    border-top: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-top: 0.5rem;
-    animation: slideDown 0.3s ease;
+.h2-NO {
+    color: #ffffff;
 }
 
-.sections-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 1200px;
-}
 
-.dropdown-section:hover .dropdown-content {
-    display: block;
-}
 
-.dropdown-content ul {
-    padding-left: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.dropdown-content li {
-    margin-bottom: 0.5rem;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
-    .timeline-container {
-        flex-direction: row; /* Mantém os itens em uma linha */
-        gap: 1rem; /* Ajuste o espaçamento entre os itens, se necessário */
-        overflow-x: auto; /* Habilita rolagem horizontal */
-        scroll-snap-type: x mandatory;
-        padding: 1rem;
-    }
-    .timeline-item {
-        flex: 0 0 auto;
-        width: 250px; /* Define a largura dos itens para telas menores */
-        scroll-snap-align: start;
-        margin: 0;
-    }
 
-    .banner-section {
-        height: 70vh;
-    }
-
-    .banner-text h1 {
-        font-size: 2rem;
-        padding: 1rem;
-    }
-
-
-
-    .sections-container,
-    .carousel-section,
-    .dropdown-title {
-        font-size: 1rem;
-    }
-
-    .ceo-section {
+    .objetivos-carrossel {
         flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-        padding: 2rem;
+        align-items: center;
     }
 
-    .ceo-image img {
-        max-width: 80vw;
+
+    .objetivo-section {
+        max-width: 90%;
     }
 
-    .ceo-message {
-        font-size: 1.8rem;
-        line-height: 1.5;
-    }
-
-    .ceo-name {
-        font-size: 1.2rem;
-    }
-
-    .dropdown-carrossel {
+    .sections-container {
         flex-direction: column;
         align-items: center;
     }
 
     .dropdown-section {
-        width: 90%;
-        max-width: 100%;
+        max-width: 90%;
     }
 }
 
@@ -356,11 +281,11 @@
         line-height: 1.4;
     }
 
-    .dropdown-carrossel {
-        gap: 1rem; /* Ajuste do espaçamento entre os dropdowns */
+    .sections-container {
+        gap: 1rem; /* Ajuste do espaçamento entre os objetivos */
     }
 
     .dropdown-section {
-        max-width: 250px; /* Ajuste a largura dos dropdowns para caber melhor em telas menores */
+        max-width: 250px; /* Ajuste a largura dos objetivos para caber melhor em telas menores */
     }
 }

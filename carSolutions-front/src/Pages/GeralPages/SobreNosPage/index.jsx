@@ -1,4 +1,3 @@
-// src/Pages/SobreNosPage/index.jsx
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -7,7 +6,12 @@ import primeiraEscolhaLogo from '../../../assets/primeiraEscolhaLogo.png';
 import inovacoesLogo from '../../../assets/inovacoesLogo.png';
 import excelenciaLogo from '../../../assets/excelenciaLogo.png';
 import timelineImage2021 from '../../../assets/iniciologo.png';
-import timelineImage2022 from '../../../assets/atuallogo.png';
+import timelineImage2022 from '../../../assets/tecnologiasobrenos.png';
+import timelineImage2023 from '../../../assets/inovacaosobrenos.png';
+import timelineImage2024 from '../../../assets/atuallogo.png';
+import timelineImage2025 from '../../../assets/globalsobrenos.png';
+import timelineImage2026 from '../../../assets/acordosobrenos.png';
+
 import bannerImg from '../../../assets/testesobrenos.png';
 import ceoImg from '../../../assets/ceosobrenos.png';
 
@@ -17,15 +21,36 @@ function SobreNosPage() {
     const yTransform = useTransform(scrollY, [0, 300], [0, -100]);
 
     const sections = [
-        { title: "Primeira escolha em mobilidade", icon: primeiraEscolhaLogo, content: ["Proporcionar aos nossos clientes uma experiência prática e satisfatória", "Oferecer uma ampla gama de opções para atender a todas as necessidades de mobilidade"] },
-        { title: "Inovação contínua", icon: inovacoesLogo, content: ["Oferecer aos clientes as ferramentas mais modernas para aluguel e compra de veículos.", "Investir em plataformas digitais intuitivas."] },
-        { title: "Excelência no atendimento", icon: excelenciaLogo, content: ["Garantir que cada interação seja positiva e confiável.","Foco em proporcionar uma experiência personalizada e eficiente em todas as etapas."] }
+        { 
+            title: "Primeira escolha em mobilidade", 
+            icon: primeiraEscolhaLogo, 
+            content: "Nossa prioridade é oferecer opções que garantem praticidade e satisfação em mobilidade." 
+        },
+        { 
+            title: "Inovação contínua", 
+            icon: inovacoesLogo, 
+            content: "Investimos constantemente em ferramentas modernas para aluguel e compra de veículos." 
+        },
+        { 
+            title: "Excelência no atendimento", 
+            icon: excelenciaLogo, 
+            content: "Oferecemos um atendimento personalizado e confiável em todas as interações com nossos clientes." 
+        }
     ];
 
     const itemVariants = {
         hidden: { opacity: 0, x: 50 },
         visible: { opacity: 1, x: 0 },
     };
+
+    const timelineEvents = [
+        { year: '2021', description: 'Início da Car Solutions', icon: timelineImage2021 },
+        { year: '2022', description: 'Expansão da plataforma digital', icon: timelineImage2022 },
+        { year: '2023', description: 'Lançamento de novos serviços', icon: timelineImage2023 },
+        { year: '2024', description: 'Parcerias estratégicas internacionais', icon: timelineImage2024 },
+        { year: '2025', description: 'Expansão global da Car Solutions', icon: timelineImage2025 },
+        { year: '2026', description: 'Inovações em tecnologia de mobilidade', icon: timelineImage2026 }
+    ];
 
     return (
         <div className="sobre-nos-page">
@@ -64,51 +89,50 @@ function SobreNosPage() {
 
             {/* Linha do tempo com animação de aparecimento */}
             <motion.div className="timeline-section" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-                <h2>Nossa História</h2>
+                <h2>História e Perspectiva</h2>
                 <div className="timeline-container">
-                    {['2021', '2022', '2023', '2024', '2025', '2026'].map((year, index) => (
+                    {timelineEvents.map((event, index) => (
                         <motion.div
-                            key={year}
+                            key={event.year}
                             className="timeline-item"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index >= 4 ? 1 : index * 0.2 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
                             variants={itemVariants}
                         >
                             <div className="timeline-header">
-                                <img src={index % 2 === 0 ? timelineImage2021 : timelineImage2022} alt={`Timeline Icon ${year}`} className="timeline-icon" />
-                                <h3 className="timeline-year">{year}</h3>
+                                <img src={event.icon} alt={`Timeline Icon ${event.year}`} className="timeline-icon" />
+                                <h3 className="timeline-year">{event.year}</h3>
                             </div>
-                            <p>{year === '2021' ? 'Início da Car Solutions' : year === '2022' ? 'Expansão da plataforma digital' : year === '2023' ? 'Lançamento de novos serviços' : year === '2024' ? 'Parcerias estratégicas internacionais' : year === '2025' ? 'Expansão global da Car Solutions' : 'Inovações em tecnologia de mobilidade'}</p>
+                            <p>{event.description}</p>
                         </motion.div>
                     ))}
                 </div>
             </motion.div>
 
-            {/* Dropdowns em linha horizontal */}
-            <h2>Nossos Objetivos</h2>
-            <div className="dropdown-carrossel">
+            {/* Objetivos sempre visíveis */}
+            <h2 className="h2-NO">Nossos Objetivos</h2>
+            <div className="objetivos-carrossel">
                 {sections.map((section, index) => (
-                    <motion.div 
-                        key={index} 
-                        className="dropdown-section"
+                    <motion.div
+                        key={index}
+                        className="objetivo-section"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.5, delay: index * 0.2 }}
-                        variants={itemVariants}
+                        variants={{
+                            hidden: { opacity: 0, y: 50 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
                     >
-                        <div className="dropdown-title">
-                            <img src={section.icon} alt={`${section.title} icon`} className="dropdown-icon" />
-                            {section.title}
+                        <div className="objetivo-header">
+                            <img src={section.icon} alt={`${section.title} icon`} className="objetivo-icon" />
+                            <h3>{section.title}</h3>
                         </div>
-                        <div className="dropdown-content">
-                            <ul>
-                                {section.content.map((item, idx) => (
-                                    <li key={idx}>{item}</li>
-                                ))}
-                            </ul>
+                        <div className="objetivo-content">
+                            <p>{section.content}</p>
                         </div>
                     </motion.div>
                 ))}
