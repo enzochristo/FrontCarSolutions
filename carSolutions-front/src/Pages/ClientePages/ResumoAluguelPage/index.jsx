@@ -30,7 +30,7 @@ const ResumoAluguel = () => {
       <div className="header-etapas">
         <span className='atual'> Resumo da venda </span> ➔ <span> Pagamento </span> ➔ <span> Confirmação da venda</span>
       </div>
-      <div className="resumo-aluguel">
+      <div className="resumo-aluguel-1">
         <div className="detalhes-carro">
           <img src={car.imagem} alt={car.modelo} className='imagem-carro' />
         </div>

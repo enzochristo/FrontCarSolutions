@@ -18,7 +18,6 @@ import ProdutosPage from './Pages/ClientePages/ProdutosPage'
 import ResumoCompraPage from './Pages/ClientePages/ResumoCompraPage'
 import ResumoAluguelPage from './Pages/ClientePages/ResumoAluguelPage'
 import CadastroClientePage from './Pages/ClientePages/CadastroCliente'
-import SobreNosClientePage from './Pages/ClientePages/SobreNosPage'
 import MinhasReservas from './Pages/ClientePages/MinhasReservas';
 
 // FUNCIONARIOS:
@@ -79,7 +78,6 @@ function App() {
             <Route path="/cliente/Produtos" element={<ProtectedRoute>  <ProdutosPage /></ProtectedRoute>} />
             <Route path="/cliente/ResumoCompra" element={<ProtectedRoute>  <ResumoCompraPage /></ProtectedRoute>} />
             <Route path="/cliente/ResumoAluguel" element={<ProtectedRoute>  <ResumoAluguelPage /></ProtectedRoute>} />
-            <Route path="/cliente/SobreNosCliente" element={<ProtectedRoute>  <SobreNosClientePage /></ProtectedRoute>} />
             <Route path="/cliente/MinhasReservas" element={<ProtectedRoute>  <MinhasReservas /></ProtectedRoute>} />
 
           </Routes>

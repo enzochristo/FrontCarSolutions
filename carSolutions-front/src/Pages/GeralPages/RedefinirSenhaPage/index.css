@@ -1,0 +1,84 @@
+/* src/pages/PasswordResetConfirmPage/PasswordResetConfirmPage.css */
+
+.password-reset-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url('/src/assets/testefechandonegocio.png'); /* Caminho da imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.password-reset-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Filtro escuro com 60% de opacidade */
+    z-index: 1;
+}
+
+.form-container-reset {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Garante que o formulário fique acima do filtro escuro */
+}
+
+.form-container-reset h2 {
+    color: #092640;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-container-reset input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-container-reset input[type="password"]:focus {
+    outline: none;
+    border-color: #092640;
+}
+
+.form-container-reset button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #092640;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container-reset button:hover {
+    background-color: #194973;
+}
+
+.message {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: green;
+}
+
+.error-message {
+    color: red;
+}
