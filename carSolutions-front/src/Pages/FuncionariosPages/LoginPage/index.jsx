@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../../services/api';
 
 import './index.css';
@@ -7,9 +7,9 @@ import './index.css';
 const LoginFuncionarioPage = () => {
 
   const navigate = useNavigate();
-  const location = useLocation();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null); // Mensagem de feedback para o usuário
 
   const handleTabClick = (tab) => {
     if (tab === "cliente") {
@@ -33,6 +33,22 @@ const LoginFuncionarioPage = () => {
     }
   };
 
+  const handlePasswordReset = async () => {
+    if (!credentials.email) {
+      setError('Por favor, insira seu e-mail para redefinir a senha.');
+      return;
+    }
+
+    try {
+      await requestPasswordReset(credentials.email);
+      setMessage('Instruções de redefinição de senha foram enviadas para seu e-mail.');
+      setError(null); // Limpa mensagens de erro
+    } catch (err) {
+      setError('Erro ao solicitar redefinição de senha. Tente novamente.');
+      setMessage(null); // Limpa mensagens de sucesso
+    }
+  };
+
   return (
     <div className="componente-login-fundo"> {/* Fundo com imagem */}
       <div className="componente-login-overlay"></div> {/* Overlay escuro */}
@@ -52,6 +68,7 @@ const LoginFuncionarioPage = () => {
           <input name="password" type="password" placeholder="Senha" onChange={handleChange} required />
           <a href="funcionarioCadastro" className="register-link">Cadastre-se</a>
           <button type="submit" className="login-button">Log In</button>
+          <button type="button" onClick={handlePasswordReset} className="forgot-password-button"> Esqueci minha senha </button>
         </form>
       </div>
     </div>

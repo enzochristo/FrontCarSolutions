@@ -83,7 +83,7 @@ const PagamentoPage = () => {
   return (
     <div className="pagamento-page">
       <div className="header-etapas">
-        <span className='atual'> Resumo da venda </span> ➔ <span> Pagamento </span> ➔ <span> Confirmação da venda</span>
+        <span> Resumo da venda </span> ➔ <span className='atual'> Pagamento </span> ➔ <span> Confirmação da venda</span>
       </div>      
     <form className="blocos-pagamento" onSubmit={(e) => e.preventDefault()}>
         <div className='form-pagamento'>

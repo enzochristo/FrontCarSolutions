@@ -62,7 +62,6 @@ const RegisterFuncionarioPage = () => {
     }
   };
 
-  useEffect(() => { handleCEPBlur() }, [formData.cep]);
 
   return (
     <div className="componente-cadastrese">

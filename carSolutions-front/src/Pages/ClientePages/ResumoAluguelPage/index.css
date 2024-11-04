@@ -16,16 +16,7 @@
 .atual{
     color: #D9AE5F;
 }
-
-.titulo-carro {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #173F73;
-    margin-bottom: 1rem;
-}
-
-.resumo-aluguel {
+.resumo-aluguel-1 {
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -33,7 +24,6 @@
 }
 
 .detalhes-carro {
-    flex: 1;
     max-width: 50%;
 }
 
@@ -97,13 +87,13 @@
     background-color: #194973;
 }
 
-@media (max-width: 768px) {
-    .resumo-aluguel {
+@media (max-width: 850px) {
+    .resumo-aluguel-1 {
         flex-direction: column;
         align-items: center;
     }
     .detalhes-carro, .detalhes-preco {
-        max-width: 100%;
+        max-width: 80%;
     }
     .header-etapas {
         font-size: 0.8rem;

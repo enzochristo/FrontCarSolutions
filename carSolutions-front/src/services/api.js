@@ -19,6 +19,19 @@ export const getUserData = async () => {
     throw error;
   }
 };
+// Função para obter os dados do usuário através do ID
+export const getUserDataById = async (id) => {
+  try {
+    const token = localStorage.getItem('access_token');
+    const response = await axios.get(`${API_URL}/dadosusuario/${id}/`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar dados do usuário:", error);
+    throw error;
+  }
+};
 
 export const updateUserData = async (updatedData) => {
   try {

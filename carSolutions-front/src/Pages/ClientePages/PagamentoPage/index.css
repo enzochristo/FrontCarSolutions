@@ -35,10 +35,12 @@ h2 {
 .resumo-aluguel h3 {
     color: #173F73;
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .resumo-aluguel p {
     font-size: 0.9rem;
+    margin-bottom: 0.5rem;
 }
 
 .form-pagamento {
@@ -92,8 +94,11 @@ h2 {
     background-color: #194973;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .resumo-aluguel, .form-pagamento {
         width: 100%;
+    }
+    .blocos-pagamento {
+        flex-direction: column;
     }
 }

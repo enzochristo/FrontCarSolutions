@@ -1,5 +1,4 @@
 // src/Pages/FuncionariosPages/CadastroVeiculoPage/index.jsx
-
 import { useState, useEffect } from 'react';
 import './index.css';
 import { updateCar, getCarById } from '../../../services/api';
@@ -12,7 +11,7 @@ const CAMBIO_CHOICES = ['Automático', 'Manual'];
 const COMBUSTIVEL_CHOICES = ['Gasolina', 'Diesel', 'Elétrico', 'Flex'];
 
 const EditandoVeiculo = () => {
-  const { id } = useParams();
+  const id  = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     marca: '',

@@ -115,3 +115,23 @@ input {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
+
+.forgot-password-button {
+  background: none;
+  color: #092640;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.forgot-password-button:hover {
+  text-decoration: underline;
+  color: #194973;
+}
+
+.message {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
