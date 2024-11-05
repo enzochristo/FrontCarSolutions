@@ -1,0 +1,65 @@
+/* src/components/CarDisplay/index.css */
+
+.car-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 280px;
+  margin: auto;
+  transition: transform 0.2s ease;
+}
+
+.car-display-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #194973;
+  margin-bottom: 0.75rem;
+}
+
+.car-display-image {
+  width: 80%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.car-display-subtitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #194973;
+  margin-bottom: 0.5rem;
+}
+
+.car-display-description {
+  font-size: 0.9rem;
+  color: #3C5973;
+  margin-bottom: 1rem;
+}
+
+.car-display-price-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.car-display-price {
+  font-size: 1.1rem;
+  color: #D9AE5F;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .car-display {
+    width: 100%;
+    max-width: none;
+  }
+}

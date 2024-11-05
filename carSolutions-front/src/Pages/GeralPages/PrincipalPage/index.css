@@ -1,35 +1,51 @@
+/* Estilos globais para padronização de fontes */
+body {
+    font-family: 'Your Font', sans-serif;
+}
+
+/* Ajuste da cor da fonte na seção Nossas Principais Características */
+.features-section .feature-items .feature-item h3 {
+    color: #333; /* Define a cor azul para os títulos */
+}
+
+.features-section .feature-items .feature-item p {
+    color: #666; /* Define a cor cinza para o texto descritivo */
+}
+
 .principal-page {
     width: 100%;
-    max-width: 75rem; /* 1200px equivalente */
+    max-width: 75rem;
     margin: 0 auto;
-    padding: 1.25rem; /* 20px equivalente */
+    padding: 1.25rem;
 }
 
 .catalog-section, .services-section, .features-section, .values-section {
-    margin-bottom: 2.5rem; /* 40px equivalente */
+    margin-bottom: 2.5rem;
 }
 
-.catalog-section h2 {
+.catalog-section h2, .car-display-section h2 {
     text-align: center;
-    font-size: 2.5rem; /* Aumenta o tamanho da fonte */
-    font-weight: 700; /* Torna o texto mais negrito */
-    font-family: 'Times New Roman', serif; /* Fonte serifada para aproximar do estilo */
-    color: #333; /* Cor escura para o título */
-    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Your Font', sans-serif;
+    color: #194973;
+    margin-bottom: 1.5rem;
 }
-
 
 /* Nossos Serviços */
 .services-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .car-with-background {
     position: relative;
-    width: 60%; /* Ajuste inicial para desktop */
-    max-width: 22.5rem; /* 360px equivalente */
+    flex: 1;
+    max-width: 22.5rem;
+    min-width: 16rem;
 }
 
 .background-image {
@@ -38,9 +54,9 @@
 
 .car-image {
     position: absolute;
-    top: 15%;
-    left: 15%;
-    width: 70%;
+    top: 10%; /* Ajusta o espaçamento da imagem */
+    left: 10%;
+    width: 87.5%; /* Aumenta o tamanho da imagem em 25% */
     z-index: 1;
 }
 
@@ -48,20 +64,24 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem; /* 16px equivalente */
-    margin-left: 2rem; /* Para alinhar à direita */
+    gap: 1rem;
+    flex: 1;
+    max-width: 18rem;
+    min-width: 12rem;
 }
 
 .services-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    color: #1d4c75;
+    margin-bottom: 1.5rem;
+    font-family: 'Your Font', sans-serif;
 }
 
 .button-with-text {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* 8px equivalente */
+    gap: 0.5rem;
 }
 
 .oval-button {
@@ -71,13 +91,14 @@
 }
 
 .oval-button img {
-    width: 2.5rem; /* 40px equivalente */
+    width: 2.5rem;
     height: auto;
 }
 
 .text-content {
     display: flex;
     flex-direction: column;
+    font-family: 'Your Font', sans-serif;
 }
 
 .title {
@@ -85,12 +106,14 @@
     font-weight: bold;
     color: #333;
     margin: 0;
+    font-family: 'Your Font', sans-serif;
 }
 
 .description {
     font-size: 0.9rem;
     color: #666;
     margin: 0;
+    font-family: 'Your Font', sans-serif;
 }
 
 /* Nossas Principais Características */
@@ -98,58 +121,62 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 1.25rem; /* 20px equivalente */
+    gap: 1.25rem;
 }
 
 .feature-item {
     text-align: center;
     width: 30%;
-    max-width: 15.625rem; /* 250px equivalente */
+    max-width: 15.625rem;
+    font-family: 'Your Font', sans-serif;
 }
 
 .feature-item img {
-    width: 3.75rem; /* 60px equivalente */
+    width: 3.75rem;
     height: auto;
-    margin-bottom: 0.625rem; /* 10px equivalente */
+    margin-bottom: 0.625rem;
 }
 
 /* Nossos Valores */
 .values-section {
     text-align: center;
-    margin-top: 3rem; /* Espaço adicional acima da seção */
+    margin-top: 3rem;
 }
 
 .values-title {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 3rem; /* Espaço maior abaixo do título */
+    margin-bottom: 3rem;
+    font-family: 'Your Font', sans-serif;
 }
 
 .values-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem; /* Aumento do espaçamento entre as linhas */
+    gap: 3rem;
 }
 
 .value-item-top {
     text-align: center;
-    max-width: 600px; /* Limita a largura para centralizar o texto do topo */
-    margin-bottom: 2rem; /* Espaço extra abaixo do topo */
+    max-width: 600px;
+    margin-bottom: 2rem;
 }
 
 .value-item-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 800px; /* Limita a largura da linha inferior */
-    gap: 3rem; /* Espaço entre os itens da linha inferior */
+    max-width: 800px;
+    gap: 3rem;
+    flex-wrap: wrap;
 }
 
 .value-item {
     flex: 1;
     min-width: 250px;
     text-align: left;
+    font-family: 'Your Font', sans-serif;
 }
 
 .value-item h3 {
@@ -157,7 +184,7 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 0.5rem;
-    text-align: center; /* Centraliza o título de cada valor */
+    text-align: center;
 }
 
 .value-item p {
@@ -165,11 +192,48 @@
     color: #666;
     line-height: 1.6;
     margin: 0;
-    text-align: center; /* Centraliza o texto de descrição */
+    text-align: center;
 }
 
 /* Responsividade */
+@media (max-width: 1024px) {
+    .services-container {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .car-with-background {
+        width: 50%;
+        max-width: 18rem;
+        min-width: 12rem;
+    }
+
+    .buttons-and-text {
+        align-items: center;
+        max-width: 18rem;
+        text-align: center;
+    }
+
+    .services-title {
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .button-with-text {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 768px) {
+    .car-with-background {
+        width: 70%;
+        max-width: 15rem;
+    }
+
+    .buttons-and-text {
+        align-items: center;
+    }
+    
     .values-content {
         align-items: center;
     }
@@ -179,28 +243,82 @@
         align-items: center;
     }
 
-    .title {
-        font-size: 0.8rem;
+    .fleet-button {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 500px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .car-with-background {
-        width: 80%; /* Aumenta o tamanho do carro em telas menores */
-        max-width: none;
+        width: 80%;
+        max-width: 15rem;
     }
 
-    .car-image {
-        top: 5%; /* Reduz a posição superior */
-        left: 5%; /* Reduz a posição à esquerda */
-        width: 90%; /* Aumenta a largura do carro */
+    .button-with-text {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .buttons-and-text {
-        margin-left: 1rem; /* Reduz o espaçamento em telas menores */
+    .catalog-section h2,
+    .services-title,
+    .values-title {
+        font-size: 1.8rem;
     }
 
-    .text-content .title, .text-content .description {
-        font-size: 0.9rem; /* Mantém o texto um pouco menor */
+    .feature-item {
+        width: 100%;
     }
+
+    .values-section {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .value-item {
+        min-width: unset;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .fleet-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilos adicionais para a seção de exibição de carros */
+.car-display-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-family: 'Your Font', sans-serif;
+}
+
+.car-display-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.fleet-button {
+    background-color: #194973;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    font-family: 'Your Font', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.fleet-button:hover {
+    background-color: #092640;
 }
