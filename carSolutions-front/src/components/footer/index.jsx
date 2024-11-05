@@ -84,13 +84,16 @@ const Footer = React.forwardRef((props, ref) => {
           Car solutions
         </h4>
         <div className="footer-social">
-          <a href="https://wa.me/seuNumeroDeWhatsApp" target="_blank" rel="noopener noreferrer" className='circle'>
+          <a href={`https://wa.me/5511971662048?text=Olá!`}
+            target="_blank"
+            rel="noopener noreferrer" 
+            className='circle'>
             <img src={whatsappLogo} alt="Whatsapp Logo" className="social-logo" />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className='circle'>
+          <a href="https://www.facebook.com/profile.php?id=61568275260300" target="_blank" rel="noopener noreferrer" className='circle'>
             <img src={facebookLogo} alt="Facebook Logo" className="social-logo" />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className='circle'>
+          <a href="https://www.instagram.com/carsolutionsijr2024/" target="_blank" rel="noopener noreferrer" className='circle'>
             <img src={instagramLogo} alt="Instagram Logo" className="social-logo" />
           </a>
         </div>
