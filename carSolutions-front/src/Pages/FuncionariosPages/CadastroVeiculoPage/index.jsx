@@ -262,9 +262,9 @@ const CadastroVeiculoPage = () => {
               </div>
             </div>
 
-            <div className="button-group">
-              <button type="button" className="cancel-button" onClick={handleCancel} >Cancelar</button>
-              <button type="submit" className="submit-button">Cadastrar</button>
+            <div className="button-group-edit">
+              <button type="button" className="cancel-button-edit" onClick={handleCancel} >Cancelar</button>
+              <button type="submit" className="submit-button-edit">Cadastrar</button>
             </div>
           </form>
         </div>

@@ -1,7 +1,7 @@
 // src/services/api.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api'; // URL base do seu backend
+const API_URL = 'https://carsolutions-backend.onrender.com/api'; // URL base do seu backend
 
 export const registerUser = async (userData) => {
   return await axios.post(`${API_URL}/register/`, userData);

@@ -5,7 +5,7 @@ import './index.css';
 
 const DetalhesDoCarro = ({ car, onClose }) => {
   if (!car) return null;
-  const baseURL = "http://localhost:8000";
+  const baseURL = "https://carsolutions-backend.onrender.com";
   
   return (
     <div className="modal">

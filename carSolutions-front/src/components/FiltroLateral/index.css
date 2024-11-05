@@ -56,7 +56,7 @@
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
-  background-color: #4B4737;
+  background-color: #D9AE5F;
   color: white;
   border: none;
   border-radius: 4px;
@@ -65,7 +65,7 @@
 }
 
 .apply-button-filtro:hover {
-  background-color: #555;
+  background-color: #a9884b;
 }
 
 .clear-button {

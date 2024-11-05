@@ -245,9 +245,9 @@ const EditandoVeiculo = () => {
               </div>
             </div>
 
-            <div className="button-group">
-              <button type="button" className="cancel-button" onClick={handleCancel}>Cancelar</button>
-              <button type="submit" className="submit-button">Atualizar</button>
+            <div className="button-group-edit">
+              <button type="button" className="cancel-button-edit" onClick={handleCancel}>Cancelar</button>
+              <button type="submit" className="submit-button-edit">Atualizar</button>
             </div>
           </form>
         </div>
