@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useRef } from 'react';
-import HomePage from './pages/HomePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css'
+
 //GERAL PAGES:
 import PrincipalPage from './Pages/GeralPages/PrincipalPage'
 import SobreNosGeralPage from './Pages/GeralPages/SobreNosPage';
@@ -26,7 +26,6 @@ import EditandoVeiculoPage from './Pages/FuncionariosPages/EditandoVeiculoPage'
 import LoginPageFuncionario from './Pages/FuncionariosPages/LoginPage'
 import PrincipalPageFuncionario from './Pages/FuncionariosPages/PrincipalPage'
 import ProdutosCadastradosPage from './Pages/FuncionariosPages/ProdutosCadastradosPage'
-import SobreNosPageFuncionario from './Pages/FuncionariosPages/SobreNosPage';
 import CadastroPageFuncionario from './Pages/FuncionariosPages/CadastroFuncionario'
 import TodasReservas from './Pages/FuncionariosPages/TodasReservas';
 // COMPONENTES:
@@ -52,7 +51,6 @@ function App() {
         {/* Conteúdo principal */}
         <div style={{ flex: 1 }}>
           <Routes>
-            <Route path="cliente/HomePage" element={<HomePage />} /> {/* Redireciona de / para /home */}
             {/*Rotas paginas gerais*/}
             <Route path="/" element={<PrincipalPage />} /> {/* Redireciona de / para /home */}
             <Route path="/funcionarioCadastro" element={<CadastroPageFuncionario />} /> {/* Rota para cadastro de funcionário */}
@@ -68,7 +66,6 @@ function App() {
             <Route path="/funcionario/EditandoVeiculo/:id" element={<ProtectedRoute>  <EditandoVeiculoPage /></ProtectedRoute>} />
             <Route path="/funcionario/PrincipalFuncionario" element={<ProtectedRoute>  <PrincipalPageFuncionario /></ProtectedRoute>} />
             <Route path="/funcionario/ProdutosCadastrados" element={<ProtectedRoute>  <ProdutosCadastradosPage /></ProtectedRoute>} />
-            <Route path="/funcionario/SobreNosFuncionario" element={<ProtectedRoute>  <SobreNosPageFuncionario /></ProtectedRoute>} />
             <Route path="/funcionario/TodasReservas" element={<ProtectedRoute>  <TodasReservas /></ProtectedRoute>} />
 
             {/*Rotas paginas Clientes*/}
