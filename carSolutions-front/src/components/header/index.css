@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: sans-serif;
     height: 4rem;
     color: white;
     border-bottom: #D9AE5F 0.2rem solid;
@@ -118,7 +117,8 @@
 }
 
 .dropdown-item:last-child {
-    border-bottom: none;
+    border: none;
+    width: 100%;
 }
 
 .dropdown-item:hover {
@@ -178,12 +178,18 @@
 }
 
 .mobile-link {
+    display: flex;
+    justify-content: start;
     color: white;
     text-decoration: none;
     font-size: 1rem;
     padding: 0.5rem 0;
     border-bottom: 1px solid #D9AE5F;
     transition: background-color 0.3s ease;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .mobile-link:hover {
