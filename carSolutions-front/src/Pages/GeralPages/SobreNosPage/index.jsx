@@ -2,9 +2,9 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 import './index.css';
-import primeiraEscolhaLogo from '../../../assets/primeiraEscolhaLogo.png';
-import inovacoesLogo from '../../../assets/inovacoesLogo.png';
-import excelenciaLogo from '../../../assets/excelenciaLogo.png';
+import primeiraEscolhaLogo from '../../../assets/primeiraescolhalogo.png';
+import inovacoesLogo from '../../../assets/inovacoeslogo.png';
+import excelenciaLogo from '../../../assets/excelencialogo.png';
 import timelineImage2021 from '../../../assets/iniciologo.png';
 import timelineImage2022 from '../../../assets/tecnologiasobrenos.png';
 import timelineImage2023 from '../../../assets/inovacaosobrenos.png';
