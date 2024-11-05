@@ -64,8 +64,8 @@
     background-color: #555;
   }
   
-  /* Responsividade: transformar em dropdown em telas pequenas */
-  @media (max-width: 768px) {
+  /* Responsividade: tansformar em dropdown em telas pequenas */
+  @media (max-width: 900px) {
     .filter-panel {
       width: 100%;
       margin-bottom: 1rem;
