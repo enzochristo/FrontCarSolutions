@@ -1,10 +1,5 @@
 /* src/pages/MinhasReservas/MinhasReservas.css */
 
-.minhas-reservas-page {
-  font-family: Arial, sans-serif;
-  position: relative;
-}
-
 .header-image {
   background-image: url('/src/assets/background-image.png'); /* Caminho da sua imagem */
   background-size: cover;
@@ -107,6 +102,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .modal-content {
