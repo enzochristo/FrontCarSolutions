@@ -39,7 +39,7 @@
   height: 40px;
 }
 
-@media(max-width: 830px){
+@media(max-width: 890px){
   .destaque-retirada-devolucao {
     width: 90%;
   }
