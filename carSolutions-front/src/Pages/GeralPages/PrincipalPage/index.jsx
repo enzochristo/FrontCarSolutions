@@ -70,14 +70,14 @@ function PrincipalPage() {
             image={carroexposto1}
             title="Opção de SUV"
             name="SUV Especial"
-            description="Veículo similar a Jeep Compass, Toyota Corolla Cross"
+            description="SUV robusto e espaçoso, ideal para famílias e aventuras. Modelos similares: Jeep Compass, Toyota Corolla Cross."
             price="R$ 199/dia"
           />
           <CarDisplay 
             title="Opção de Sedan"
             image={carroexposto2}
             name="Sedan Conforto"
-            description="Veículo similar a Honda Civic, Toyota Corolla"
+            description="Sedan confortável e elegante, perfeito para viagens urbanas e rodoviárias. Modelos similares: Honda Civic, Toyota Corolla."
             price="R$ 149/dia"
           />
         </div>
